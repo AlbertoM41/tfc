@@ -118,7 +118,7 @@
     <div class="container">
         <div class="stats-bar">
             <div class="stat-card">
-                <div class="stat-value">500</div>
+                <div class="stat-value" id="statJugadores">—</div>
                 <div class="stat-label">Jugadores</div>
             </div>
             <div class="stat-card">
@@ -126,7 +126,7 @@
                 <div class="stat-label">Equipos LaLiga</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">47</div>
+                <div class="stat-value" id="statRecomendados">—</div>
                 <div class="stat-label">Recomendados</div>
             </div>
             <div class="stat-card">
@@ -301,5 +301,20 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/player-images.js"></script>
 <script src="assets/js/player-images-auto.js"></script>
+<script>
+(async () => {
+    const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const { count: total } = await sb.from('jugadores').select('*', { count: 'exact', head: true });
+    if (total) document.getElementById('statJugadores').textContent = total;
+
+    const { count: recom } = await sb.from('jugadores')
+        .select('*', { count: 'exact', head: true })
+        .not('estado', 'eq', 'injured');
+    if (recom) document.getElementById('statRecomendados').textContent = recom;
+})();
+</script>
 </body>
 </html>
