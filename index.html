@@ -246,44 +246,6 @@
     </div>
 </section>
 
-<!-- MAYORES SUBIDAS -->
-<section style="padding: 1rem 0 3rem;">
-    <div class="container">
-        <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:1.25rem;">📈 Mayores subidas hoy</h2>
-        <div class="grid-3">
-            <a href="jugador.html?player=vinicius" class="card card-hover" style="display:flex;gap:1rem;align-items:center;">
-                <div style="flex:1;">
-                    <div style="font-weight:700;">Vinicius Jr.</div>
-                    <div style="font-size:.8rem;color:var(--dark-400);">RMA</div>
-                </div>
-                <div style="text-align:right;">
-                    <div style="font-weight:800;">182M€</div>
-                    <div class="price-up" style="font-size:.85rem;font-weight:700;">+2M</div>
-                </div>
-            </a>
-            <a href="jugador.html?player=yamal" class="card card-hover" style="display:flex;gap:1rem;align-items:center;">
-                <div style="flex:1;">
-                    <div style="font-weight:700;">Lamine Yamal</div>
-                    <div style="font-size:.8rem;color:var(--dark-400);">BAR</div>
-                </div>
-                <div style="text-align:right;">
-                    <div style="font-weight:800;">148M€</div>
-                    <div class="price-up" style="font-size:.85rem;font-weight:700;">+2M</div>
-                </div>
-            </a>
-            <a href="jugador.html?player=mbappe" class="card card-hover" style="display:flex;gap:1rem;align-items:center;">
-                <div style="flex:1;">
-                    <div style="font-weight:700;">Mbappé</div>
-                    <div style="font-size:.8rem;color:var(--dark-400);">RMA</div>
-                </div>
-                <div style="text-align:right;">
-                    <div style="font-weight:800;">175M€</div>
-                    <div class="price-up" style="font-size:.85rem;font-weight:700;">+2M</div>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
 
 </main>
 
@@ -312,8 +274,8 @@
 
     const { count: recom } = await sb.from('jugadores')
         .select('*', { count: 'exact', head: true })
-        .not('estado', 'eq', 'injured');
-    if (recom) document.getElementById('statRecomendados').textContent = recom;
+        .gt('variacion', 0);
+    if (recom !== null) document.getElementById('statRecomendados').textContent = recom;
 })();
 </script>
 </body>
