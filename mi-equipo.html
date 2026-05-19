@@ -305,6 +305,7 @@ let team = JSON.parse(localStorage.getItem('fantasyTeamDemo') || '{}');
 let formation = localStorage.getItem('fantasyFormationDemo') || '4-3-3';
 let openSlot = null;
 let currentUser = null;
+let isReadOnly = false;
 
 // Limpiar datos antiguos con precios en miles (formato anterior)
 if (Object.values(team).some(p => p.price > 1000)) {
@@ -360,7 +361,8 @@ function renderPitch() {
                 <div class="slot-dot empty">+</div>
                 <div class="slot-name" style="color:rgba(255,255,255,.4);">${POS_LABEL[slot.pos]}</div>`;
         }
-        div.onclick = () => openModal(idx, slot.pos);
+        if (!isReadOnly) div.onclick = () => openModal(idx, slot.pos);
+        else div.style.cursor = 'default';
         pitch.appendChild(div);
     });
     updateSummary();
@@ -596,10 +598,9 @@ function clearTeam() {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 async function loadFriendTeam(uid, friendName) {
-    // Read-only view of a friend's team
+    isReadOnly = true;
     document.querySelector('.page-title').textContent = `🏟️ Equipo de ${friendName}`;
     document.querySelector('.page-subtitle').textContent = 'Vista de solo lectura';
-    // Hide controls
     document.getElementById('formationSelect').parentElement.style.display = 'none';
 
     const { data } = await sb.from('mi_equipo').select('*').eq('user_id', uid);
@@ -619,12 +620,6 @@ async function loadFriendTeam(uid, friendName) {
         };
     });
     renderPitch();
-
-    // Make pitch slots non-clickable in friend view
-    document.querySelectorAll('.pitch-slot, .pitch-player-slot').forEach(el => {
-        el.style.pointerEvents = 'none';
-        el.style.cursor = 'default';
-    });
 }
 
 async function init() {
