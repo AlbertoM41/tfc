@@ -1,0 +1,455 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Jugador | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link active">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificaci&oacute;n</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+            <a href="favoritos.html" class="nav-link">Favoritos</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+    <div class="navbar-mobile" id="navMobile">
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="mercado.html">Mercado</a>
+        <a href="clasificacion.html">Clasificaci&oacute;n</a>
+        <a href="mi-equipo.html">Mi Equipo</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="login.html">Entrar</a>
+        <a href="registro.html">Registrarse</a>
+    </div>
+</nav>
+
+<div class="crests-bar">
+    <div class="crests-inner">
+        <a href="equipo.html?team=RMA" class="crest-link" title="Real Madrid"><span class="crest-fallback">RMA</span></a>
+        <a href="equipo.html?team=BAR" class="crest-link" title="FC Barcelona"><span class="crest-fallback">BAR</span></a>
+        <a href="equipo.html?team=ATM" class="crest-link" title="Atlético de Madrid"><span class="crest-fallback">ATM</span></a>
+        <a href="equipo.html?team=ATH" class="crest-link" title="Athletic Club"><span class="crest-fallback">ATH</span></a>
+        <a href="equipo.html?team=RSO" class="crest-link" title="Real Sociedad"><span class="crest-fallback">RSO</span></a>
+        <a href="equipo.html?team=VIL" class="crest-link" title="Villarreal CF"><span class="crest-fallback">VIL</span></a>
+        <a href="equipo.html?team=BET" class="crest-link" title="Real Betis"><span class="crest-fallback">BET</span></a>
+        <a href="equipo.html?team=SEV" class="crest-link" title="Sevilla FC"><span class="crest-fallback">SEV</span></a>
+        <a href="equipo.html?team=GET" class="crest-link" title="Getafe CF"><span class="crest-fallback">GET</span></a>
+        <a href="equipo.html?team=GIR" class="crest-link" title="Girona FC"><span class="crest-fallback">GIR</span></a>
+        <a href="equipo.html?team=CEL" class="crest-link" title="Celta de Vigo"><span class="crest-fallback">CEL</span></a>
+        <a href="equipo.html?team=VAL" class="crest-link" title="Valencia CF"><span class="crest-fallback">VAL</span></a>
+        <a href="equipo.html?team=RAY" class="crest-link" title="Rayo Vallecano"><span class="crest-fallback">RAY</span></a>
+        <a href="equipo.html?team=OSA" class="crest-link" title="CA Osasuna"><span class="crest-fallback">OSA</span></a>
+        <a href="equipo.html?team=ALA" class="crest-link" title="Deportivo Alavés"><span class="crest-fallback">ALA</span></a>
+        <a href="equipo.html?team=MAL" class="crest-link" title="RCD Mallorca"><span class="crest-fallback">MAL</span></a>
+        <a href="equipo.html?team=ELC" class="crest-link" title="Elche CF"><span class="crest-fallback">ELC</span></a>
+        <a href="equipo.html?team=LEV" class="crest-link" title="Levante UD"><span class="crest-fallback">LEV</span></a>
+        <a href="equipo.html?team=OVI" class="crest-link" title="Real Oviedo"><span class="crest-fallback">OVI</span></a>
+        <a href="equipo.html?team=ESP" class="crest-link" title="RCD Espanyol"><span class="crest-fallback">ESP</span></a>
+    </div>
+</div>
+
+<main class="main-content">
+<div class="container" id="playerContent" style="padding-top:2rem;padding-bottom:3rem;">
+    <div style="color:var(--dark-400);padding:3rem 0;text-align:center;">Cargando jugador...</div>
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/player-images.js"></script>
+<script src="assets/js/player-images-auto.js"></script>
+<script>
+const POS_LABELS = {GK:'Portero', DEF:'Defensa', MID:'Centrocampista', FWD:'Delantero'};
+const POS_BADGES = {GK:'badge-gk', DEF:'badge-def', MID:'badge-mid', FWD:'badge-fwd'};
+const POS_SHORT  = {GK:'PT', DEF:'DEF', MID:'MED', FWD:'DEL'};
+
+const PLAYERS = window.PLAYERS = {
+    vinicius:    {name:'Vinicius Jr.',  i:'V', pos:'FWD', team:'Real Madrid',        teamKey:'RMA', price:182, change:2,    pts:88, status:'ok',      rec:true,  img:'img/RMA/762.webp',
+        comment:'Vinicius es el máximo desequilibrante del Real Madrid. Con su velocidad y capacidad de regate, siempre es una amenaza. Alta probabilidad de gol en los próximos partidos.'},
+    mbappe:      {name:'Mbappé',        i:'M', pos:'FWD', team:'Real Madrid',        teamKey:'RMA', price:175, change:2,    pts:74, status:'ok',      rec:true,
+        comment:'Mbappé llega en gran forma al Madrid. Su velocidad y definición lo convierten en un jugador imprescindible para el fantasy.'},
+    bellingham:  {name:'Bellingham',    i:'B', pos:'MID', team:'Real Madrid',        teamKey:'RMA', price:155, change:1,    pts:72, status:'ok',      rec:true,
+        comment:'Bellingham sigue siendo uno de los mejores centrocampistas del fantasy. Aporta goles, asistencias y siempre está en el partido.'},
+    yamal:       {name:'Lamine Yamal',  i:'Y', pos:'FWD', team:'FC Barcelona',       teamKey:'BAR', price:148, change:2,    pts:78, status:'ok',      rec:true,
+        comment:'Lamine Yamal es una joya del Barcelona. Con solo 17 años ya es titular indiscutible y suma puntos de forma constante en el fantasy.'},
+    pedri:       {name:'Pedri',         i:'P', pos:'MID', team:'FC Barcelona',       teamKey:'BAR', price:95,  change:-1,   pts:68, status:'ok',      rec:true,
+        comment:'Pedri es el motor del Barça. Su capacidad de crear juego y aparecer en el área lo hacen muy valioso en el fantasy.'},
+    rodrygo:     {name:'Rodrygo',       i:'R', pos:'FWD', team:'Real Madrid',        teamKey:'RMA', price:85,  change:0.3,  pts:62, status:'ok',      rec:false,
+        comment:'Rodrygo es un jugador muy regular que siempre aparece en los grandes partidos. Buena opción para el flanco derecho del ataque.'},
+    lewandowski: {name:'Lewandowski',   i:'L', pos:'FWD', team:'FC Barcelona',       teamKey:'BAR', price:80,  change:-0.5, pts:65, status:'ok',      rec:false,
+        comment:'Lewandowski sigue siendo un goleador de primer nivel. A pesar de su edad, es una garantía de goles en el fantasy.'},
+    valverde:    {name:'Valverde',      i:'V', pos:'MID', team:'Real Madrid',        teamKey:'RMA', price:75,  change:0.5,  pts:68, status:'ok',      rec:false,
+        comment:'Valverde es el motor del Madrid. Su incansable trabajo y su llegada al área lo convierten en un jugador muy completo para el fantasy.'},
+    griezmann:   {name:'Griezmann',     i:'G', pos:'FWD', team:'Atlético de Madrid', teamKey:'ATM', price:65,  change:0,    pts:55, status:'ok',      rec:false,
+        comment:'Griezmann sigue siendo el líder del Atlético. Su inteligencia táctica y su capacidad para aparecer en el momento clave lo hacen muy valioso.'},
+    courtois:    {name:'Courtois',      i:'C', pos:'GK',  team:'Real Madrid',        teamKey:'RMA', price:65,  change:0.5,  pts:62, status:'ok',      rec:true,
+        comment:'Courtois es el mejor portero de LaLiga. Su rendimiento bajo palos y las paradas decisivas lo convierten en el portero del fantasy por excelencia.'},
+    oblak:       {name:'Oblak',         i:'O', pos:'GK',  team:'Atlético de Madrid', teamKey:'ATM', price:52,  change:0,    pts:58, status:'ok',      rec:false,
+        comment:'Oblak sigue siendo uno de los mejores porteros del mundo. El Atlético concede muy poco y eso se refleja en sus puntos fantasy.'},
+    kounde:      {name:'Koundé',        i:'K', pos:'DEF', team:'FC Barcelona',       teamKey:'BAR', price:50,  change:0.5,  pts:50, status:'ok',      rec:false,
+        comment:'Koundé es uno de los mejores laterales del mundo. Su capacidad ofensiva y defensiva lo convierten en un activo muy valioso para el fantasy.'},
+    carvajal:    {name:'Carvajal',      i:'C', pos:'DEF', team:'Real Madrid',        teamKey:'RMA', price:35,  change:-0.3, pts:45, status:'injured', rec:false,
+        comment:'Carvajal está lesionado y su vuelta es incierta. Mejor no arriesgarse con él hasta que se confirme su disponibilidad.'},
+    militao:     {name:'Militão',       i:'M', pos:'DEF', team:'Real Madrid',        teamKey:'RMA', price:45,  change:0,    pts:42, status:'ok',      rec:false,
+        comment:'Militão es el central titular del Madrid. Sólido en defensa y ocasionalmente aparece en las jugadas a balón parado.'},
+    rudiger:     {name:'Rüdiger',       i:'R', pos:'DEF', team:'Real Madrid',        teamKey:'RMA', price:38,  change:0,    pts:40, status:'ok',      rec:false,
+        comment:'Rüdiger es el central con mayor presencia en el área contraria en córneres y faltas. Buena opción de precio-rendimiento.'},
+    mendy:       {name:'Mendy',         i:'M', pos:'DEF', team:'Real Madrid',        teamKey:'RMA', price:32,  change:0,    pts:38, status:'ok',      rec:false,
+        comment:'Mendy es el lateral izquierdo del Madrid. Buen rendimiento defensivo y participación en el juego ofensivo del equipo.'},
+    tchouameni:  {name:'Tchouaméni',    i:'T', pos:'MID', team:'Real Madrid',        teamKey:'RMA', price:55,  change:0,    pts:50, status:'ok',      rec:false,
+        comment:'Tchouaméni es el pivote del Madrid. Su labor defensiva y su capacidad de romper líneas lo hacen muy valioso para el equipo.'},
+    camavinga:   {name:'Camavinga',     i:'C', pos:'MID', team:'Real Madrid',        teamKey:'RMA', price:48,  change:0,    pts:45, status:'ok',      rec:false,
+        comment:'Camavinga ofrece mucha energía desde el mediocampo. Aunque alterna como titular y suplente, siempre aporta cuando entra.'},
+    kroos:       {name:'Kroos',         i:'K', pos:'MID', team:'Real Madrid',        teamKey:'RMA', price:42,  change:0,    pts:48, status:'ok',      rec:false,
+        comment:'Kroos controla los tiempos del Madrid con precisión excepcional. Sus pases y disparos a balón parado son un extra muy valioso.'},
+    lunin:       {name:'Lunin',         i:'L', pos:'GK',  team:'Real Madrid',        teamKey:'RMA', price:20,  change:0,    pts:35, status:'ok',      rec:false,
+        comment:'Lunin es el segundo portero del Madrid. Solo recomendable si Courtois está lesionado.'},
+    guler:       {name:'Güler',         i:'G', pos:'MID', team:'Real Madrid',        teamKey:'RMA', price:28,  change:0.5,  pts:30, status:'ok',      rec:false,
+        comment:'Güler es un joven talento que cada vez tiene más minutos en el Madrid. Perfil de jugador a seguir de cerca en el fantasy.'},
+    brahim:      {name:'Brahim Díaz',   i:'B', pos:'FWD', team:'Real Madrid',        teamKey:'RMA', price:32,  change:0,    pts:32, status:'ok',      rec:false,
+        comment:'Brahim es un jugador muy técnico que aporta creatividad desde la segunda línea. Buena opción como comodín de ataque.'},
+    vazquez:     {name:'Lucas Vázquez', i:'V', pos:'DEF', team:'Real Madrid',        teamKey:'RMA', price:18,  change:0,    pts:28, status:'ok',      rec:false,
+        comment:'Lucas Vázquez es el lateral de rotación del Madrid. Útil cuando Carvajal no está disponible.'},
+};
+
+const STATUS_INFO = {
+    ok:        ['badge-available', 'Disponible'],
+    doubt:     ['badge-doubt',     'Duda'],
+    injured:   ['badge-injured',   'Lesionado'],
+    suspended: ['badge-suspended', 'Sancionado'],
+};
+
+function fmtChange(ch) {
+    if (ch === 0) return {str:'—', cls:'price-neutral'};
+    const sign = ch > 0 ? '+' : '-';
+    const abs  = Math.abs(ch);
+    const val  = abs < 1 ? Math.round(abs * 1000) + 'K' : abs + 'M';
+    return {str: sign + val + '€', cls: ch > 0 ? 'price-up' : 'price-down'};
+}
+
+function fmtPrice(n) {
+    return Math.round(n * 10) / 10 + 'M€';
+}
+
+function parseNumPrice(str) {
+    if (!str || str === '—') return 0;
+    const s = str.replace('€','').trim();
+    if (s.endsWith('M')) return parseFloat(s) || 0;
+    if (s.endsWith('K')) return (parseFloat(s) || 0) / 1000;
+    return parseFloat(s) || 0;
+}
+
+function parseNumChange(str, chc) {
+    if (!str || str === '—') return 0;
+    const sign = (str.startsWith('-') || parseInt(chc) < 0) ? -1 : 1;
+    return sign * parseNumPrice(str.replace(/^[+\-]/, ''));
+}
+
+function buildFromParams(params) {
+    const name = params.get('n');
+    if (!name) return null;
+    return {
+        name,
+        i:       (params.get('i') || name[0]).toUpperCase(),
+        pos:     params.get('pos') || 'FWD',
+        team:    params.get('team') || '',
+        teamKey: params.get('teamKey') || '',
+        price:   parseNumPrice(params.get('price')),
+        change:  parseNumChange(params.get('ch'), params.get('chc')),
+        pts:     parseInt(params.get('pts') || '0'),
+        status:  params.get('s') || 'ok',
+        rec:     false,
+        comment: 'Análisis detallado de este jugador disponible próximamente.',
+    };
+}
+
+function generateHistory(price, change) {
+    const deltas = [change, 1, 0, -1, 2, 1, 0, -0.5, 1, 0.5];
+    const rows = [];
+    const base = new Date(2025, 4, 15);
+    let cur = price;
+    for (let i = 0; i < 10; i++) {
+        const d = new Date(base);
+        d.setDate(d.getDate() - i);
+        const day = String(d.getDate()).padStart(2, '0');
+        const mon = String(d.getMonth() + 1).padStart(2, '0');
+        const ch  = i < deltas.length ? deltas[i] : 0;
+        const fmt = fmtChange(ch);
+        rows.push({date: `${day}/${mon}/2025`, price: fmtPrice(cur), chStr: fmt.str, chCls: fmt.cls});
+        cur = Math.round((cur - ch) * 10) / 10;
+    }
+    return rows;
+}
+
+function renderPlayer() {
+    const params = new URLSearchParams(location.search);
+    const slug   = (params.get('player') || 'vinicius').toLowerCase();
+    const p      = PLAYERS[slug] || buildFromParams(params);
+
+    if (!p) {
+        document.getElementById('playerContent').innerHTML = `
+            <div style="text-align:center;padding:4rem 0;">
+                <div style="font-size:3rem;margin-bottom:1rem;">🔍</div>
+                <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:.5rem;">Jugador no encontrado</h2>
+                <p style="color:var(--dark-400);margin-bottom:1.5rem;">No tenemos datos detallados de este jugador aún.</p>
+                <a href="mercado.html" class="btn btn-primary">Ver todos los jugadores</a>
+            </div>`;
+        return;
+    }
+
+    document.title = p.name + ' | Fantasy Pro';
+
+    const posLabel  = POS_LABELS[p.pos];
+    const posBadge  = POS_BADGES[p.pos];
+    const posShort  = POS_SHORT[p.pos];
+    const [statusBadge, statusLabel] = STATUS_INFO[p.status] || STATUS_INFO.ok;
+    const changeFmt = fmtChange(p.change);
+    const history   = generateHistory(p.price, p.change);
+
+    const historyRows = history.map(h => `
+        <tr>
+            <td style="font-size:.85rem;color:var(--dark-300);">${h.date}</td>
+            <td style="text-align:right;font-weight:700;">${h.price}</td>
+            <td style="text-align:right;font-weight:700;" class="${h.chCls}">${h.chStr}</td>
+        </tr>`).join('');
+
+    document.getElementById('playerContent').innerHTML = `
+        <div style="font-size:.85rem;color:var(--dark-400);margin-bottom:1.5rem;">
+            <a href="equipos.html" style="color:var(--dark-400);">Equipos</a> /
+            <a href="equipo.html?team=${p.teamKey}" style="color:var(--dark-400);">${p.team}</a> /
+            <span style="color:var(--white);">${p.name}</span>
+        </div>
+
+        <div style="display:flex;gap:2rem;flex-wrap:wrap;align-items:flex-start;">
+
+            <div class="card" style="flex:1;min-width:280px;">
+                <div style="display:flex;gap:1.5rem;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;">
+                    ${(getPlayerImg(p.name, p.team) || p.img)
+                        ? `<img src="${getPlayerImg(p.name, p.team) || p.img}" alt="${p.name}" style="width:96px;height:96px;border-radius:50%;border:3px solid var(--bg-600);object-fit:cover;flex-shrink:0;">`
+                        : `<div style="width:96px;height:96px;border-radius:50%;background:var(--bg-700);border:3px solid var(--bg-600);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:2rem;color:var(--dark-300);flex-shrink:0;">${p.i}</div>`
+                    }
+                    <div>
+                        <h1 style="font-size:1.6rem;font-weight:900;">${p.name}</h1>
+                        <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-top:.4rem;">
+                            <span class="badge ${posBadge}">${posLabel}</span>
+                            <span id="sb-status" class="badge ${statusBadge}">${statusLabel}</span>
+                            ${p.rec ? '<span style="color:var(--yellow-400);font-size:.85rem;">⭐ Recomendado</span>' : ''}
+                        </div>
+                        <div style="margin-top:.5rem;color:var(--dark-300);font-size:.9rem;">
+                            <a href="equipo.html?team=${p.teamKey}" style="color:var(--primary-400);">${p.team}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="gap:1rem;margin-bottom:1.5rem;">
+                    <div style="background:var(--bg-700);border-radius:var(--radius-sm);padding:1rem;text-align:center;">
+                        <div id="sb-price" style="font-size:1.6rem;font-weight:900;color:var(--white);">${fmtPrice(p.price)}</div>
+                        <div style="font-size:.8rem;color:var(--dark-400);">Precio actual</div>
+                    </div>
+                    <div style="background:var(--bg-700);border-radius:var(--radius-sm);padding:1rem;text-align:center;">
+                        <div id="sb-change" style="font-size:1.6rem;font-weight:900;" class="${changeFmt.cls}">${changeFmt.str}</div>
+                        <div style="font-size:.8rem;color:var(--dark-400);">Variación</div>
+                    </div>
+                    <div style="background:var(--bg-700);border-radius:var(--radius-sm);padding:1rem;text-align:center;">
+                        <div id="sb-pts" style="font-size:1.6rem;font-weight:900;color:var(--accent-400);">${p.pts}</div>
+                        <div style="font-size:.8rem;color:var(--dark-400);">Puntos fantasy</div>
+                    </div>
+                    <div style="background:var(--bg-700);border-radius:var(--radius-sm);padding:1rem;text-align:center;">
+                        <div style="font-size:1.6rem;font-weight:900;color:var(--white);">✅</div>
+                        <div style="font-size:.8rem;color:var(--dark-400);">Probable titular</div>
+                    </div>
+                </div>
+
+                <div style="background:var(--bg-700);border-radius:var(--radius-sm);padding:1rem;font-size:.9rem;color:var(--dark-300);margin-bottom:1rem;">
+                    💬 ${p.comment}
+                </div>
+
+                <button id="favBtn" class="btn btn-ghost btn-full fav-btn" onclick="handleFav()" style="display:none;">♡ Añadir a favoritos</button>
+                <a href="login.html" id="favLoginLink" class="btn btn-ghost btn-full">Inicia sesión para guardar favoritos</a>
+            </div>
+
+            <div class="card" style="flex:1;min-width:280px;">
+                <h2 style="font-size:1.1rem;font-weight:800;margin-bottom:1rem;">📊 Historial de precios</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th style="text-align:right;">Precio</th>
+                                <th style="text-align:right;">Variación</th>
+                            </tr>
+                        </thead>
+                        <tbody>${historyRows}</tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>`;
+}
+
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const TEAM_SB = {
+    RMA:['Real Madrid'], BAR:['Barcelona'],
+    ATM:['Atletico Madrid','Atlético de Madrid','Atlético Madrid'],
+    ATH:['Athletic Club','Athletic'], VIL:['Villarreal'], BET:['Real Betis'],
+    SEV:['Sevilla'], GET:['Getafe'], GIR:['Girona'],
+    CEL:['Celta Vigo','Celta de Vigo'], VAL:['Valencia'], RAY:['Rayo Vallecano'],
+    OSA:['Osasuna'], ALA:['Alavés','Alaves'], MAL:['Mallorca'], ELC:['Elche'],
+    LEV:['Levante'], OVI:['Oviedo','Real Oviedo'], ESP:['Espanyol'], RSO:['Real Sociedad'],
+};
+
+function normSlug(n) {
+    return n.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+async function enrichFromSupabase() {
+    const params = new URLSearchParams(location.search);
+    const name = params.get('n');
+    if (!name) return;
+
+    // 1. exact match
+    let { data } = await sb.from('jugadores').select('*').eq('nombre', name).limit(1);
+    // 2. accent-normalized ilike (handles ü→u etc. when Supabase also has plain chars)
+    if (!data || !data[0]) {
+        const norm = name.normalize('NFD').replace(/[̀-ͯ]/g, '');
+        ({ data } = await sb.from('jugadores').select('*').ilike('nombre', '%' + norm + '%').limit(1));
+    }
+    // 3. team-based fetch + client-side normalized slug match (handles all accent cases)
+    if (!data || !data[0]) {
+        const teamKey = (params.get('teamKey') || '').toUpperCase();
+        const teamNames = TEAM_SB[teamKey] || [];
+        if (teamNames.length) {
+            const teamConds = teamNames.map(t => `equipo.eq.${t}`).join(',');
+            const { data: teamData } = await sb.from('jugadores').select('*').or(teamConds).limit(200);
+            if (teamData) {
+                const nSlug = normSlug(name);
+                const match = teamData.find(p => {
+                    const pSlug = normSlug(p.nombre);
+                    if (pSlug === nSlug) return true;
+                    if (pSlug.includes(nSlug)) return true;
+                    if (nSlug.includes(pSlug)) return true;
+                    return nSlug.split('-').some(part => part.length > 3 && pSlug.includes(part));
+                });
+                if (match) data = [match];
+            }
+        }
+    }
+    if (!data || !data[0]) return;
+    const d = data[0];
+
+    const priceEl = document.getElementById('sb-price');
+    if (priceEl) priceEl.textContent = fmtPrice(d.precio);
+
+    const changeEl = document.getElementById('sb-change');
+    if (changeEl) {
+        const ch = fmtChange(d.variacion || 0);
+        changeEl.textContent = ch.str;
+        changeEl.className = ch.cls;
+    }
+
+    const ptsEl = document.getElementById('sb-pts');
+    if (ptsEl) ptsEl.textContent = d.puntos ?? '—';
+
+    const statusEl = document.getElementById('sb-status');
+    if (statusEl) {
+        const [badge, label] = STATUS_INFO[d.estado] || STATUS_INFO.ok;
+        statusEl.className = 'badge ' + badge;
+        statusEl.textContent = label;
+    }
+}
+
+function updateFavBtn(userId, nombre) {
+    const btn = document.getElementById('favBtn');
+    const link = document.getElementById('favLoginLink');
+    if (!btn || !link) return;
+    link.style.display = 'none';
+    btn.style.display = 'block';
+    if (isFavorite(userId, nombre)) {
+        btn.textContent = '★ En favoritos';
+        btn.classList.add('active');
+    } else {
+        btn.textContent = '☆ Añadir a favoritos';
+        btn.classList.remove('active');
+    }
+}
+
+window.handleFav = function() {
+    if (!window._currentUserId || !window._currentPlayer) return;
+    const added = toggleFavorite(window._currentUserId, window._currentPlayer);
+    const btn = document.getElementById('favBtn');
+    if (btn) {
+        btn.textContent = added ? '★ En favoritos' : '☆ Añadir a favoritos';
+        added ? btn.classList.add('active') : btn.classList.remove('active');
+    }
+};
+
+renderPlayer();
+enrichFromSupabase();
+
+// Init favorites button after session loads
+;(function() {
+    if (typeof window.supabase === 'undefined') return;
+    const _sb = window.supabase.createClient('https://qcbviyqtdfgygtvheqcf.supabase.co', 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr');
+    _sb.auth.getSession().then(({ data: { session } }) => {
+        if (!session) return;
+        const userId = session.user.id;
+        window._currentUserId = userId;
+
+        const params = new URLSearchParams(location.search);
+        const name = params.get('n') || '';
+        const slug = params.get('player') || normSlug(name);
+
+        // Find player data for storage
+        const staticP = Object.values(window.PLAYERS || {}).find(p => p.name === name);
+        window._currentPlayer = {
+            nombre: name,
+            pos:     params.get('pos')  || staticP?.pos || '',
+            team:    params.get('team') || staticP?.team || '',
+            teamKey: params.get('teamKey') || staticP?.teamKey || '',
+            precio:  params.get('price') || (staticP ? staticP.price + 'M€' : '—'),
+            puntos:  params.get('pts')  || staticP?.pts || 0,
+            estado:  params.get('s')    || staticP?.status || 'ok',
+            slug,
+            ch:  params.get('ch')  || '',
+            chc: params.get('chc') || '0',
+        };
+
+        if (name) updateFavBtn(userId, name);
+    });
+})();
+</script>
+</body>
+</html>

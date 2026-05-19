@@ -1,0 +1,895 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Equipo | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link active">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificaci&oacute;n</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+            <a href="favoritos.html" class="nav-link">Favoritos</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+    <div class="navbar-mobile" id="navMobile">
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="mercado.html">Mercado</a>
+        <a href="clasificacion.html">Clasificaci&oacute;n</a>
+        <a href="mi-equipo.html">Mi Equipo</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="login.html">Entrar</a>
+        <a href="registro.html">Registrarse</a>
+    </div>
+</nav>
+
+<div class="crests-bar">
+    <div class="crests-inner">
+        <a href="equipo.html?team=RMA" class="crest-link" title="Real Madrid"><span class="crest-fallback">RMA</span></a>
+        <a href="equipo.html?team=BAR" class="crest-link" title="FC Barcelona"><span class="crest-fallback">BAR</span></a>
+        <a href="equipo.html?team=ATM" class="crest-link" title="Atlético de Madrid"><span class="crest-fallback">ATM</span></a>
+        <a href="equipo.html?team=ATH" class="crest-link" title="Athletic Club"><span class="crest-fallback">ATH</span></a>
+        <a href="equipo.html?team=RSO" class="crest-link" title="Real Sociedad"><span class="crest-fallback">RSO</span></a>
+        <a href="equipo.html?team=VIL" class="crest-link" title="Villarreal CF"><span class="crest-fallback">VIL</span></a>
+        <a href="equipo.html?team=BET" class="crest-link" title="Real Betis"><span class="crest-fallback">BET</span></a>
+        <a href="equipo.html?team=SEV" class="crest-link" title="Sevilla FC"><span class="crest-fallback">SEV</span></a>
+        <a href="equipo.html?team=GET" class="crest-link" title="Getafe CF"><span class="crest-fallback">GET</span></a>
+        <a href="equipo.html?team=GIR" class="crest-link" title="Girona FC"><span class="crest-fallback">GIR</span></a>
+        <a href="equipo.html?team=CEL" class="crest-link" title="Celta de Vigo"><span class="crest-fallback">CEL</span></a>
+        <a href="equipo.html?team=VAL" class="crest-link" title="Valencia CF"><span class="crest-fallback">VAL</span></a>
+        <a href="equipo.html?team=RAY" class="crest-link" title="Rayo Vallecano"><span class="crest-fallback">RAY</span></a>
+        <a href="equipo.html?team=OSA" class="crest-link" title="CA Osasuna"><span class="crest-fallback">OSA</span></a>
+        <a href="equipo.html?team=ALA" class="crest-link" title="Deportivo Alavés"><span class="crest-fallback">ALA</span></a>
+        <a href="equipo.html?team=MAL" class="crest-link" title="RCD Mallorca"><span class="crest-fallback">MAL</span></a>
+        <a href="equipo.html?team=ELC" class="crest-link" title="Elche CF"><span class="crest-fallback">ELC</span></a>
+        <a href="equipo.html?team=LEV" class="crest-link" title="Levante UD"><span class="crest-fallback">LEV</span></a>
+        <a href="equipo.html?team=OVI" class="crest-link" title="Real Oviedo"><span class="crest-fallback">OVI</span></a>
+        <a href="equipo.html?team=ESP" class="crest-link" title="RCD Espanyol"><span class="crest-fallback">ESP</span></a>
+    </div>
+</div>
+
+<main class="main-content">
+<div class="container" id="teamContent">
+    <div style="padding:3rem;text-align:center;color:var(--dark-400);">Cargando equipo...</div>
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/player-images.js"></script>
+<script src="assets/js/player-images-auto.js"></script>
+<script>
+const POS_LABEL = {GK:'PT', DEF:'DEF', MID:'MED', FWD:'DEL'};
+const POS_BADGE = {GK:'badge-gk', DEF:'badge-def', MID:'badge-mid', FWD:'badge-fwd'};
+const STATUS_INFO = {
+    ok:         ['badge-available','Disponible'],
+    doubt:      ['badge-doubt','Duda'],
+    injured:    ['badge-injured','Lesionado'],
+    suspended:  ['badge-suspended','Sancionado']
+};
+const POS_Y = {GK:88, DEF:70, MID:48, FWD:22};
+
+// p = {n, i, pos, price, ch, chc(1/-1/0), pts, s, starter, rec}
+const TEAMS = {
+    RMA: {
+        name:'Real Madrid', short:'RMA', stadium:'Santiago Bernabéu', coach:'Carlo Ancelotti', formation:'4-3-3',
+        starters:   ['Courtois','Trent','Militão','Rudiger','Mendy','Valverde','Tchouaméni','Bellingham','Rodrygo','Mbappé','Vinicius Jr.'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','FWD','FWD','FWD'],
+        squad: [
+            {n:'Courtois',       i:'C', pos:'GK',  price:'65M€',  ch:'+500K', chc:1,  pts:62, s:'ok',  starter:1, rec:1},
+            {n:'Lunin',          i:'L', pos:'GK',  price:'8M€',   ch:'—',     chc:0,  pts:10, s:'ok',  starter:0, rec:0},
+            {n:'Fran González',  i:'F', pos:'GK',  price:'2M€',   ch:'—',     chc:0,  pts:2,  s:'ok',  starter:0, rec:0},
+            {n:'Trent',           i:'T',pos:'DEF', price:'45M€',  ch:'+1M',   chc:1,  pts:52, s:'ok',  starter:1, rec:1},
+            {n:'Militão',        i:'M', pos:'DEF', price:'40M€',  ch:'+300K', chc:1,  pts:40, s:'ok',  starter:1, rec:0},
+            {n:'Rudiger',        i:'R', pos:'DEF', price:'30M€',  ch:'—',     chc:0,  pts:38, s:'ok',  starter:1, rec:1},
+            {n:'Mendy',          i:'M', pos:'DEF', price:'22M€',  ch:'+200K', chc:1,  pts:35, s:'ok',  starter:1, rec:0},
+            {n:'Carvajal',       i:'C', pos:'DEF', price:'28M€',  ch:'-300K', chc:-1, pts:30, s:'doubt',starter:0,rec:0},
+            {n:'Huijsen',        i:'H', pos:'DEF', price:'18M€',  ch:'+200K', chc:1,  pts:22, s:'ok',  starter:0, rec:0},
+            {n:'Fran García',    i:'F', pos:'DEF', price:'10M€',  ch:'—',     chc:0,  pts:15, s:'ok',  starter:0, rec:0},
+            {n:'Asencio',        i:'A', pos:'DEF', price:'12M€',  ch:'+100K', chc:1,  pts:18, s:'ok',  starter:0, rec:0},
+            {n:'Carreras',       i:'C', pos:'DEF', price:'6M€',   ch:'—',     chc:0,  pts:8,  s:'ok',  starter:0, rec:0},
+            {n:'Alaba',          i:'A', pos:'DEF', price:'8M€',   ch:'—',     chc:0,  pts:5,  s:'injured',starter:0,rec:0},
+            {n:'Bellingham',     i:'B', pos:'MID', price:'155M€', ch:'+1M',   chc:1,  pts:72, s:'ok',  starter:1, rec:1},
+            {n:'Valverde',       i:'V', pos:'MID', price:'75M€',  ch:'+500K', chc:1,  pts:68, s:'ok',  starter:1, rec:1},
+            {n:'Tchouaméni',     i:'T', pos:'MID', price:'38M€',  ch:'—',     chc:0,  pts:32, s:'ok',  starter:1, rec:0},
+            {n:'Camavinga',      i:'C', pos:'MID', price:'28M€',  ch:'+200K', chc:1,  pts:28, s:'ok',  starter:0, rec:0},
+            {n:'Thiago Pitarch',  i:'T', pos:'MID', price:'8M€',   ch:'—',     chc:0,  pts:10, s:'ok',  starter:0, rec:0},
+            {n:'Arda Guler',     i:'G', pos:'MID', price:'20M€',  ch:'+300K', chc:1,  pts:25, s:'ok',  starter:0, rec:0},
+            {n:'Ceballos',       i:'C', pos:'MID', price:'8M€',   ch:'—',     chc:0,  pts:10, s:'ok',  starter:0, rec:0},
+            {n:'Vinicius Jr.',   i:'V', pos:'FWD', price:'182M€', ch:'+2M',   chc:1,  pts:88, s:'ok',  starter:1, rec:1},
+            {n:'Mbappé',         i:'M', pos:'FWD', price:'175M€', ch:'+2M',   chc:1,  pts:74, s:'ok',  starter:1, rec:1},
+            {n:'Rodrygo',        i:'R', pos:'FWD', price:'75M€',  ch:'+300K', chc:1,  pts:58, s:'ok',  starter:1, rec:0},
+            {n:'Brahim',         i:'B', pos:'FWD', price:'30M€',  ch:'+500K', chc:1,  pts:40, s:'ok',  starter:0, rec:0},
+            {n:'Gonzalo',        i:'G', pos:'FWD', price:'5M€',   ch:'—',     chc:0,  pts:5,  s:'ok',  starter:0, rec:0},
+            {n:'Franco',         i:'F', pos:'FWD', price:'8M€',   ch:'—',     chc:0,  pts:8,  s:'ok',  starter:0, rec:0},
+        ]
+    },
+    BAR: {
+        name:'FC Barcelona', short:'BAR', stadium:'Estadi Olímpic Lluís Companys', coach:'Hansi Flick', formation:'4-3-3',
+        starters:   ['Joan García','Koundé','Cubarsí','Araújo','Balde','Casadó','Pedri','Gavi','Yamal','Lewandowski','Raphinha'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','FWD','FWD','FWD'],
+        squad: [
+            {n:'Joan García',    i:'J', pos:'GK',  price:'35M€',  ch:'+500K', chc:1,  pts:55, s:'ok',  starter:1, rec:1},
+            {n:'Szczęsny',       i:'S', pos:'GK',  price:'10M€',  ch:'—',     chc:0,  pts:8,  s:'ok',  starter:0, rec:0},
+            {n:'D. Kochen',      i:'D', pos:'GK',  price:'2M€',   ch:'—',     chc:0,  pts:2,  s:'ok',  starter:0, rec:0},
+            {n:'Koundé',         i:'K', pos:'DEF', price:'52M€',  ch:'+500K', chc:1,  pts:52, s:'ok',  starter:1, rec:1},
+            {n:'Cubarsí',        i:'C', pos:'DEF', price:'55M€',  ch:'+1M',   chc:1,  pts:48, s:'ok',  starter:1, rec:1},
+            {n:'Araújo',         i:'A', pos:'DEF', price:'38M€',  ch:'+300K', chc:1,  pts:40, s:'ok',  starter:1, rec:0},
+            {n:'Balde',          i:'B', pos:'DEF', price:'40M€',  ch:'+300K', chc:1,  pts:42, s:'ok',  starter:1, rec:1},
+            {n:'Cancelo',        i:'C', pos:'DEF', price:'18M€',  ch:'—',     chc:0,  pts:25, s:'ok',  starter:0, rec:0},
+            {n:'E. García',      i:'E', pos:'DEF', price:'10M€',  ch:'—',     chc:0,  pts:15, s:'ok',  starter:0, rec:0},
+            {n:'Christensen',    i:'C', pos:'DEF', price:'12M€',  ch:'—',     chc:0,  pts:18, s:'ok',  starter:0, rec:0},
+            {n:'G. Martín',      i:'G', pos:'DEF', price:'5M€',   ch:'—',     chc:0,  pts:8,  s:'ok',  starter:0, rec:0},
+            {n:'Yamal',          i:'Y', pos:'FWD', price:'148M€', ch:'+2M',   chc:1,  pts:80, s:'ok',  starter:1, rec:1},
+            {n:'Raphinha',       i:'R', pos:'FWD', price:'80M€',  ch:'+1M',   chc:1,  pts:68, s:'ok',  starter:1, rec:1},
+            {n:'Pedri',          i:'P', pos:'MID', price:'95M€',  ch:'+500K', chc:1,  pts:65, s:'ok',  starter:1, rec:1},
+            {n:'Gavi',           i:'G', pos:'MID', price:'65M€',  ch:'+500K', chc:1,  pts:58, s:'ok',  starter:1, rec:0},
+            {n:'Casadó',         i:'C', pos:'MID', price:'25M€',  ch:'+300K', chc:1,  pts:35, s:'ok',  starter:1, rec:0},
+            {n:'D. Olmo',        i:'D', pos:'MID', price:'45M€',  ch:'+300K', chc:1,  pts:42, s:'ok',  starter:0, rec:0},
+            {n:'De Jong',        i:'D', pos:'MID', price:'50M€',  ch:'—',     chc:0,  pts:38, s:'ok',  starter:0, rec:0},
+            {n:'Rashford',       i:'R', pos:'MID', price:'28M€',  ch:'+200K', chc:1,  pts:30, s:'ok',  starter:0, rec:0},
+            {n:'Fermín',         i:'F', pos:'MID', price:'22M€',  ch:'+200K', chc:1,  pts:28, s:'ok',  starter:0, rec:0},
+            {n:'Bardghji',       i:'B', pos:'MID', price:'12M€',  ch:'+100K', chc:1,  pts:15, s:'ok',  starter:0, rec:0},
+            {n:'Bernal',         i:'B', pos:'MID', price:'5M€',   ch:'—',     chc:0,  pts:5,  s:'ok',  starter:0, rec:0},
+            {n:'Lewandowski',    i:'L', pos:'FWD', price:'82M€',  ch:'+500K', chc:1,  pts:68, s:'ok',  starter:1, rec:1},
+            {n:'Ferran Torres',  i:'F', pos:'FWD', price:'25M€',  ch:'+200K', chc:1,  pts:30, s:'ok',  starter:0, rec:0},
+        ]
+    },
+    ATM: {
+        name:'Atlético de Madrid', short:'ATM', stadium:'Estadio Cívitas Metropolitano', coach:'Diego Simeone', formation:'4-4-2',
+        starters:   ['Oblak','Ruggeri','Hancko','Le Normand','Pubill','Lookman','Koke','Llorente','Barrios','Griezmann','Sørloth'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Oblak',       i:'O', pos:'GK',  price:'52M€', ch:'—',     chc:0,  pts:58, s:'ok',  starter:1, rec:1},
+            {n:'Musso',       i:'M', pos:'GK',  price:'10M€', ch:'—',     chc:0,  pts:8,  s:'ok',  starter:0, rec:0},
+            {n:'Llorente',    i:'L', pos:'DEF', price:'28M€', ch:'+300K', chc:1,  pts:42, s:'ok',  starter:1, rec:1},
+            {n:'Le Normand',  i:'L', pos:'DEF', price:'28M€', ch:'+200K', chc:1,  pts:40, s:'ok',  starter:1, rec:0},
+            {n:'Giménez',     i:'G', pos:'DEF', price:'22M€', ch:'—',     chc:0,  pts:35, s:'ok',  starter:0, rec:1},
+            {n:'Hancko',      i:'H', pos:'DEF', price:'20M€', ch:'+200K', chc:1,  pts:32, s:'ok',  starter:1, rec:0},
+            {n:'Nahuel',      i:'N', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok',  starter:0, rec:0},
+            {n:'Pubill',      i:'P', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok',  starter:1, rec:0},
+            {n:'Lenglet',     i:'L', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:10, s:'ok',  starter:0, rec:0},
+            {n:'Ruggeri',     i:'R', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok',  starter:1, rec:0},
+            {n:'Griezmann',   i:'G', pos:'MID', price:'68M€', ch:'+500K', chc:1,  pts:58, s:'ok',  starter:1, rec:1},
+            {n:'Lookman',     i:'L', pos:'MID', price:'55M€', ch:'+500K', chc:1,  pts:55, s:'ok',  starter:1, rec:1},
+            {n:'Barrios',        i:'B', pos:'MID', price:'22M€', ch:'+300K', chc:1,  pts:35, s:'ok',  starter:1, rec:0},
+            {n:'Koke',           i:'K', pos:'MID', price:'15M€', ch:'—',     chc:0,  pts:28, s:'ok',  starter:1, rec:1},
+            {n:'Johnny Cardoso', i:'C', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:15, s:'ok',  starter:0, rec:0},
+            {n:'Nico González',  i:'N', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:18, s:'ok',  starter:0, rec:0},
+            {n:'Thiago Almada',  i:'A', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:12, s:'ok',  starter:0, rec:0},
+            {n:'Obed Vargas',    i:'O', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok',  starter:0, rec:0},
+            {n:'Julián A.',      i:'J', pos:'FWD', price:'55M€', ch:'+500K', chc:1,  pts:55, s:'ok',  starter:0, rec:1},
+            {n:'Sørloth',     i:'S', pos:'FWD', price:'22M€', ch:'+200K', chc:1,  pts:30, s:'ok',  starter:1, rec:0},
+        ]
+    },
+    ATH: {
+        name:'Athletic Club', short:'ATH', stadium:'Estadio de San Mamés', coach:'Ernesto Valverde', formation:'4-2-3-1',
+        starters:   ['U. Simón','Adama','Laporte','Yeray','Gorosabel','Jauregizar','Ruiz de Galarreta','Berenguer','U. Gómez','Í. Williams','Guruzeta'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','MID','FWD'],
+        squad: [
+            {n:'U. Simón',          i:'S', pos:'GK',  price:'32M€', ch:'+200K', chc:1,  pts:50, s:'ok', starter:1, rec:1},
+            {n:'Agirrezabala',      i:'A', pos:'GK',  price:'6M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Padilla',           i:'P', pos:'GK',  price:'2M€',  ch:'—',     chc:0,  pts:2,  s:'ok', starter:0, rec:0},
+            {n:'Laporte',           i:'L', pos:'DEF', price:'25M€', ch:'+200K', chc:1,  pts:40, s:'ok', starter:1, rec:1},
+            {n:'Vivian',            i:'V', pos:'DEF', price:'18M€', ch:'+100K', chc:1,  pts:32, s:'ok', starter:0, rec:0},
+            {n:'Gorosabel',         i:'G', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Yeray',             i:'Y', pos:'DEF', price:'12M€', ch:'—',     chc:0,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Yuri',              i:'Y', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:18, s:'ok', starter:0, rec:0},
+            {n:'Peñas',             i:'P', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Areso',             i:'A', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Eguilbar',          i:'E', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Adama',             i:'A', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:1, rec:0},
+            {n:'Prados',            i:'P', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'N. Williams',       i:'N', pos:'MID', price:'88M€', ch:'+1M',   chc:1,  pts:72, s:'ok', starter:0, rec:1},
+            {n:'Í. Williams',       i:'I', pos:'MID', price:'55M€', ch:'+500K', chc:1,  pts:60, s:'ok', starter:1, rec:1},
+            {n:'Sancet',            i:'S', pos:'MID', price:'38M€', ch:'+500K', chc:1,  pts:48, s:'ok', starter:0, rec:1},
+            {n:'Ruiz de Galarreta', i:'R', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:32, s:'ok', starter:1, rec:0},
+            {n:'Vesga',             i:'V', pos:'MID', price:'12M€', ch:'—',     chc:0,  pts:25, s:'ok', starter:0, rec:0},
+            {n:'Berenguer',         i:'B', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'U. Gómez',          i:'U', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:1, rec:0},
+            {n:'Navarro',           i:'N', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Jauregizar',        i:'J', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:1, rec:0},
+            {n:'Guruzeta',          i:'G', pos:'FWD', price:'30M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:0},
+            {n:'Irkia Ibeta',       i:'I', pos:'FWD', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+        ]
+    },
+    RSO: {
+        name:'Real Sociedad', short:'RSO', stadium:'Estadio Reale Arena', coach:'Imanol Alguacil', formation:'4-3-3',
+        starters:   ['Remiro','S. Gómez','Zubeldia','Caleta-Car','A. Muñoz','Kubo','Brais','Sucic','Zakharyan','Barrenetxea','Karrikaburu'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','MID','FWD'],
+        squad: [
+            {n:'Remiro',        i:'R', pos:'GK',  price:'25M€', ch:'+100K', chc:1,  pts:45, s:'ok', starter:1, rec:1},
+            {n:'J. Martín',     i:'J', pos:'GK',  price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Marrero',       i:'M', pos:'GK',  price:'2M€',  ch:'—',     chc:0,  pts:2,  s:'ok', starter:0, rec:0},
+            {n:'S. Gómez',      i:'S', pos:'DEF', price:'22M€', ch:'+200K', chc:1,  pts:38, s:'ok', starter:1, rec:1},
+            {n:'Zubeldia',      i:'Z', pos:'DEF', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Caleta-Car',    i:'C', pos:'DEF', price:'12M€', ch:'—',     chc:0,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'A. Muñoz',      i:'A', pos:'DEF', price:'12M€', ch:'—',     chc:0,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Aramburu',      i:'A', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Elustondo',     i:'E', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Odriozola',     i:'O', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Kubo',          i:'K', pos:'MID', price:'42M€', ch:'+500K', chc:1,  pts:55, s:'ok', starter:1, rec:1},
+            {n:'Brais',         i:'B', pos:'MID', price:'28M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:1},
+            {n:'Sucic',         i:'S', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Zakharyan',     i:'Z', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Barrenetxea',   i:'B', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Herrera',       i:'H', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'C. Soler',      i:'C', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:0, rec:0},
+            {n:'Marín',         i:'M', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Wesley',        i:'W', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Óskarsson',     i:'O', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Karrikaburu',   i:'K', pos:'FWD', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:1, rec:0},
+        ]
+    },
+    BET: {
+        name:'Real Betis', short:'BET', stadium:'Estadio Benito Villamarín', coach:'Manuel Pellegrini', formation:'4-2-3-1',
+        starters:   ['Pau López','R. Rodríguez','Natan','D. Llorente','Bellerín','Fornals','Roca','Abde','Isco','Antony','Cucho'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','MID','FWD'],
+        squad: [
+            {n:'Pau López',    i:'P', pos:'GK',  price:'18M€', ch:'+200K', chc:1,  pts:38, s:'ok',  starter:1, rec:1},
+            {n:'Vallés',       i:'V', pos:'GK',  price:'15M€', ch:'—',     chc:0,  pts:30, s:'ok',  starter:0, rec:0},
+            {n:'A. San Miguel',i:'A', pos:'GK',  price:'2M€',  ch:'—',     chc:0,  pts:2,  s:'ok',  starter:0, rec:0},
+            {n:'Natan',        i:'N', pos:'DEF', price:'15M€', ch:'+100K', chc:1,  pts:28, s:'ok',  starter:1, rec:1},
+            {n:'D. Llorente',  i:'D', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok',  starter:1, rec:0},
+            {n:'Bellerín',     i:'B', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:20, s:'ok',  starter:1, rec:0},
+            {n:'R. Rodríguez', i:'R', pos:'DEF', price:'8M€',  ch:'+100K', chc:1,  pts:18, s:'ok',  starter:1, rec:0},
+            {n:'V. Gómez',     i:'V', pos:'DEF', price:'12M€', ch:'—',     chc:0,  pts:22, s:'ok',  starter:0, rec:0},
+            {n:'Firpo',        i:'F', pos:'DEF', price:'10M€', ch:'—',     chc:0,  pts:18, s:'ok',  starter:0, rec:0},
+            {n:'Bartra',       i:'B', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok',  starter:0, rec:0},
+            {n:'Ortiz',        i:'O', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok',  starter:0, rec:0},
+            {n:'Isco',         i:'I', pos:'MID', price:'20M€', ch:'+200K', chc:1,  pts:38, s:'ok',  starter:1, rec:1},
+            {n:'Roca',         i:'R', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:32, s:'ok',  starter:1, rec:0},
+            {n:'Abde',         i:'A', pos:'MID', price:'15M€', ch:'+200K', chc:1,  pts:28, s:'ok',  starter:1, rec:0},
+            {n:'Fornals',      i:'F', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:22, s:'ok',  starter:1, rec:0},
+            {n:'Antony',       i:'A', pos:'MID', price:'10M€', ch:'+100K', chc:1,  pts:18, s:'ok',  starter:1, rec:0},
+            {n:'Lo Celso',     i:'L', pos:'MID', price:'22M€', ch:'+200K', chc:1,  pts:40, s:'ok',  starter:0, rec:1},
+            {n:'Amrabat',      i:'A', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:22, s:'ok',  starter:0, rec:0},
+            {n:'L. Henrique',  i:'L', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok',  starter:0, rec:0},
+            {n:'Ruibal',       i:'R', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:8,  s:'ok',  starter:0, rec:0},
+            {n:'Fidalgo',      i:'F', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok',  starter:0, rec:0},
+            {n:'Altimira',     i:'A', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok',  starter:0, rec:0},
+            {n:'Riquelme',     i:'R', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok',  starter:0, rec:0},
+            {n:'De Ossa',      i:'D', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok',  starter:0, rec:0},
+            {n:'Chimy',        i:'C', pos:'FWD', price:'25M€', ch:'+300K', chc:1,  pts:42, s:'ok',  starter:0, rec:1},
+            {n:'Cucho',        i:'C', pos:'FWD', price:'18M€', ch:'+200K', chc:1,  pts:28, s:'ok',  starter:1, rec:0},
+            {n:'Bakambu',      i:'B', pos:'FWD', price:'10M€', ch:'—',     chc:0,  pts:15, s:'ok',  starter:0, rec:0},
+        ]
+    },
+    VIL: {
+        name:'Villarreal CF', short:'VIL', stadium:'Estadio de la Cerámica', coach:'Marcelino García Toral', formation:'4-4-2',
+        starters:   ['Tenas','Pedraza','Renato Veiga','P. Navarro','A. Freeman','Moleiro','Pape Gueye','Parejo','Pépé','Mikautadze','Gerard'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Tenas',        i:'T', pos:'GK',  price:'18M€', ch:'+200K', chc:1,  pts:40, s:'ok', starter:1, rec:1},
+            {n:'D. Conde',     i:'D', pos:'GK',  price:'15M€', ch:'—',     chc:0,  pts:35, s:'ok', starter:0, rec:0},
+            {n:'L. Júnior',    i:'L', pos:'GK',  price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Pedraza',      i:'P', pos:'DEF', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Renato Veiga', i:'R', pos:'DEF', price:'20M€', ch:'+200K', chc:1,  pts:30, s:'ok', starter:1, rec:0},
+            {n:'P. Navarro',   i:'N', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'A. Freeman',   i:'F', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:1, rec:0},
+            {n:'Foyth',        i:'F', pos:'DEF', price:'15M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:0, rec:0},
+            {n:'Cardona',      i:'C', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:0, rec:0},
+            {n:'Kambwala',     i:'K', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'L. Costa',     i:'L', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Marín',        i:'M', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Mouriño',      i:'M', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Moleiro',      i:'M', pos:'MID', price:'22M€', ch:'+200K', chc:1,  pts:32, s:'ok', starter:1, rec:1},
+            {n:'Pape Gueye',   i:'G', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Parejo',       i:'P', pos:'MID', price:'20M€', ch:'—',     chc:0,  pts:38, s:'ok', starter:1, rec:1},
+            {n:'Pépé',         i:'P', pos:'MID', price:'10M€', ch:'+100K', chc:1,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Baena',        i:'B', pos:'MID', price:'28M€', ch:'+300K', chc:1,  pts:45, s:'ok', starter:0, rec:1},
+            {n:'Comesaña',     i:'C', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:0, rec:0},
+            {n:'Buchanan',     i:'B', pos:'MID', price:'10M€', ch:'+100K', chc:1,  pts:18, s:'ok', starter:0, rec:0},
+            {n:'Partey',       i:'P', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'González',     i:'G', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Mikautadze',   i:'M', pos:'FWD', price:'32M€', ch:'+500K', chc:1,  pts:48, s:'ok', starter:1, rec:1},
+            {n:'Gerard',       i:'G', pos:'FWD', price:'25M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:1},
+            {n:'Ayoze',        i:'A', pos:'FWD', price:'18M€', ch:'+200K', chc:1,  pts:32, s:'ok', starter:0, rec:0},
+            {n:'Dioussayil',   i:'D', pos:'FWD', price:'8M€',  ch:'+100K', chc:1,  pts:12, s:'ok', starter:0, rec:0},
+        ]
+    },
+    VAL: {
+        name:'Valencia CF', short:'VAL', stadium:'Estadio de Mestalla', coach:'Carlos Corberán', formation:'4-3-3',
+        starters:   ['Dimitrievski','Gayà','Tárrega','Cömert','Correia','Pepelu','Guerra','Santamaria','Ramazani','H. Duro','Beltrán'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Dimitrievski', i:'D', pos:'GK',  price:'22M€', ch:'+200K', chc:1,  pts:42, s:'ok', starter:1, rec:1},
+            {n:'Rivero',       i:'R', pos:'GK',  price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Gayà',         i:'G', pos:'DEF', price:'18M€', ch:'+100K', chc:1,  pts:32, s:'ok', starter:1, rec:1},
+            {n:'Tárrega',      i:'T', pos:'DEF', price:'15M€', ch:'+200K', chc:1,  pts:30, s:'ok', starter:1, rec:0},
+            {n:'Cömert',       i:'C', pos:'DEF', price:'12M€', ch:'—',     chc:0,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Correia',      i:'C', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'J. Vázquez',   i:'J', pos:'DEF', price:'10M€', ch:'—',     chc:0,  pts:18, s:'ok', starter:0, rec:0},
+            {n:'Foulquier',    i:'F', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Diakhaby',     i:'D', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:0, rec:0},
+            {n:'U. Núñez',     i:'U', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Pepelu',       i:'P', pos:'MID', price:'22M€', ch:'+200K', chc:1,  pts:40, s:'ok', starter:1, rec:1},
+            {n:'Guerra',       i:'G', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:0},
+            {n:'Santamaria',   i:'S', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Ramazani',     i:'R', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:32, s:'ok', starter:1, rec:0},
+            {n:'Ugrinic',      i:'U', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:0, rec:0},
+            {n:'Danjuma',      i:'D', pos:'MID', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'A. Almeida',   i:'A', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:0, rec:0},
+            {n:'D. López',     i:'D', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'H. Duro',      i:'H', pos:'FWD', price:'25M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:1},
+            {n:'Beltrán',      i:'B', pos:'FWD', price:'12M€', ch:'+100K', chc:1,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'Sadiq',        i:'S', pos:'FWD', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:0, rec:0},
+        ]
+    },
+    SEV: {
+        name:'Sevilla FC', short:'SEV', stadium:'Estadio Ramón Sánchez-Pizjuán', coach:'García Pimienta', formation:'4-4-2',
+        starters:   ['Vlachodimos','Juanlu','Nianzou','Azpilicueta','Carmona','R. Vargas','A. Sánchez','Gudelj','Jordán','I. Romero','Ejuke'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Vlachodimos',  i:'V', pos:'GK',  price:'15M€', ch:'+100K', chc:1,  pts:32, s:'ok', starter:1, rec:1},
+            {n:'Nyland',       i:'N', pos:'GK',  price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Juanlu',       i:'J', pos:'DEF', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Nianzou',      i:'N', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Azpilicueta',  i:'A', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Carmona',      i:'C', pos:'DEF', price:'10M€', ch:'—',     chc:0,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'Suazo',        i:'S', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'K. Salas',     i:'K', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Marcão',       i:'M', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:0, rec:0},
+            {n:'Cardoso',      i:'C', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Gattoni',      i:'G', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'R. Vargas',    i:'R', pos:'MID', price:'25M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:1},
+            {n:'A. Sánchez',   i:'A', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:0},
+            {n:'Gudelj',       i:'G', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Jordán',       i:'J', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Agoumé',       i:'A', pos:'MID', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Ejuke',        i:'E', pos:'MID', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'B. Mendy',     i:'B', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Sow',          i:'S', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'I. Romero',    i:'I', pos:'FWD', price:'28M€', ch:'+300K', chc:1,  pts:45, s:'ok', starter:1, rec:1},
+            {n:'Adams',        i:'A', pos:'FWD', price:'10M€', ch:'+100K', chc:1,  pts:18, s:'ok', starter:0, rec:0},
+            {n:'Marock',       i:'M', pos:'FWD', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+        ]
+    },
+    GET: {
+        name:'Getafe CF', short:'GET', stadium:'Coliseum Alfonso Pérez', coach:'José Bordalás', formation:'4-4-2',
+        starters:   ['D. Soria','Djené','Rico','Femenía','Duarte','Milla','Arambarri','Juanmi','Kamara','Mayoral','Satriano'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'D. Soria',      i:'S', pos:'GK',  price:'15M€', ch:'+100K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Geracak',       i:'G', pos:'GK',  price:'2M€',  ch:'—',     chc:0,  pts:2,  s:'ok', starter:0, rec:0},
+            {n:'Djené',         i:'D', pos:'DEF', price:'14M€', ch:'+100K', chc:1,  pts:30, s:'ok', starter:1, rec:1},
+            {n:'Rico',          i:'R', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Femenía',       i:'F', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Duarte',        i:'D', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Iglesias',      i:'I', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:0, rec:0},
+            {n:'Z. Romero',     i:'Z', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Bocelli',       i:'B', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Nyom',          i:'N', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Milla',         i:'M', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Arambarri',     i:'A', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:32, s:'ok', starter:1, rec:0},
+            {n:'Juanmi',        i:'J', pos:'MID', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Kamara',        i:'K', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Muñoz',         i:'M', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Sanoris',       i:'S', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Martín',        i:'M', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Mayoral',       i:'M', pos:'FWD', price:'22M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:1},
+            {n:'Satriano',      i:'S', pos:'FWD', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:0},
+            {n:'L. Vázquez',    i:'L', pos:'FWD', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:0, rec:0},
+        ]
+    },
+    OSA: {
+        name:'CA Osasuna', short:'OSA', stadium:'Estadio El Sadar', coach:'Vicente Moreno', formation:'4-4-2',
+        starters:   ['S. Herrera','Catena','Herrando','Javi Galán','Cruz','Oroz','Moncayola','R. García','Torró','Budimir','P. García'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'S. Herrera',   i:'S', pos:'GK',  price:'12M€', ch:'+100K', chc:1,  pts:32, s:'ok', starter:1, rec:1},
+            {n:'A. Fernández', i:'A', pos:'GK',  price:'4M€',  ch:'—',     chc:0,  pts:4,  s:'ok', starter:0, rec:0},
+            {n:'Catena',       i:'C', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Herrando',     i:'H', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Javi Galán',   i:'G', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Cruz',         i:'C', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Rosier',       i:'R', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:12, s:'ok', starter:0, rec:0},
+            {n:'Boyomo',       i:'B', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Bretones',     i:'B', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Oroz',         i:'O', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:38, s:'ok', starter:1, rec:1},
+            {n:'Moncayola',    i:'M', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:30, s:'ok', starter:1, rec:0},
+            {n:'R. García',    i:'R', pos:'MID', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Torró',        i:'T', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:1, rec:0},
+            {n:'Barja',        i:'B', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Zarraga',      i:'Z', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Moro',         i:'M', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'V. Muñoz',     i:'V', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Budimir',      i:'B', pos:'FWD', price:'22M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:1},
+            {n:'P. García',    i:'P', pos:'FWD', price:'10M€', ch:'+100K', chc:1,  pts:20, s:'ok', starter:1, rec:0},
+        ]
+    },
+    RAY: {
+        name:'Rayo Vallecano', short:'RAY', stadium:'Campo de Fútbol de Vallecas', coach:'Íñigo Pérez', formation:'4-4-2',
+        starters:   ['Batalla','Ratiu','F. García','Lejeune','Espino','Palazón','Á. García','Ciss','Camello','Laiva','Pipa'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Batalla',      i:'B', pos:'GK',  price:'12M€', ch:'+100K', chc:1,  pts:30, s:'ok', starter:1, rec:1},
+            {n:'D. Cárdenas',  i:'D', pos:'GK',  price:'4M€',  ch:'—',     chc:0,  pts:4,  s:'ok', starter:0, rec:0},
+            {n:'L. Zidane',    i:'L', pos:'GK',  price:'2M€',  ch:'—',     chc:0,  pts:2,  s:'ok', starter:0, rec:0},
+            {n:'Ratiu',        i:'R', pos:'DEF', price:'14M€', ch:'+100K', chc:1,  pts:30, s:'ok', starter:1, rec:1},
+            {n:'F. García',    i:'F', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Lejeune',      i:'L', pos:'DEF', price:'10M€', ch:'—',     chc:0,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Espino',       i:'E', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Mumin',        i:'M', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'N. Mendy',     i:'N', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Balliu',       i:'B', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Palazón',      i:'P', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:38, s:'ok', starter:1, rec:1},
+            {n:'Á. García',    i:'Á', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:30, s:'ok', starter:1, rec:0},
+            {n:'Ciss',         i:'C', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'Camello',      i:'C', pos:'MID', price:'12M€', ch:'+200K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'U. López',     i:'U', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Akhomach',     i:'A', pos:'MID', price:'6M€',  ch:'+100K', chc:1,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'De Frutos',    i:'D', pos:'MID', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Nteka',        i:'N', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Trejo',        i:'T', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Laiva',        i:'L', pos:'FWD', price:'12M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Pipa',         i:'P', pos:'FWD', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:1, rec:0},
+        ]
+    },
+    CEL: {
+        name:'Celta de Vigo', short:'CEL', stadium:'Estadio de Balaídos', coach:'Claudio Giráldez', formation:'4-3-3',
+        starters:   ['I. Radu','Mingueza','Starfelt','Ristić','Aidoo','Swedberg','Sotelo','Cervi','Aspas','B. Iglesias','Durán'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','FWD','FWD','FWD'],
+        squad: [
+            {n:'I. Radu',      i:'R', pos:'GK',  price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:1},
+            {n:'I. Villar',    i:'V', pos:'GK',  price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Vidal',        i:'V', pos:'GK',  price:'2M€',  ch:'—',     chc:0,  pts:2,  s:'ok', starter:0, rec:0},
+            {n:'Mingueza',     i:'M', pos:'DEF', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Starfelt',     i:'S', pos:'DEF', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Ristić',       i:'R', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Aidoo',        i:'A', pos:'DEF', price:'10M€', ch:'—',     chc:0,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'M. Alonso',    i:'M', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'C. Domínguez', i:'C', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Carreira',     i:'C', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Swedberg',     i:'S', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Sotelo',       i:'S', pos:'MID', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Cervi',        i:'C', pos:'MID', price:'10M€', ch:'+100K', chc:1,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'Moriba',       i:'M', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Rueda',        i:'R', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Valero',       i:'V', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Baeza',        i:'B', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'H. Álvarez',   i:'H', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Aspas',        i:'A', pos:'FWD', price:'32M€', ch:'+300K', chc:1,  pts:52, s:'ok', starter:1, rec:1},
+            {n:'B. Iglesias',  i:'B', pos:'FWD', price:'18M€', ch:'+200K', chc:1,  pts:32, s:'ok', starter:1, rec:0},
+            {n:'Durán',        i:'D', pos:'FWD', price:'12M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+        ]
+    },
+    GIR: {
+        name:'Girona FC', short:'GIR', stadium:'Estadio Municipal de Montilivi', coach:'Michel Sánchez', formation:'4-3-3',
+        starters:   ['Ter Stegen','A. Martínez','M. Gutiérrez','Couto','Krejčí','Tsygankov','I. Martín','Beltrán','Bryan Gil','A. Ruiz','Stuani'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','FWD','FWD','FWD'],
+        squad: [
+            {n:'Ter Stegen',   i:'T', pos:'GK',  price:'30M€', ch:'+500K', chc:1,  pts:52, s:'ok', starter:1, rec:1},
+            {n:'Gazzaniga',    i:'G', pos:'GK',  price:'8M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'R. Blanco',    i:'R', pos:'GK',  price:'3M€',  ch:'—',     chc:0,  pts:3,  s:'ok', starter:0, rec:0},
+            {n:'A. Martínez',  i:'A', pos:'DEF', price:'22M€', ch:'+300K', chc:1,  pts:40, s:'ok', starter:1, rec:1},
+            {n:'M. Gutiérrez', i:'M', pos:'DEF', price:'20M€', ch:'+200K', chc:1,  pts:38, s:'ok', starter:1, rec:0},
+            {n:'Couto',        i:'C', pos:'DEF', price:'15M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Krejčí',       i:'K', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Blind',        i:'B', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'D. López',     i:'D', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Francés',      i:'F', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Tsygankov',    i:'T', pos:'MID', price:'22M€', ch:'+300K', chc:1,  pts:40, s:'ok', starter:1, rec:1},
+            {n:'I. Martín',    i:'I', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:0},
+            {n:'Beltrán',      i:'B', pos:'MID', price:'16M€', ch:'+200K', chc:1,  pts:32, s:'ok', starter:1, rec:0},
+            {n:'Ounahi',       i:'O', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:18, s:'ok', starter:0, rec:0},
+            {n:'Echeverri',    i:'E', pos:'MID', price:'8M€',  ch:'+100K', chc:1,  pts:12, s:'ok', starter:0, rec:0},
+            {n:'Van de Beek',  i:'V', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'B. García',    i:'B', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Bryan Gil',    i:'B', pos:'FWD', price:'20M€', ch:'+300K', chc:1,  pts:38, s:'ok', starter:1, rec:1},
+            {n:'A. Ruiz',      i:'A', pos:'FWD', price:'25M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:0},
+            {n:'Stuani',       i:'S', pos:'FWD', price:'12M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+        ]
+    },
+    ALA: {
+        name:'Deportivo Alavés', short:'ALA', stadium:'Estadio de Mendizorroza', coach:'Luis García Plaza', formation:'4-4-2',
+        starters:   ['Sivera','Jonny','Pacheco','Koaid','Tenaglia','Guevara','D. Suárez','G. Simeone','T. Martínez','Boyé','Diabaté'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Sivera',       i:'S', pos:'GK',  price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:1},
+            {n:'R. Fernández', i:'R', pos:'GK',  price:'4M€',  ch:'—',     chc:0,  pts:4,  s:'ok', starter:0, rec:0},
+            {n:'Jonny',        i:'J', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:1},
+            {n:'Pacheco',      i:'P', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Koaid',        i:'K', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Tenaglia',     i:'T', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:1, rec:0},
+            {n:'F. González',  i:'F', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Parada',       i:'P', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Guevara',      i:'G', pos:'MID', price:'15M€', ch:'+200K', chc:1,  pts:32, s:'ok', starter:1, rec:1},
+            {n:'D. Suárez',    i:'D', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'G. Simeone',   i:'G', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:0},
+            {n:'T. Martínez',  i:'T', pos:'MID', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Blanco',       i:'B', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Rioja',        i:'R', pos:'MID', price:'10M€', ch:'+100K', chc:1,  pts:20, s:'ok', starter:0, rec:0},
+            {n:'Ibáñez',       i:'I', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Guridi',       i:'G', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Boyé',         i:'B', pos:'FWD', price:'15M€', ch:'+200K', chc:1,  pts:30, s:'ok', starter:1, rec:1},
+            {n:'Diabaté',      i:'D', pos:'FWD', price:'10M€', ch:'+100K', chc:1,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'M. Díaz',      i:'M', pos:'FWD', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Mallas',       i:'M', pos:'FWD', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+        ]
+    },
+    MAL: {
+        name:'RCD Mallorca', short:'MAL', stadium:'Visit Mallorca Estadi', coach:'Javier Aguirre', formation:'4-4-2',
+        starters:   ['Leo Román','Maffeo','Valjent','Kumbulla','Raillo','Darder','P. Torre','Asano','Luvumbo','Muriqi','Lukaku'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Leo Román',    i:'L', pos:'GK',  price:'15M€', ch:'+100K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Bergström',    i:'B', pos:'GK',  price:'4M€',  ch:'—',     chc:0,  pts:4,  s:'ok', starter:0, rec:0},
+            {n:'Cuéllar',      i:'C', pos:'GK',  price:'2M€',  ch:'—',     chc:0,  pts:2,  s:'ok', starter:0, rec:0},
+            {n:'Maffeo',       i:'M', pos:'DEF', price:'14M€', ch:'+100K', chc:1,  pts:30, s:'ok', starter:1, rec:1},
+            {n:'Valjent',      i:'V', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Kumbulla',     i:'K', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Raillo',       i:'R', pos:'DEF', price:'10M€', ch:'—',     chc:0,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Mojica',       i:'M', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Lato',         i:'L', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Morey',        i:'M', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Darder',       i:'D', pos:'MID', price:'22M€', ch:'+300K', chc:1,  pts:42, s:'ok', starter:1, rec:1},
+            {n:'P. Torre',     i:'P', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:0},
+            {n:'Asano',        i:'A', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Luvumbo',      i:'L', pos:'MID', price:'14M€', ch:'+200K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'A. Sánchez',   i:'A', pos:'MID', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Morlanes',     i:'M', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Mascarell',    i:'M', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Costa',        i:'C', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Muriqi',       i:'M', pos:'FWD', price:'25M€', ch:'+300K', chc:1,  pts:45, s:'ok', starter:1, rec:1},
+            {n:'Lukaku',       i:'L', pos:'FWD', price:'18M€', ch:'+200K', chc:1,  pts:30, s:'ok', starter:1, rec:0},
+            {n:'Prats',        i:'P', pos:'FWD', price:'6M€',  ch:'+100K', chc:1,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Joseph',       i:'J', pos:'FWD', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+        ]
+    },
+    ESP: {
+        name:'RCD Espanyol', short:'ESP', stadium:'Estadi Cornellà-El Prat', coach:'Manolo González', formation:'4-4-2',
+        starters:   ['Dmitrović','Calero','Cabrera','C. Romero','Bisesti','Ngonge','Dolan','Pickel','Puado','K. García','R. Fernández'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Dmitrović',          i:'D', pos:'GK',  price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:1},
+            {n:'Portuño',            i:'P', pos:'GK',  price:'4M€',  ch:'—',     chc:0,  pts:4,  s:'ok', starter:0, rec:0},
+            {n:'Calero',             i:'C', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:1},
+            {n:'Cabrera',            i:'C', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'C. Romero',          i:'C', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Bisesti',            i:'B', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:1, rec:0},
+            {n:'Rubio',              i:'R', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'El Hilali',          i:'E', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Salinas',            i:'S', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'R. Sánchez',         i:'R', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Ngonge',             i:'N', pos:'MID', price:'15M€', ch:'+200K', chc:1,  pts:32, s:'ok', starter:1, rec:1},
+            {n:'Dolan',              i:'D', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Pickel',             i:'P', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'Puado',              i:'P', pos:'MID', price:'10M€', ch:'+100K', chc:1,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'González de Zárate', i:'G', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Lozano',             i:'L', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Espildora',          i:'E', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Terrats',            i:'T', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Willis',             i:'W', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Roca',               i:'R', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'K. García',          i:'K', pos:'FWD', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'R. Fernández',       i:'R', pos:'FWD', price:'10M€', ch:'+100K', chc:1,  pts:20, s:'ok', starter:1, rec:0},
+        ]
+    },
+    ELC: {
+        name:'Elche CF', short:'ELC', stadium:'Estadio Manuel Martínez Valero', coach:'Sebastián Beccacece', formation:'4-4-2',
+        starters:   ['Iñaki Peña','Pedrosa','Oliván','Chust','Bigas','Redondo','Villar','Cepeda','Diangana','A. Silva','Morente'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Iñaki Peña',   i:'I', pos:'GK',  price:'18M€', ch:'+200K', chc:1,  pts:38, s:'ok', starter:1, rec:1},
+            {n:'Iturbe',       i:'I', pos:'GK',  price:'4M€',  ch:'—',     chc:0,  pts:4,  s:'ok', starter:0, rec:0},
+            {n:'Pedrosa',      i:'P', pos:'DEF', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:1},
+            {n:'Oliván',       i:'O', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Chust',        i:'C', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Bigas',        i:'B', pos:'DEF', price:'8M€',  ch:'+100K', chc:1,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Affengruber',  i:'A', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Pétrot',       i:'P', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Donald',       i:'D', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Redondo',      i:'R', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Villar',       i:'V', pos:'MID', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Cepeda',       i:'C', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Diangana',     i:'D', pos:'MID', price:'10M€', ch:'+100K', chc:1,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Rodríguez',    i:'R', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Morente',      i:'M', pos:'MID', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Aguado',       i:'A', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Joselu',       i:'J', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Neto',         i:'N', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'A. Silva',     i:'A', pos:'FWD', price:'20M€', ch:'+300K', chc:1,  pts:38, s:'ok', starter:1, rec:1},
+        ]
+    },
+    LEV: {
+        name:'Levante UD', short:'LEV', stadium:'Estadi Ciutat de València', coach:'Julián Calero', formation:'4-4-2',
+        starters:   ['Ryan','M. Sánchez','Moreno','Dela','Adrián','Vencedor','Losada','U. Raghouber','Arriaga','Etta Eyong','Espí'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Ryan',         i:'R', pos:'GK',  price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:1},
+            {n:'Campos',       i:'C', pos:'GK',  price:'4M€',  ch:'—',     chc:0,  pts:4,  s:'ok', starter:0, rec:0},
+            {n:'Primo',        i:'P', pos:'GK',  price:'2M€',  ch:'—',     chc:0,  pts:2,  s:'ok', starter:0, rec:0},
+            {n:'M. Sánchez',   i:'M', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:1},
+            {n:'Moreno',       i:'M', pos:'DEF', price:'10M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Dela',         i:'D', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:1, rec:0},
+            {n:'Adrián',       i:'A', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:1, rec:0},
+            {n:'Toljan',       i:'T', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Pampín',       i:'P', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Victor',       i:'V', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Vencedor',     i:'V', pos:'MID', price:'15M€', ch:'+200K', chc:1,  pts:32, s:'ok', starter:1, rec:1},
+            {n:'Losada',       i:'L', pos:'MID', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'U. Raghouber', i:'R', pos:'MID', price:'10M€', ch:'+100K', chc:1,  pts:20, s:'ok', starter:1, rec:0},
+            {n:'Arriaga',      i:'A', pos:'MID', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:1, rec:0},
+            {n:'Rey',          i:'R', pos:'MID', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Martínez',     i:'M', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Álvarez',      i:'Á', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Brugui',       i:'B', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'I. Romero',    i:'I', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Etta Eyong',   i:'E', pos:'FWD', price:'12M€', ch:'+100K', chc:1,  pts:22, s:'ok', starter:1, rec:0},
+            {n:'Espí',         i:'E', pos:'FWD', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:1, rec:0},
+            {n:'Morales',      i:'M', pos:'FWD', price:'10M€', ch:'—',     chc:0,  pts:18, s:'ok', starter:0, rec:0},
+        ]
+    },
+    OVI: {
+        name:'Real Oviedo', short:'OVI', stadium:'Estadio Carlos Tartiere', coach:'Luis Carrión', formation:'4-3-3',
+        starters:   ['Escandell','Carmo','N. Vidal','Bailly','Calvo','Dendoncker','Ilić','Fonseca','Colombatto','T. Borbas','Ejaria'],
+        starterPos: ['GK','DEF','DEF','DEF','DEF','MID','MID','MID','MID','FWD','FWD'],
+        squad: [
+            {n:'Escandell',    i:'E', pos:'GK',  price:'12M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:1},
+            {n:'Moldovan',     i:'M', pos:'GK',  price:'4M€',  ch:'—',     chc:0,  pts:4,  s:'ok', starter:0, rec:0},
+            {n:'Carmo',        i:'C', pos:'DEF', price:'14M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:1},
+            {n:'N. Vidal',     i:'N', pos:'DEF', price:'12M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Bailly',       i:'B', pos:'DEF', price:'10M€', ch:'—',     chc:0,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Calvo',        i:'C', pos:'DEF', price:'8M€',  ch:'—',     chc:0,  pts:15, s:'ok', starter:1, rec:0},
+            {n:'J. López',     i:'J', pos:'DEF', price:'6M€',  ch:'—',     chc:0,  pts:10, s:'ok', starter:0, rec:0},
+            {n:'Alhasanne',    i:'A', pos:'DEF', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Dendoncker',   i:'D', pos:'MID', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Ilić',         i:'I', pos:'MID', price:'15M€', ch:'+100K', chc:1,  pts:28, s:'ok', starter:1, rec:0},
+            {n:'Fonseca',      i:'F', pos:'MID', price:'14M€', ch:'+100K', chc:1,  pts:25, s:'ok', starter:1, rec:0},
+            {n:'Colombatto',   i:'C', pos:'MID', price:'10M€', ch:'—',     chc:0,  pts:18, s:'ok', starter:1, rec:0},
+            {n:'Ejaria',       i:'E', pos:'MID', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Raina',        i:'R', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:8,  s:'ok', starter:0, rec:0},
+            {n:'Domínguez',    i:'D', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'Casoria',      i:'C', pos:'MID', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+            {n:'T. Borbas',    i:'T', pos:'FWD', price:'18M€', ch:'+200K', chc:1,  pts:35, s:'ok', starter:1, rec:1},
+            {n:'Forés',        i:'F', pos:'FWD', price:'8M€',  ch:'+100K', chc:1,  pts:15, s:'ok', starter:0, rec:0},
+            {n:'Sousa',        i:'S', pos:'FWD', price:'5M€',  ch:'—',     chc:0,  pts:5,  s:'ok', starter:0, rec:0},
+        ]
+    }
+};
+
+function renderTeam() {
+    const params = new URLSearchParams(location.search);
+    const key = (params.get('team') || 'RMA').toUpperCase();
+    const t = TEAMS[key] || TEAMS['RMA'];
+
+    document.title = t.name + ' | Fantasy Pro';
+
+    // Helpers
+    function slugify(name) {
+        return name.toLowerCase()
+            .normalize('NFD').replace(/[̀-ͯ]/g, '')
+            .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+    function pUrl(p) {
+        const slug = slugify(p.n);
+        return `jugador.html?player=${slug}&n=${encodeURIComponent(p.n)}&pos=${p.pos}&price=${encodeURIComponent(p.price)}&ch=${encodeURIComponent(p.ch)}&chc=${p.chc}&pts=${p.pts}&s=${p.s}&i=${encodeURIComponent(p.i)}&team=${encodeURIComponent(t.name)}&teamKey=${t.short}`;
+    }
+
+    // Build squad lookup by name for pitch dots
+    const squadByName = {};
+    t.squad.forEach(sp => { squadByName[sp.n] = sp; });
+
+    // Pitch dots — positions calculated dynamically so any formation works
+    const posCount = {GK:0, DEF:0, MID:0, FWD:0};
+    t.starterPos.forEach(pos => { posCount[pos] = (posCount[pos]||0)+1; });
+    const counters = {GK:0, DEF:0, MID:0, FWD:0};
+    let pitchDots = '';
+    t.starters.forEach((name, i) => {
+        const pos = t.starterPos[i];
+        const idx = counters[pos]++;
+        const x = Math.round((idx + 1) / (posCount[pos] + 1) * 100);
+        const y = POS_Y[pos];
+        const label = POS_LABEL[pos];
+        const shortName = name.split(' ')[0];
+        const sp = squadByName[name] || {n:name, pos, price:'—', ch:'—', chc:0, pts:0, s:'ok', i:name[0]};
+        const imgSrc = getPlayerImg(name, key);
+        const dotContent = imgSrc
+            ? `<img src="${imgSrc}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" alt="">`
+            : label;
+        pitchDots += `<a href="${pUrl(sp)}" class="pitch-player" style="left:${x}%;top:${y}%;">
+            <div class="pitch-player-dot" style="${imgSrc ? 'overflow:hidden;font-size:0;' : ''}">${dotContent}</div>
+            <div class="pitch-player-name">${shortName}</div>
+        </a>`;
+    });
+
+    // Titulares list (starters only, in order)
+    const starterPlayers = t.squad.filter(p => p.starter);
+    let titularesList = starterPlayers.map(p => {
+        const posLabel = POS_LABEL[p.pos];
+        const posBadge = POS_BADGE[p.pos];
+        return `<a href="${pUrl(p)}" style="display:flex;align-items:center;gap:.6rem;padding:.4rem .5rem;border-radius:6px;text-decoration:none;transition:background .15s;" onmouseover="this.style.background='var(--bg-700)'" onmouseout="this.style.background=''">
+            <span class="badge ${posBadge}" style="width:30px;text-align:center;justify-content:center;">${posLabel}</span>
+            <span style="flex:1;font-size:.88rem;font-weight:600;">${p.n}</span>
+            <span style="font-size:.82rem;font-weight:700;">${p.price}</span>
+        </a>`;
+    }).join('');
+
+    const squadRows = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--dark-400);">Cargando plantilla...</td></tr>';
+
+    document.getElementById('teamContent').innerHTML = `
+        <div class="page-header" style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+            <div class="crest-fallback" style="width:72px;height:72px;font-size:1rem;border-radius:10px;flex-shrink:0;">${t.short}</div>
+            <div>
+                <h1 class="page-title">${t.name}</h1>
+                <p class="page-subtitle">${t.stadium} · Entrenador: ${t.coach}</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom:2.5rem;">
+            <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--dark-400);margin-bottom:1rem;">
+                Alineación probable · ${t.formation}
+            </div>
+            <div class="pitch-wrapper">
+                <div class="pitch">
+                    <svg class="pitch-lines" viewBox="0 0 340 500" preserveAspectRatio="none">
+                        <rect x="20" y="10" width="300" height="480" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+                        <line x1="20" y1="250" x2="320" y2="250" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                        <circle cx="170" cy="250" r="50" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                        <circle cx="170" cy="250" r="3" fill="rgba(255,255,255,.3)"/>
+                        <rect x="85" y="10" width="170" height="80" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                        <rect x="125" y="10" width="90" height="35" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                        <rect x="85" y="410" width="170" height="80" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                        <rect x="125" y="455" width="90" height="35" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                    </svg>
+                    ${pitchDots}
+                </div>
+                <div style="min-width:220px;flex:1;">
+                    <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dark-400);margin-bottom:.5rem;">Titulares probables</div>
+                    ${titularesList}
+                </div>
+            </div>
+        </div>
+
+        <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--dark-400);margin-bottom:1rem;">Plantilla completa</div>
+        <div class="table-wrap" style="margin-bottom:3rem;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jugador</th>
+                        <th>Pos.</th>
+                        <th>Estado</th>
+                        <th style="text-align:right;">Precio</th>
+                        <th style="text-align:right;">Variación</th>
+                        <th style="text-align:right;">Puntos</th>
+                    </tr>
+                </thead>
+                <tbody id="squadTbody">${squadRows}</tbody>
+            </table>
+        </div>
+    `;
+    initCrests(document.getElementById('teamContent'));
+}
+
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function fmtPrice(v) {
+    if (!v && v !== 0) return '—';
+    return parseFloat(v).toFixed(1) + 'M€';
+}
+function fmtChange(v) {
+    if (!v || v === 0) return { str:'—', cls:'price-neutral' };
+    const abs = Math.abs(v);
+    const sign = v > 0 ? '+' : '';
+    const str = abs >= 1 ? `${sign}${v.toFixed(1)}M` : `${sign}${Math.round(v*1000)}K`;
+    return { str, cls: v > 0 ? 'price-up' : 'price-down' };
+}
+
+// Supabase equipo names per team key (some teams have inconsistent naming in the source)
+const TEAM_SB = {
+    RMA:['Real Madrid'],
+    BAR:['Barcelona'],
+    ATM:['Atletico Madrid','Atlético de Madrid','Atlético Madrid'],
+    ATH:['Athletic Club','Athletic'],
+    VIL:['Villarreal'],
+    BET:['Real Betis'],
+    SEV:['Sevilla'],
+    GET:['Getafe'],
+    GIR:['Girona'],
+    CEL:['Celta Vigo','Celta de Vigo'],
+    VAL:['Valencia'],
+    RAY:['Rayo Vallecano'],
+    OSA:['Osasuna'],
+    ALA:['Alavés','Alaves'],
+    MAL:['Mallorca'],
+    ELC:['Elche'],
+    LEV:['Levante'],
+    OVI:['Oviedo','Real Oviedo'],
+    ESP:['Espanyol'],
+    RSO:['Real Sociedad'],
+};
+
+function normSlug(n) {
+    return n.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+async function loadSquadFromSupabase() {
+    const params = new URLSearchParams(location.search);
+    const key = (params.get('team') || 'RMA').toUpperCase();
+    const t = TEAMS[key] || TEAMS['RMA'];
+    const teamNames = TEAM_SB[key] || [];
+    const tbody = document.getElementById('squadTbody');
+    if (!teamNames.length) return;
+
+    const teamConds = teamNames.map(n => `equipo.eq.${n}`).join(',');
+    const { data } = await sb.from('jugadores')
+        .select('nombre,posicion,precio,variacion,puntos,estado,equipo')
+        .or(teamConds)
+        .order('precio', { ascending: false })
+        .limit(200);
+
+    if (!data || !data.length) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--dark-400);">Sin datos disponibles</td></tr>';
+        return;
+    }
+
+    const starterSlugs = new Set(t.starters.map(n => normSlug(n)));
+
+    const rows = data.map(p => {
+        const slug = normSlug(p.nombre);
+        const isStarter = starterSlugs.has(slug) ||
+            t.starters.some(s => { const ss = normSlug(s); return ss.includes(slug) || slug.includes(ss); });
+        const [badgeClass, statusLabel] = STATUS_INFO[p.estado] || STATUS_INFO.ok;
+        const pos = p.posicion || 'MID';
+        const posLabel = POS_LABEL[pos] || pos;
+        const posBadge = POS_BADGE[pos] || 'badge-mid';
+        const ch = fmtChange(p.variacion || 0);
+        const imgSrc = getPlayerImg(p.nombre, key);
+        const initial = (p.nombre || '?')[0].toUpperCase();
+        const avatarEl = imgSrc
+            ? `<img src="${imgSrc}" alt="${initial}" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;">`
+            : `<div style="width:36px;height:36px;border-radius:50%;background:var(--bg-700);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:var(--dark-300);">${initial}</div>`;
+        const note = isStarter ? `<span style="font-size:.68rem;color:var(--primary-400);">✓ Titular probable</span>` : '';
+        const chc = p.variacion > 0 ? 1 : p.variacion < 0 ? -1 : 0;
+        const playerUrl = `jugador.html?player=${slug}&n=${encodeURIComponent(p.nombre)}&pos=${pos}&price=${encodeURIComponent(fmtPrice(p.precio))}&ch=${encodeURIComponent(ch.str)}&chc=${chc}&pts=${p.puntos||0}&s=${p.estado||'ok'}&i=${encodeURIComponent(initial)}&team=${encodeURIComponent(p.equipo)}&teamKey=${key}`;
+
+        return `<tr onclick="window.location='${playerUrl}'" style="cursor:pointer;">
+            <td><div style="display:flex;align-items:center;gap:.75rem;">${avatarEl}<div><div style="font-weight:700;">${p.nombre}</div>${note}</div></div></td>
+            <td><span class="badge ${posBadge}">${posLabel}</span></td>
+            <td><span class="badge ${badgeClass}">${statusLabel}</span></td>
+            <td style="text-align:right;font-weight:800;">${fmtPrice(p.precio)}</td>
+            <td style="text-align:right;" class="${ch.cls}">${ch.str}</td>
+            <td style="text-align:right;color:var(--dark-300);">${p.puntos||'—'}</td>
+        </tr>`;
+    });
+
+    tbody.innerHTML = rows.join('');
+}
+
+renderTeam();
+loadSquadFromSupabase();
+</script>
+</body>
+</html>

@@ -1,0 +1,673 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Equipo | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+    .my-pitch-slot {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        cursor: pointer;
+    }
+    .slot-dot {
+        width: 44px; height: 44px;
+        border-radius: 50%;
+        margin: 0 auto 3px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: .65rem; font-weight: 800;
+        overflow: hidden;
+        transition: transform .15s, box-shadow .15s;
+    }
+    .slot-dot:hover { transform: scale(1.1); }
+    .slot-dot.empty {
+        background: rgba(0,0,0,.45);
+        border: 2px dashed rgba(255,255,255,.4);
+        color: rgba(255,255,255,.6);
+        font-size: 1.4rem;
+    }
+    .slot-dot.filled {
+        background: #065f46;
+        border: 2px solid var(--primary-400);
+        color: var(--primary-300);
+    }
+    .slot-name {
+        font-size: .58rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 1px 4px rgba(0,0,0,.9);
+        white-space: nowrap;
+        max-width: 72px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .slot-price {
+        font-size: .55rem;
+        color: rgba(255,255,255,.75);
+        text-shadow: 0 1px 3px rgba(0,0,0,.9);
+    }
+    .modal-overlay {
+        display: none;
+        position: fixed; inset: 0;
+        background: rgba(0,0,0,.75);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+        background: var(--bg-800);
+        border: 1px solid var(--bg-600);
+        border-radius: var(--radius);
+        width: 100%;
+        max-width: 480px;
+        max-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .modal-header {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--bg-700);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .modal-search {
+        flex: 1;
+        background: var(--bg-700);
+        border: 1px solid var(--bg-600);
+        border-radius: var(--radius-sm);
+        padding: .5rem .75rem;
+        color: var(--white);
+        font-size: .9rem;
+        outline: none;
+        font-family: inherit;
+    }
+    .modal-search:focus { border-color: var(--primary-500); }
+    .modal-list { overflow-y: auto; flex: 1; }
+    .modal-player {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        padding: .65rem 1.25rem;
+        cursor: pointer;
+        border-bottom: 1px solid var(--bg-700);
+        transition: background .1s;
+    }
+    .modal-player:hover { background: var(--bg-700); }
+    .modal-remove {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        padding: .65rem 1.25rem;
+        cursor: pointer;
+        border-bottom: 1px solid var(--bg-600);
+        background: rgba(239,68,68,.08);
+        color: var(--red-400);
+        font-weight: 600;
+        font-size: .88rem;
+        transition: background .1s;
+    }
+    .modal-remove:hover { background: rgba(239,68,68,.16); }
+    .team-summary {
+        background: var(--bg-800);
+        border: 1px solid var(--bg-700);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 1.5rem;
+    }
+    .summary-stat { text-align: center; }
+    .summary-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--dark-400); font-weight: 600; margin-bottom: .2rem; }
+    .summary-value { font-size: 1.4rem; font-weight: 900; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificaci&oacute;n</a>
+            <a href="mi-equipo.html" class="nav-link active">Mi Equipo</a>
+        </div>
+        <div class="navbar-actions" id="miEquipoManaged">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+    <div class="navbar-mobile" id="navMobile">
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="mercado.html">Mercado</a>
+        <a href="clasificacion.html">Clasificaci&oacute;n</a>
+        <a href="mi-equipo.html">Mi Equipo</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="login.html">Entrar</a>
+        <a href="registro.html">Registrarse</a>
+    </div>
+</nav>
+
+<div class="crests-bar">
+    <div class="crests-inner">
+        <a href="equipo.html" class="crest-link" title="Real Madrid"><span class="crest-fallback">RMA</span></a>
+        <a href="equipo.html" class="crest-link" title="FC Barcelona"><span class="crest-fallback">BAR</span></a>
+        <a href="equipo.html" class="crest-link" title="Atlético de Madrid"><span class="crest-fallback">ATM</span></a>
+        <a href="equipo.html" class="crest-link" title="Athletic Club"><span class="crest-fallback">ATH</span></a>
+        <a href="equipo.html" class="crest-link" title="Real Sociedad"><span class="crest-fallback">RSO</span></a>
+        <a href="equipo.html" class="crest-link" title="Villarreal CF"><span class="crest-fallback">VIL</span></a>
+        <a href="equipo.html" class="crest-link" title="Real Betis"><span class="crest-fallback">BET</span></a>
+        <a href="equipo.html" class="crest-link" title="Sevilla FC"><span class="crest-fallback">SEV</span></a>
+        <a href="equipo.html" class="crest-link" title="Getafe CF"><span class="crest-fallback">GET</span></a>
+        <a href="equipo.html" class="crest-link" title="Girona FC"><span class="crest-fallback">GIR</span></a>
+        <a href="equipo.html" class="crest-link" title="Celta de Vigo"><span class="crest-fallback">CEL</span></a>
+        <a href="equipo.html" class="crest-link" title="Valencia CF"><span class="crest-fallback">VAL</span></a>
+        <a href="equipo.html" class="crest-link" title="Rayo Vallecano"><span class="crest-fallback">RAY</span></a>
+        <a href="equipo.html" class="crest-link" title="CA Osasuna"><span class="crest-fallback">OSA</span></a>
+        <a href="equipo.html" class="crest-link" title="Deportivo Alavés"><span class="crest-fallback">ALA</span></a>
+        <a href="equipo.html" class="crest-link" title="RCD Mallorca"><span class="crest-fallback">MAL</span></a>
+        <a href="equipo.html" class="crest-link" title="Elche CF"><span class="crest-fallback">ELC</span></a>
+        <a href="equipo.html" class="crest-link" title="Levante UD"><span class="crest-fallback">LEV</span></a>
+        <a href="equipo.html" class="crest-link" title="Real Oviedo"><span class="crest-fallback">OVI</span></a>
+        <a href="equipo.html" class="crest-link" title="RCD Espanyol"><span class="crest-fallback">ESP</span></a>
+    </div>
+</div>
+
+<main class="main-content">
+<div class="container">
+    <div class="page-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <div>
+            <h1 class="page-title">🏟️ Mi Equipo Fantasy</h1>
+            <p class="page-subtitle">Elige tus 11 jugadores y comprueba el valor de tu equipo</p>
+        </div>
+        <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
+            <span style="font-size:.85rem;color:var(--dark-400);font-weight:600;">Formación:</span>
+            <select id="formationSelect" style="background:var(--bg-700);border:1px solid var(--bg-600);border-radius:var(--radius-sm);padding:.4rem .75rem;color:var(--white);font-size:.9rem;cursor:pointer;" onchange="changeFormation(this.value)">
+                <option value="4-3-3">4-3-3</option>
+                <option value="4-4-2">4-4-2</option>
+                <option value="4-2-3-1">4-2-3-1</option>
+                <option value="3-5-2">3-5-2</option>
+                <option value="5-3-2">5-3-2</option>
+                <option value="4-5-1">4-5-1</option>
+            </select>
+            <button onclick="clearTeam()" style="background:var(--bg-700);border:1px solid var(--bg-600);border-radius:var(--radius-sm);padding:.4rem .75rem;color:var(--dark-300);font-size:.85rem;cursor:pointer;">Limpiar</button>
+        </div>
+    </div>
+
+    <div class="pitch-wrapper" style="gap:1.5rem;">
+        <div class="pitch" id="myPitch" style="width:340px;height:500px;flex-shrink:0;">
+            <svg class="pitch-lines" viewBox="0 0 340 500" preserveAspectRatio="none">
+                <rect x="20" y="10" width="300" height="480" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+                <line x1="20" y1="250" x2="320" y2="250" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                <circle cx="170" cy="250" r="50" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                <circle cx="170" cy="250" r="3" fill="rgba(255,255,255,.3)"/>
+                <rect x="85" y="10" width="170" height="80" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                <rect x="125" y="10" width="90" height="35" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                <rect x="85" y="410" width="170" height="80" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                <rect x="125" y="455" width="90" height="35" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+            </svg>
+        </div>
+
+        <div style="flex:1;min-width:240px;">
+            <div class="team-summary">
+                <div class="summary-stat">
+                    <div class="summary-label">Jugadores</div>
+                    <div class="summary-value" id="playerCount" style="color:var(--primary-400);">0/11</div>
+                </div>
+                <div class="summary-stat">
+                    <div class="summary-label">Valor del equipo</div>
+                    <div class="summary-value" id="totalValue">0 €</div>
+                </div>
+                <div class="summary-stat">
+                    <div class="summary-label">Variación diaria</div>
+                    <div class="summary-value" id="dailyChange">—</div>
+                </div>
+            </div>
+            <div id="selectedList" style="margin-top:1rem;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="playerModal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+        <div class="modal-header">
+            <div style="font-weight:800;font-size:1rem;">Seleccionar jugador</div>
+            <span id="modalPosTag" class="badge" style="font-size:.8rem;"></span>
+            <input type="text" class="modal-search" id="modalSearch" placeholder="Buscar jugador o equipo…" oninput="searchPlayers(this.value)">
+            <button onclick="closeModal()" style="background:none;border:none;color:var(--dark-400);font-size:1.2rem;cursor:pointer;padding:0;">✕</button>
+        </div>
+        <div class="modal-list" id="modalList"></div>
+    </div>
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/player-images.js"></script>
+<script src="assets/js/player-images-auto.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const TEAM_SHORT = {
+    'Real Madrid':'RMA','Barcelona':'BAR','FC Barcelona':'BAR',
+    'Atletico Madrid':'ATM','Atlético Madrid':'ATM','Atlético de Madrid':'ATM',
+    'Athletic Club':'ATH','Athletic':'ATH','Real Sociedad':'RSO',
+    'Villarreal':'VIL','Real Betis':'BET','Sevilla':'SEV',
+    'Getafe':'GET','Girona':'GIR','Celta Vigo':'CEL','Celta de Vigo':'CEL',
+    'Valencia':'VAL','Rayo Vallecano':'RAY','Osasuna':'OSA',
+    'Alavés':'ALA','Alaves':'ALA','Mallorca':'MAL','Elche':'ELC',
+    'Levante':'LEV','Oviedo':'OVI','Real Oviedo':'OVI','Espanyol':'ESP',
+};
+
+const FORMATIONS = {
+    '4-3-3':  [{x:50,y:88,pos:'GK'},{x:13,y:70,pos:'DEF'},{x:38,y:70,pos:'DEF'},{x:63,y:70,pos:'DEF'},{x:88,y:70,pos:'DEF'},{x:18,y:48,pos:'MID'},{x:50,y:48,pos:'MID'},{x:82,y:48,pos:'MID'},{x:20,y:22,pos:'FWD'},{x:50,y:22,pos:'FWD'},{x:80,y:22,pos:'FWD'}],
+    '4-4-2':  [{x:50,y:88,pos:'GK'},{x:13,y:70,pos:'DEF'},{x:38,y:70,pos:'DEF'},{x:63,y:70,pos:'DEF'},{x:88,y:70,pos:'DEF'},{x:13,y:48,pos:'MID'},{x:38,y:48,pos:'MID'},{x:63,y:48,pos:'MID'},{x:88,y:48,pos:'MID'},{x:33,y:22,pos:'FWD'},{x:67,y:22,pos:'FWD'}],
+    '4-2-3-1':[{x:50,y:88,pos:'GK'},{x:13,y:73,pos:'DEF'},{x:38,y:73,pos:'DEF'},{x:63,y:73,pos:'DEF'},{x:88,y:73,pos:'DEF'},{x:30,y:55,pos:'MID'},{x:70,y:55,pos:'MID'},{x:18,y:35,pos:'MID'},{x:50,y:35,pos:'MID'},{x:82,y:35,pos:'MID'},{x:50,y:16,pos:'FWD'}],
+    '3-5-2':  [{x:50,y:88,pos:'GK'},{x:20,y:70,pos:'DEF'},{x:50,y:70,pos:'DEF'},{x:80,y:70,pos:'DEF'},{x:8,y:48,pos:'MID'},{x:27,y:48,pos:'MID'},{x:50,y:48,pos:'MID'},{x:73,y:48,pos:'MID'},{x:92,y:48,pos:'MID'},{x:33,y:22,pos:'FWD'},{x:67,y:22,pos:'FWD'}],
+    '5-3-2':  [{x:50,y:88,pos:'GK'},{x:8,y:72,pos:'DEF'},{x:27,y:72,pos:'DEF'},{x:50,y:72,pos:'DEF'},{x:73,y:72,pos:'DEF'},{x:92,y:72,pos:'DEF'},{x:20,y:48,pos:'MID'},{x:50,y:48,pos:'MID'},{x:80,y:48,pos:'MID'},{x:33,y:22,pos:'FWD'},{x:67,y:22,pos:'FWD'}],
+    '4-5-1':  [{x:50,y:88,pos:'GK'},{x:13,y:72,pos:'DEF'},{x:38,y:72,pos:'DEF'},{x:63,y:72,pos:'DEF'},{x:88,y:72,pos:'DEF'},{x:8,y:46,pos:'MID'},{x:27,y:46,pos:'MID'},{x:50,y:46,pos:'MID'},{x:73,y:46,pos:'MID'},{x:92,y:46,pos:'MID'},{x:50,y:20,pos:'FWD'}],
+};
+const POS_LABEL = {GK:'PT',DEF:'DEF',MID:'MED',FWD:'DEL'};
+
+let allPlayers = [];
+let team = JSON.parse(localStorage.getItem('fantasyTeamDemo') || '{}');
+let formation = localStorage.getItem('fantasyFormationDemo') || '4-3-3';
+let openSlot = null;
+let currentUser = null;
+
+// Limpiar datos antiguos con precios en miles (formato anterior)
+if (Object.values(team).some(p => p.price > 1000)) {
+    team = {};
+    localStorage.removeItem('fantasyTeamDemo');
+}
+
+document.getElementById('formationSelect').value = formation;
+
+function formatPrice(v) {
+    if (v === null || v === undefined || v === 0) return '0M€';
+    const abs = Math.abs(v);
+    if (abs >= 1) return (v < 0 ? '-' : '') + abs.toFixed(abs % 1 === 0 ? 0 : 1) + 'M€';
+    return (v < 0 ? '-' : '') + Math.round(abs * 1000) + 'K€';
+}
+
+function fmtChange(v) {
+    if (!v || v === 0) return '';
+    const abs = Math.abs(v);
+    const sign = v > 0 ? '+' : '';
+    const txt = abs >= 1 ? `${sign}${v.toFixed(1)}M` : `${sign}${Math.round(v * 1000)}K`;
+    const col = v > 0 ? 'var(--primary-400)' : 'var(--red-400)';
+    return `<span style="color:${col};font-size:.75rem;">${txt}</span>`;
+}
+
+function avatarHtml(name, size, teamKey) {
+    const src = typeof getPlayerImg === 'function' ? getPlayerImg(name, teamKey) : null;
+    if (src) return `<img src="${src}" style="width:${size}px;height:${size}px;border-radius:50%;object-fit:cover;flex-shrink:0;" alt="">`;
+    return `<div style="width:${size}px;height:${size}px;border-radius:50%;background:var(--bg-600);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:${size > 36 ? '.85' : '.7'}rem;color:var(--dark-300);flex-shrink:0;">${(name || '?')[0]}</div>`;
+}
+
+function renderPitch() {
+    const pitch = document.getElementById('myPitch');
+    pitch.querySelectorAll('.my-pitch-slot').forEach(e => e.remove());
+    const slots = FORMATIONS[formation];
+    slots.forEach((slot, idx) => {
+        const player = team[idx];
+        const div = document.createElement('div');
+        div.className = 'my-pitch-slot';
+        div.style.left = slot.x + '%';
+        div.style.top  = slot.y + '%';
+        if (player) {
+            const src = typeof getPlayerImg === 'function' ? getPlayerImg(player.name, player.team_short) : null;
+            const dotInner = src
+                ? `<img src="${src}" style="width:44px;height:44px;object-fit:cover;" alt="">`
+                : `<span style="font-size:1.1rem;font-weight:900;color:var(--primary-400);">${player.name.charAt(0)}</span>`;
+            div.innerHTML = `
+                <div class="slot-dot filled">${dotInner}</div>
+                <div class="slot-name">${player.name.split(' ')[0]}</div>
+                <div class="slot-price">${formatPrice(player.price)}</div>`;
+        } else {
+            div.innerHTML = `
+                <div class="slot-dot empty">+</div>
+                <div class="slot-name" style="color:rgba(255,255,255,.4);">${POS_LABEL[slot.pos]}</div>`;
+        }
+        div.onclick = () => openModal(idx, slot.pos);
+        pitch.appendChild(div);
+    });
+    updateSummary();
+    renderSideList();
+}
+
+function renderSideList() {
+    const list = document.getElementById('selectedList');
+    const slots = FORMATIONS[formation];
+    let html = '';
+    ['GK','DEF','MID','FWD'].forEach(pos => {
+        slots.forEach((slot, idx) => {
+            if (slot.pos !== pos) return;
+            const p = team[idx];
+            if (!p) return;
+            const chgHtml = !p.price_change || p.price_change === 0
+                ? '<span style="color:var(--dark-400);">—</span>'
+                : p.price_change > 0
+                    ? `<span style="color:var(--primary-400);">+${formatPrice(p.price_change)}</span>`
+                    : `<span style="color:var(--red-400);">${formatPrice(p.price_change)}</span>`;
+            html += `<div style="display:flex;align-items:center;gap:.6rem;padding:.4rem .5rem;border-radius:6px;cursor:pointer;"
+                          onmouseover="this.style.background='var(--bg-700)'" onmouseout="this.style.background=''"
+                          onclick="openModal(${idx},'${slot.pos}')">
+                <span class="badge badge-${pos.toLowerCase()}" style="width:30px;text-align:center;justify-content:center;">${POS_LABEL[pos]}</span>
+                ${avatarHtml(p.name, 28, p.team_short)}
+                <span style="flex:1;font-size:.85rem;font-weight:600;">${p.name}</span>
+                <span style="font-size:.78rem;color:var(--dark-300);">${p.team_short || ''}</span>
+                <span style="font-size:.82rem;font-weight:700;">${formatPrice(p.price)}</span>
+                ${chgHtml}
+            </div>`;
+        });
+    });
+    list.innerHTML = html || '<div style="color:var(--dark-400);font-size:.85rem;padding:.5rem;">Haz clic en + para añadir jugadores</div>';
+}
+
+function updateSummary() {
+    const slots = FORMATIONS[formation];
+    let total = 0, change = 0, count = 0;
+    slots.forEach((_, idx) => {
+        const p = team[idx];
+        if (!p) return;
+        total  += p.price || 0;
+        change += p.price_change || 0;
+        count++;
+    });
+    document.getElementById('playerCount').textContent = count + '/11';
+    document.getElementById('totalValue').textContent  = formatPrice(total);
+    const dc = document.getElementById('dailyChange');
+    if (change > 0)      { dc.textContent = '+' + formatPrice(change); dc.style.color = 'var(--primary-400)'; }
+    else if (change < 0) { dc.textContent = formatPrice(change);        dc.style.color = 'var(--red-400)'; }
+    else                 { dc.textContent = '—';                        dc.style.color = ''; }
+}
+
+function openModal(idx, pos) {
+    openSlot = {idx, pos};
+    const modal = document.getElementById('playerModal');
+    modal.classList.add('open');
+    const tag = document.getElementById('modalPosTag');
+    tag.textContent = POS_LABEL[pos];
+    tag.className = 'badge badge-' + pos.toLowerCase();
+    const searchEl = document.getElementById('modalSearch');
+    searchEl.value = '';
+    renderModalList(allPlayers.filter(p => p.position === pos));
+    setTimeout(() => searchEl.focus(), 60);
+}
+
+function closeModal() {
+    document.getElementById('playerModal').classList.remove('open');
+    openSlot = null;
+}
+
+function searchPlayers(val) {
+    const pos = openSlot?.pos || '';
+    const q = val.toLowerCase().trim();
+    const filtered = allPlayers.filter(p =>
+        p.position === pos &&
+        (!q || p.name.toLowerCase().includes(q) || (p.team_name || '').toLowerCase().includes(q))
+    );
+    renderModalList(filtered);
+}
+
+function renderModalList(players) {
+    const list = document.getElementById('modalList');
+    let html = '';
+    if (openSlot && team[openSlot.idx]) {
+        html += `<div class="modal-remove" onclick="removePlayer()">✕ Quitar jugador</div>`;
+    }
+    if (!players.length) {
+        html += '<div style="padding:2rem;text-align:center;color:var(--dark-400);">Sin resultados</div>';
+    } else {
+        players.forEach(p => {
+            const safeP = JSON.stringify(p).replace(/'/g, '&#39;');
+            const statusDot = p.status && p.status !== 'ok' && p.status !== 'available'
+                ? `<span style="width:7px;height:7px;border-radius:50%;background:${p.status === 'injured' ? '#ef4444' : '#f59e0b'};display:inline-block;flex-shrink:0;margin-left:4px;"></span>`
+                : '';
+            html += `<div class="modal-player" onclick='selectPlayer(${safeP})'>
+                ${avatarHtml(p.name, 36, p.team_short)}
+                <div style="flex:1;min-width:0;">
+                    <div style="font-weight:700;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${p.name}${statusDot}</div>
+                    <div style="font-size:.75rem;color:var(--dark-400);">${p.team_name}</div>
+                </div>
+                <div style="text-align:right;flex-shrink:0;">
+                    <div style="font-weight:800;font-size:.88rem;">${formatPrice(p.price)}</div>
+                    ${fmtChange(p.price_change)}
+                </div>
+            </div>`;
+        });
+    }
+    list.innerHTML = html;
+}
+
+function selectPlayer(p) {
+    team[openSlot.idx] = p;
+    saveTeam();
+    closeModal();
+    renderPitch();
+}
+
+function removePlayer() {
+    delete team[openSlot.idx];
+    saveTeam();
+    closeModal();
+    renderPitch();
+}
+
+function saveTeam() {
+    localStorage.setItem('fantasyTeamDemo', JSON.stringify(team));
+    saveToSupabase();
+}
+
+async function saveToSupabase() {
+    if (!currentUser) return;
+    const slots = FORMATIONS[formation];
+    const upserts = [];
+    const emptySlots = [];
+    slots.forEach((_, idx) => {
+        if (team[idx]) {
+            upserts.push({
+                user_id: currentUser.id,
+                slot: idx,
+                nombre: team[idx].name,
+                equipo: team[idx].team_name,
+                posicion: team[idx].position,
+                precio: team[idx].price,
+                variacion: team[idx].price_change,
+                estado: team[idx].status,
+                formacion: formation,
+                updated_at: new Date().toISOString()
+            });
+        } else {
+            emptySlots.push(idx);
+        }
+    });
+    if (upserts.length) {
+        await sb.from('mi_equipo').upsert(upserts, { onConflict: 'user_id,slot' });
+    }
+    if (emptySlots.length) {
+        await sb.from('mi_equipo').delete().eq('user_id', currentUser.id).in('slot', emptySlots);
+    }
+}
+
+async function loadFromSupabase() {
+    if (!currentUser) return false;
+    const { data } = await sb.from('mi_equipo').select('*').eq('user_id', currentUser.id);
+    if (!data || !data.length) return false;
+    formation = data[0].formacion || '4-3-3';
+    document.getElementById('formationSelect').value = formation;
+    team = {};
+    data.forEach(row => {
+        team[row.slot] = {
+            name: row.nombre,
+            position: row.posicion,
+            price: row.precio,
+            price_change: row.variacion || 0,
+            team_name: row.equipo || '—',
+            team_short: TEAM_SHORT[row.equipo] || (row.equipo || '').substring(0, 3).toUpperCase(),
+            status: row.estado || 'ok',
+        };
+    });
+    return true;
+}
+
+function updateNavbar() {
+    const actions = document.querySelector('.navbar-actions');
+    if (!currentUser || !actions) return;
+    const isAdmin = currentUser.email === 'albertofernandezmesas@gmail.com';
+    const nombre = currentUser.user_metadata?.nombre || currentUser.email.split('@')[0];
+    const initial = nombre.charAt(0).toUpperCase();
+    const avatarSrc = typeof getUserAvatar === 'function' ? getUserAvatar(currentUser.id) : null;
+    const avatarInner = avatarSrc ? `<img src="${avatarSrc}" alt="${initial}">` : initial;
+    actions.innerHTML = `
+        ${isAdmin ? '<a href="admin.html" class="btn btn-ghost btn-sm">Admin</a>' : ''}
+        <div class="user-dropdown-wrap">
+            <button class="user-avatar-btn" onclick="_toggleUserDropdown(event)" title="${nombre}">${avatarInner}</button>
+            <div id="userDropdown" class="user-dropdown" style="display:none;" onclick="event.stopPropagation()">
+                <div class="user-dropdown-header">${currentUser.email}</div>
+                <a href="perfil.html" class="user-dropdown-item">👤 Mi perfil</a>
+                <a href="favoritos.html" class="user-dropdown-item">⭐ Mis favoritos</a>
+                <a href="amigos.html" class="user-dropdown-item">👥 Amigos</a>
+                <div class="user-dropdown-sep"></div>
+                <button onclick="logout()" class="user-dropdown-item danger">Cerrar sesión</button>
+            </div>
+        </div>
+    `;
+}
+
+async function logout() {
+    await sb.auth.signOut();
+    window.location.href = 'login.html';
+}
+
+function changeFormation(f) {
+    formation = f;
+    localStorage.setItem('fantasyFormationDemo', f);
+    team = {};
+    if (currentUser) {
+        sb.from('mi_equipo').delete().eq('user_id', currentUser.id).then(() => {});
+    }
+    saveTeam();
+    renderPitch();
+}
+
+function clearTeam() {
+    if (!confirm('¿Borrar todos los jugadores del equipo?')) return;
+    team = {};
+    if (currentUser) {
+        sb.from('mi_equipo').delete().eq('user_id', currentUser.id).then(() => {});
+    }
+    saveTeam();
+    renderPitch();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+async function loadFriendTeam(uid, friendName) {
+    // Read-only view of a friend's team
+    document.querySelector('.page-title').textContent = `🏟️ Equipo de ${friendName}`;
+    document.querySelector('.page-subtitle').textContent = 'Vista de solo lectura';
+    // Hide controls
+    document.getElementById('formationSelect').parentElement.style.display = 'none';
+
+    const { data } = await sb.from('mi_equipo').select('*').eq('user_id', uid);
+    if (!data || !data.length) {
+        document.querySelector('.pitch-wrapper').innerHTML = '<div style="text-align:center;padding:3rem;color:var(--dark-400);">Este amigo aún no ha configurado su equipo.</div>';
+        return;
+    }
+    formation = data[0].formacion || '4-3-3';
+    document.getElementById('formationSelect').value = formation;
+    team = {};
+    data.forEach(row => {
+        team[row.slot] = {
+            name: row.nombre, position: row.posicion, price: row.precio,
+            price_change: row.variacion || 0, team_name: row.equipo || '—',
+            team_short: TEAM_SHORT[row.equipo] || (row.equipo||'').substring(0,3).toUpperCase(),
+            status: row.estado || 'ok',
+        };
+    });
+    renderPitch();
+
+    // Make pitch slots non-clickable in friend view
+    document.querySelectorAll('.pitch-slot, .pitch-player-slot').forEach(el => {
+        el.style.pointerEvents = 'none';
+        el.style.cursor = 'default';
+    });
+}
+
+async function init() {
+    const params = new URLSearchParams(location.search);
+    const friendUid  = params.get('uid');
+    const friendName = params.get('name') || 'tu amigo';
+
+    const { data: { session } } = await sb.auth.getSession();
+    currentUser = session?.user || null;
+    updateNavbar();
+
+    if (friendUid && friendUid !== session?.user?.id) {
+        // Vista del equipo de un amigo
+        await loadFriendTeam(friendUid, decodeURIComponent(friendName));
+        return;
+    }
+
+    if (currentUser) {
+        const loaded = await loadFromSupabase();
+        if (!loaded) {
+            team = JSON.parse(localStorage.getItem('fantasyTeamDemo') || '{}');
+        }
+    }
+
+    renderPitch();
+
+    const { data } = await sb.from('jugadores')
+        .select('nombre,equipo,posicion,precio,variacion,estado')
+        .order('precio', { ascending: false })
+        .limit(600);
+    if (data) {
+        allPlayers = data.map(p => ({
+            name: p.nombre,
+            position: p.posicion,
+            price: p.precio,
+            price_change: p.variacion || 0,
+            team_name: p.equipo || '—',
+            team_short: TEAM_SHORT[p.equipo] || (p.equipo || '').substring(0, 3).toUpperCase(),
+            status: p.estado || 'ok',
+        }));
+    }
+}
+init();
+</script>
+</body>
+</html>

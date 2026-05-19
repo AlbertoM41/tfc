@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link active">Clasificación</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+            <a href="favoritos.html" class="nav-link">Favoritos</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+    <div class="navbar-mobile" id="navMobile">
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="mercado.html">Mercado</a>
+        <a href="clasificacion.html">Clasificación</a>
+        <a href="mi-equipo.html">Mi Equipo</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="login.html">Entrar</a>
+        <a href="registro.html">Registrarse</a>
+    </div>
+</nav>
+
+<div class="crests-bar">
+    <div class="crests-inner">
+        <a href="equipo.html?team=RMA" class="crest-link" title="Real Madrid"><span class="crest-fallback">RMA</span></a>
+        <a href="equipo.html?team=BAR" class="crest-link" title="FC Barcelona"><span class="crest-fallback">BAR</span></a>
+        <a href="equipo.html?team=ATM" class="crest-link" title="Atlético de Madrid"><span class="crest-fallback">ATM</span></a>
+        <a href="equipo.html?team=ATH" class="crest-link" title="Athletic Club"><span class="crest-fallback">ATH</span></a>
+        <a href="equipo.html?team=RSO" class="crest-link" title="Real Sociedad"><span class="crest-fallback">RSO</span></a>
+        <a href="equipo.html?team=VIL" class="crest-link" title="Villarreal CF"><span class="crest-fallback">VIL</span></a>
+        <a href="equipo.html?team=BET" class="crest-link" title="Real Betis"><span class="crest-fallback">BET</span></a>
+        <a href="equipo.html?team=SEV" class="crest-link" title="Sevilla FC"><span class="crest-fallback">SEV</span></a>
+        <a href="equipo.html?team=GET" class="crest-link" title="Getafe CF"><span class="crest-fallback">GET</span></a>
+        <a href="equipo.html?team=GIR" class="crest-link" title="Girona FC"><span class="crest-fallback">GIR</span></a>
+        <a href="equipo.html?team=CEL" class="crest-link" title="Celta de Vigo"><span class="crest-fallback">CEL</span></a>
+        <a href="equipo.html?team=VAL" class="crest-link" title="Valencia CF"><span class="crest-fallback">VAL</span></a>
+        <a href="equipo.html?team=RAY" class="crest-link" title="Rayo Vallecano"><span class="crest-fallback">RAY</span></a>
+        <a href="equipo.html?team=OSA" class="crest-link" title="CA Osasuna"><span class="crest-fallback">OSA</span></a>
+        <a href="equipo.html?team=ALA" class="crest-link" title="Deportivo Alavés"><span class="crest-fallback">ALA</span></a>
+        <a href="equipo.html?team=MAL" class="crest-link" title="RCD Mallorca"><span class="crest-fallback">MAL</span></a>
+        <a href="equipo.html?team=ELC" class="crest-link" title="Elche CF"><span class="crest-fallback">ELC</span></a>
+        <a href="equipo.html?team=LEV" class="crest-link" title="Levante UD"><span class="crest-fallback">LEV</span></a>
+        <a href="equipo.html?team=OVI" class="crest-link" title="Real Oviedo"><span class="crest-fallback">OVI</span></a>
+        <a href="equipo.html?team=ESP" class="crest-link" title="RCD Espanyol"><span class="crest-fallback">ESP</span></a>
+    </div>
+</div>
+
+<main class="main-content">
+<div class="container" style="padding-top:2rem;padding-bottom:3rem;">
+
+    <div class="page-header">
+        <h1 class="page-title">Clasificación LaLiga</h1>
+        <p class="page-subtitle">Temporada 2024/25 · Jornada 37</p>
+    </div>
+
+    <!-- Leyenda de zonas -->
+    <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.5rem;">
+        <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;">
+            <div style="width:12px;height:12px;border-radius:2px;background:#3b82f6;"></div>
+            <span style="color:var(--dark-400);">Champions League</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;">
+            <div style="width:12px;height:12px;border-radius:2px;background:#f97316;"></div>
+            <span style="color:var(--dark-400);">Europa League</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;">
+            <div style="width:12px;height:12px;border-radius:2px;background:#22c55e;"></div>
+            <span style="color:var(--dark-400);">Conference League</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;">
+            <div style="width:12px;height:12px;border-radius:2px;background:#ef4444;"></div>
+            <span style="color:var(--dark-400);">Descenso</span>
+        </div>
+    </div>
+
+    <div class="card" style="padding:0;overflow:hidden;">
+        <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:.875rem;">
+            <thead>
+                <tr style="border-bottom:1px solid var(--bg-700);">
+                    <th style="padding:.75rem 1rem;text-align:left;color:var(--dark-400);font-weight:600;white-space:nowrap;">POS</th>
+                    <th style="padding:.75rem 1rem;text-align:left;color:var(--dark-400);font-weight:600;">EQUIPO</th>
+                    <th style="padding:.75rem .75rem;text-align:center;color:var(--dark-400);font-weight:600;">PTS</th>
+                    <th style="padding:.75rem .75rem;text-align:center;color:var(--dark-400);font-weight:600;">PJ</th>
+                    <th style="padding:.75rem .75rem;text-align:center;color:var(--dark-400);font-weight:600;">PG</th>
+                    <th style="padding:.75rem .75rem;text-align:center;color:var(--dark-400);font-weight:600;">PE</th>
+                    <th style="padding:.75rem .75rem;text-align:center;color:var(--dark-400);font-weight:600;">PP</th>
+                    <th style="padding:.75rem .75rem;text-align:center;color:var(--dark-400);font-weight:600;">GF</th>
+                    <th style="padding:.75rem .75rem;text-align:center;color:var(--dark-400);font-weight:600;">GC</th>
+                    <th style="padding:.75rem 1rem;text-align:center;color:var(--dark-400);font-weight:600;">DG</th>
+                </tr>
+            </thead>
+            <tbody id="standingsBody">
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const STANDINGS = [
+    {pos:1,  team:'FC Barcelona',              key:'BAR', pts:94, pj:37, pg:31, pe:1,  pp:5,  gf:94, gc:33, dg:+61},
+    {pos:2,  team:'Real Madrid',               key:'RMA', pts:83, pj:37, pg:26, pe:5,  pp:6,  gf:73, gc:33, dg:+40},
+    {pos:3,  team:'Villarreal CF',             key:'VIL', pts:69, pj:37, pg:21, pe:6,  pp:10, gf:67, gc:45, dg:+22},
+    {pos:4,  team:'Atlético de Madrid',        key:'ATM', pts:69, pj:37, pg:21, pe:6,  pp:10, gf:61, gc:39, dg:+22},
+    {pos:5,  team:'Real Betis',                key:'BET', pts:57, pj:37, pg:14, pe:15, pp:8,  gf:57, gc:47, dg:+10},
+    {pos:6,  team:'Celta de Vigo',             key:'CEL', pts:51, pj:37, pg:13, pe:12, pp:12, gf:52, gc:48, dg:+4 },
+    {pos:7,  team:'Getafe CF',                 key:'GET', pts:48, pj:37, pg:14, pe:6,  pp:17, gf:31, gc:38, dg:-7 },
+    {pos:8,  team:'Rayo Vallecano',            key:'RAY', pts:47, pj:37, pg:11, pe:14, pp:12, gf:39, gc:43, dg:-4 },
+    {pos:9,  team:'Valencia CF',               key:'VAL', pts:46, pj:37, pg:12, pe:10, pp:15, gf:43, gc:54, dg:-11},
+    {pos:10, team:'Real Sociedad',             key:'RSO', pts:45, pj:37, pg:11, pe:12, pp:14, gf:58, gc:60, dg:-2 },
+    {pos:11, team:'RCD Espanyol',              key:'ESP', pts:45, pj:37, pg:12, pe:9,  pp:16, gf:42, gc:54, dg:-12},
+    {pos:12, team:'Athletic Club',             key:'ATH', pts:45, pj:37, pg:13, pe:6,  pp:18, gf:41, gc:54, dg:-13},
+    {pos:13, team:'Sevilla FC',                key:'SEV', pts:43, pj:37, pg:12, pe:7,  pp:18, gf:46, gc:59, dg:-13},
+    {pos:14, team:'Deportivo Alavés',          key:'ALA', pts:43, pj:37, pg:11, pe:10, pp:16, gf:43, gc:54, dg:-11},
+    {pos:15, team:'Levante UD',                key:'LEV', pts:42, pj:37, pg:11, pe:9,  pp:17, gf:46, gc:59, dg:-13},
+    {pos:16, team:'CA Osasuna',                key:'OSA', pts:42, pj:37, pg:11, pe:9,  pp:17, gf:44, gc:49, dg:-5 },
+    {pos:17, team:'Elche CF',                  key:'ELC', pts:42, pj:37, pg:10, pe:12, pp:15, gf:48, gc:56, dg:-8 },
+    {pos:18, team:'Girona FC',                 key:'GIR', pts:40, pj:37, pg:9,  pe:13, pp:15, gf:38, gc:54, dg:-16},
+    {pos:19, team:'RCD Mallorca',              key:'MAL', pts:39, pj:37, pg:10, pe:9,  pp:18, gf:44, gc:57, dg:-13},
+    {pos:20, team:'Real Oviedo',               key:'OVI', pts:29, pj:37, pg:6,  pe:11, pp:20, gf:26, gc:57, dg:-31},
+];
+
+function getZone(pos) {
+    if (pos <= 4)  return {color:'#3b82f6', title:'Champions League'};
+    if (pos <= 6)  return {color:'#f97316', title:'Europa League'};
+    if (pos === 7) return {color:'#22c55e', title:'Conference League'};
+    if (pos >= 18) return {color:'#ef4444', title:'Descenso'};
+    return null;
+}
+
+const tbody = document.getElementById('standingsBody');
+tbody.innerHTML = STANDINGS.map(r => {
+    const zone = getZone(r.pos);
+    const zoneBorder = zone ? `border-left:3px solid ${zone.color};` : 'border-left:3px solid transparent;';
+    const dgStr = r.dg > 0 ? `+${r.dg}` : `${r.dg}`;
+    const dgColor = r.dg > 0 ? 'color:var(--green-400)' : r.dg < 0 ? 'color:var(--red-400)' : '';
+    const ptsStyle = r.pos <= 4 ? 'font-weight:900;color:var(--primary-400);' : 'font-weight:800;';
+    return `<tr onclick="window.location='equipo.html?team=${r.key}'" style="cursor:pointer;border-bottom:1px solid var(--bg-700);${zoneBorder}transition:background .15s;" onmouseover="this.style.background='var(--bg-700)'" onmouseout="this.style.background=''">
+        <td style="padding:.75rem 1rem;color:var(--dark-400);font-weight:600;">${r.pos}</td>
+        <td style="padding:.75rem 1rem;font-weight:700;">${r.team}</td>
+        <td style="padding:.75rem .75rem;text-align:center;${ptsStyle}">${r.pts}</td>
+        <td style="padding:.75rem .75rem;text-align:center;color:var(--dark-400);">${r.pj}</td>
+        <td style="padding:.75rem .75rem;text-align:center;">${r.pg}</td>
+        <td style="padding:.75rem .75rem;text-align:center;">${r.pe}</td>
+        <td style="padding:.75rem .75rem;text-align:center;">${r.pp}</td>
+        <td style="padding:.75rem .75rem;text-align:center;">${r.gf}</td>
+        <td style="padding:.75rem .75rem;text-align:center;">${r.gc}</td>
+        <td style="padding:.75rem 1rem;text-align:center;${dgColor}">${dgStr}</td>
+    </tr>`;
+}).join('');
+</script>
+</body>
+</html>

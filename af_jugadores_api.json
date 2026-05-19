@@ -1,0 +1,3322 @@
+[
+  {
+    "nombre": "Vinicius Jr.",
+    "teamKey": "RMA",
+    "playerId": 762
+  },
+  {
+    "nombre": "Rodrygo",
+    "teamKey": "RMA",
+    "playerId": 10009
+  },
+  {
+    "nombre": "Gonzalo",
+    "teamKey": "RMA",
+    "playerId": 336711
+  },
+  {
+    "nombre": "Mbappé",
+    "teamKey": "RMA",
+    "playerId": 278
+  },
+  {
+    "nombre": "Franco",
+    "teamKey": "RMA",
+    "playerId": 449249
+  },
+  {
+    "nombre": "Brahim",
+    "teamKey": "RMA",
+    "playerId": 744
+  },
+  {
+    "nombre": "Bellingham",
+    "teamKey": "RMA",
+    "playerId": 129718
+  },
+  {
+    "nombre": "Ceballos",
+    "teamKey": "RMA",
+    "playerId": 748
+  },
+  {
+    "nombre": "Camavinga",
+    "teamKey": "RMA",
+    "playerId": 2207
+  },
+  {
+    "nombre": "Tchouaméni",
+    "teamKey": "RMA",
+    "playerId": 1271
+  },
+  {
+    "nombre": "Valverde",
+    "teamKey": "RMA",
+    "playerId": 756
+  },
+  {
+    "nombre": "Arda Guler",
+    "teamKey": "RMA",
+    "playerId": 291964
+  },
+  {
+    "nombre": "Thiago Pitarch",
+    "teamKey": "RMA",
+    "playerId": 509470
+  },
+  {
+    "nombre": "Cestero",
+    "teamKey": "RMA",
+    "playerId": 560905
+  },
+  {
+    "nombre": "Pol Fortuny",
+    "teamKey": "RMA",
+    "playerId": 371913
+  },
+  {
+    "nombre": "Manuel Angel",
+    "teamKey": "RMA",
+    "playerId": 313167
+  },
+  {
+    "nombre": "César Palacios",
+    "teamKey": "RMA",
+    "playerId": 386306
+  },
+  {
+    "nombre": "Carvajal",
+    "teamKey": "RMA",
+    "playerId": 733
+  },
+  {
+    "nombre": "Fran García",
+    "teamKey": "RMA",
+    "playerId": 736
+  },
+  {
+    "nombre": "Mendy",
+    "teamKey": "RMA",
+    "playerId": 653
+  },
+  {
+    "nombre": "Militão",
+    "teamKey": "RMA",
+    "playerId": 372
+  },
+  {
+    "nombre": "Alaba",
+    "teamKey": "RMA",
+    "playerId": 505
+  },
+  {
+    "nombre": "Rudiger",
+    "teamKey": "RMA",
+    "playerId": 2285
+  },
+  {
+    "nombre": "Carreras",
+    "teamKey": "RMA",
+    "playerId": 284300
+  },
+  {
+    "nombre": "Trent",
+    "teamKey": "RMA",
+    "playerId": 283
+  },
+  {
+    "nombre": "Raúl Asencio",
+    "teamKey": "RMA",
+    "playerId": 341640
+  },
+  {
+    "nombre": "David Jiménez",
+    "teamKey": "RMA",
+    "playerId": 330436
+  },
+  {
+    "nombre": "Diego Aguado",
+    "teamKey": "RMA",
+    "playerId": 451355
+  },
+  {
+    "nombre": "Huijsen",
+    "teamKey": "RMA",
+    "playerId": 361497
+  },
+  {
+    "nombre": "Valde",
+    "teamKey": "RMA",
+    "playerId": 560901
+  },
+  {
+    "nombre": "L. Fati",
+    "teamKey": "RMA",
+    "playerId": 561032
+  },
+  {
+    "nombre": "Jesús Fortea",
+    "teamKey": "RMA",
+    "playerId": 443595
+  },
+  {
+    "nombre": "Courtois",
+    "teamKey": "RMA",
+    "playerId": 730
+  },
+  {
+    "nombre": "Lunin",
+    "teamKey": "RMA",
+    "playerId": 47400
+  },
+  {
+    "nombre": "Fran González",
+    "teamKey": "RMA",
+    "playerId": 396475
+  },
+  {
+    "nombre": "Sergio Mestre",
+    "teamKey": "RMA",
+    "playerId": 386872
+  },
+  {
+    "nombre": "Dani Yañez",
+    "teamKey": "RMA",
+    "playerId": 441497
+  },
+  {
+    "nombre": "Raphinha",
+    "teamKey": "BAR",
+    "playerId": 1496
+  },
+  {
+    "nombre": "Lewandowski",
+    "teamKey": "BAR",
+    "playerId": 521
+  },
+  {
+    "nombre": "Ferran Torres",
+    "teamKey": "BAR",
+    "playerId": 931
+  },
+  {
+    "nombre": "Lamine Yamal",
+    "teamKey": "BAR",
+    "playerId": 386828
+  },
+  {
+    "nombre": "Toni Fernández",
+    "teamKey": "BAR",
+    "playerId": 445973
+  },
+  {
+    "nombre": "Rashford",
+    "teamKey": "BAR",
+    "playerId": 909
+  },
+  {
+    "nombre": "De Jong",
+    "teamKey": "BAR",
+    "playerId": 538
+  },
+  {
+    "nombre": "Pedri",
+    "teamKey": "BAR",
+    "playerId": 133609
+  },
+  {
+    "nombre": "Gavi",
+    "teamKey": "BAR",
+    "playerId": 296667
+  },
+  {
+    "nombre": "Casadó",
+    "teamKey": "BAR",
+    "playerId": 329728
+  },
+  {
+    "nombre": "Fermín",
+    "teamKey": "BAR",
+    "playerId": 340626
+  },
+  {
+    "nombre": "Dani Olmo",
+    "teamKey": "BAR",
+    "playerId": 1323
+  },
+  {
+    "nombre": "Marc Bernal",
+    "teamKey": "BAR",
+    "playerId": 433396
+  },
+  {
+    "nombre": "R. Bardghji",
+    "teamKey": "BAR",
+    "playerId": 338958
+  },
+  {
+    "nombre": "Araújo",
+    "teamKey": "BAR",
+    "playerId": 101814
+  },
+  {
+    "nombre": "Álex Balde",
+    "teamKey": "BAR",
+    "playerId": 161928
+  },
+  {
+    "nombre": "Christensen",
+    "teamKey": "BAR",
+    "playerId": 2282
+  },
+  {
+    "nombre": "Eric García",
+    "teamKey": "BAR",
+    "playerId": 619
+  },
+  {
+    "nombre": "Koundé",
+    "teamKey": "BAR",
+    "playerId": 1257
+  },
+  {
+    "nombre": "Pau Cubarsí",
+    "teamKey": "BAR",
+    "playerId": 396623
+  },
+  {
+    "nombre": "João Cancelo",
+    "teamKey": "BAR",
+    "playerId": 855
+  },
+  {
+    "nombre": "Gerard Martín",
+    "teamKey": "BAR",
+    "playerId": 181701
+  },
+  {
+    "nombre": "Jofre Torrents",
+    "teamKey": "BAR",
+    "playerId": 491250
+  },
+  {
+    "nombre": "Xavi Espart",
+    "teamKey": "BAR",
+    "playerId": 568001
+  },
+  {
+    "nombre": "Álvaro Cortés Moyano",
+    "teamKey": "BAR",
+    "playerId": 433395
+  },
+  {
+    "nombre": "Kochen",
+    "teamKey": "BAR",
+    "playerId": 383647
+  },
+  {
+    "nombre": "Szczesny",
+    "teamKey": "BAR",
+    "playerId": 851
+  },
+  {
+    "nombre": "Joan García",
+    "teamKey": "BAR",
+    "playerId": 182718
+  },
+  {
+    "nombre": "Griezmann",
+    "teamKey": "ATM",
+    "playerId": 56
+  },
+  {
+    "nombre": "Giuliano",
+    "teamKey": "ATM",
+    "playerId": 323935
+  },
+  {
+    "nombre": "Sørloth",
+    "teamKey": "ATM",
+    "playerId": 8492
+  },
+  {
+    "nombre": "Julián A.",
+    "teamKey": "ATM",
+    "playerId": 6009
+  },
+  {
+    "nombre": "Lookman",
+    "teamKey": "ATM",
+    "playerId": 18767
+  },
+  {
+    "nombre": "Rayane Belid",
+    "teamKey": "ATM",
+    "playerId": 443668
+  },
+  {
+    "nombre": "I. Luque",
+    "teamKey": "ATM",
+    "playerId": 548706
+  },
+  {
+    "nombre": "Miguel Cubo",
+    "teamKey": "ATM",
+    "playerId": 548707
+  },
+  {
+    "nombre": "Barrios",
+    "teamKey": "ATM",
+    "playerId": 336594
+  },
+  {
+    "nombre": "Koke",
+    "teamKey": "ATM",
+    "playerId": 50
+  },
+  {
+    "nombre": "Álex Baena",
+    "teamKey": "ATM",
+    "playerId": 182219
+  },
+  {
+    "nombre": "Johnny Cardoso",
+    "teamKey": "ATM",
+    "playerId": 133185
+  },
+  {
+    "nombre": "Rodrigo Mendoza",
+    "teamKey": "ATM",
+    "playerId": 341371
+  },
+  {
+    "nombre": "Thiago Almada",
+    "teamKey": "ATM",
+    "playerId": 6067
+  },
+  {
+    "nombre": "Nico González",
+    "teamKey": "ATM",
+    "playerId": 26315
+  },
+  {
+    "nombre": "Obed Vargas",
+    "teamKey": "ATM",
+    "playerId": 313383
+  },
+  {
+    "nombre": "Alejandro Monserrate",
+    "teamKey": "ATM",
+    "playerId": 451594
+  },
+  {
+    "nombre": "T. Seidu",
+    "teamKey": "ATM",
+    "playerId": 548867
+  },
+  {
+    "nombre": "J. Morcillo",
+    "teamKey": "ATM",
+    "playerId": 548704
+  },
+  {
+    "nombre": "Giménez",
+    "teamKey": "ATM",
+    "playerId": 31
+  },
+  {
+    "nombre": "Le Normand",
+    "teamKey": "ATM",
+    "playerId": 47301
+  },
+  {
+    "nombre": "Nahuel",
+    "teamKey": "ATM",
+    "playerId": 6503
+  },
+  {
+    "nombre": "Lenglet",
+    "teamKey": "ATM",
+    "playerId": 133
+  },
+  {
+    "nombre": "Llorente",
+    "teamKey": "ATM",
+    "playerId": 753
+  },
+  {
+    "nombre": "Marc Pubill",
+    "teamKey": "ATM",
+    "playerId": 295793
+  },
+  {
+    "nombre": "Dani Martínez",
+    "teamKey": "ATM",
+    "playerId": 386869
+  },
+  {
+    "nombre": "Javier Boñar",
+    "teamKey": "ATM",
+    "playerId": 336685
+  },
+  {
+    "nombre": "D. Hancko",
+    "teamKey": "ATM",
+    "playerId": 30399
+  },
+  {
+    "nombre": "Ruggeri",
+    "teamKey": "ATM",
+    "playerId": 162012
+  },
+  {
+    "nombre": "Julio Díaz",
+    "teamKey": "ATM",
+    "playerId": 386870
+  },
+  {
+    "nombre": "A. Puric",
+    "teamKey": "ATM",
+    "playerId": 428799
+  },
+  {
+    "nombre": "G. Spina",
+    "teamKey": "ATM",
+    "playerId": 441280
+  },
+  {
+    "nombre": "Oblak",
+    "teamKey": "ATM",
+    "playerId": 29
+  },
+  {
+    "nombre": "Musso",
+    "teamKey": "ATM",
+    "playerId": 2465
+  },
+  {
+    "nombre": "Salvador Esquivel",
+    "teamKey": "ATM",
+    "playerId": 393198
+  },
+  {
+    "nombre": "Álvaro Moreno",
+    "teamKey": "ATM",
+    "playerId": 646997
+  },
+  {
+    "nombre": "Berenguer",
+    "teamKey": "ATH",
+    "playerId": 30510
+  },
+  {
+    "nombre": "Iñaki Williams",
+    "teamKey": "ATH",
+    "playerId": 47294
+  },
+  {
+    "nombre": "Guruzeta",
+    "teamKey": "ATH",
+    "playerId": 47291
+  },
+  {
+    "nombre": "Nico Williams",
+    "teamKey": "ATH",
+    "playerId": 183799
+  },
+  {
+    "nombre": "Nico Serrano",
+    "teamKey": "ATH",
+    "playerId": 286593
+  },
+  {
+    "nombre": "Maroan Sannadi",
+    "teamKey": "ATH",
+    "playerId": 287680
+  },
+  {
+    "nombre": "Urko Izeta",
+    "teamKey": "ATH",
+    "playerId": 183776
+  },
+  {
+    "nombre": "Asier Hierro",
+    "teamKey": "ATH",
+    "playerId": 560954
+  },
+  {
+    "nombre": "Endika Bujan",
+    "teamKey": "ATH",
+    "playerId": 377257
+  },
+  {
+    "nombre": "Unai Gómez",
+    "teamKey": "ATH",
+    "playerId": 332308
+  },
+  {
+    "nombre": "De Galarreta",
+    "teamKey": "ATH",
+    "playerId": 47007
+  },
+  {
+    "nombre": "Vesga",
+    "teamKey": "ATH",
+    "playerId": 47418
+  },
+  {
+    "nombre": "Robert Navarro",
+    "teamKey": "ATH",
+    "playerId": 84086
+  },
+  {
+    "nombre": "Sancet",
+    "teamKey": "ATH",
+    "playerId": 128398
+  },
+  {
+    "nombre": "Prados",
+    "teamKey": "ATH",
+    "playerId": 182617
+  },
+  {
+    "nombre": "Jauregizar",
+    "teamKey": "ATH",
+    "playerId": 383780
+  },
+  {
+    "nombre": "Alejandro Rego",
+    "teamKey": "ATH",
+    "playerId": 332309
+  },
+  {
+    "nombre": "Selton Sánchez",
+    "teamKey": "ATH",
+    "playerId": 568156
+  },
+  {
+    "nombre": "Adrian Perez",
+    "teamKey": "ATH",
+    "playerId": 543467
+  },
+  {
+    "nombre": "Ibon Sánchez",
+    "teamKey": "ATH",
+    "playerId": 384267
+  },
+  {
+    "nombre": "Eder Garcia",
+    "teamKey": "ATH",
+    "playerId": 560978
+  },
+  {
+    "nombre": "Yeray",
+    "teamKey": "ATH",
+    "playerId": 47271
+  },
+  {
+    "nombre": "Yuri",
+    "teamKey": "ATH",
+    "playerId": 47273
+  },
+  {
+    "nombre": "Gorosabel",
+    "teamKey": "ATH",
+    "playerId": 47299
+  },
+  {
+    "nombre": "Lekue",
+    "teamKey": "ATH",
+    "playerId": 47276
+  },
+  {
+    "nombre": "Areso",
+    "teamKey": "ATH",
+    "playerId": 182181
+  },
+  {
+    "nombre": "Vivian",
+    "teamKey": "ATH",
+    "playerId": 47278
+  },
+  {
+    "nombre": "Paredes",
+    "teamKey": "ATH",
+    "playerId": 183849
+  },
+  {
+    "nombre": "Unai Eguíluz",
+    "teamKey": "ATH",
+    "playerId": 332305
+  },
+  {
+    "nombre": "Adama",
+    "teamKey": "ATH",
+    "playerId": 336998
+  },
+  {
+    "nombre": "Laporte",
+    "teamKey": "ATH",
+    "playerId": 622
+  },
+  {
+    "nombre": "Iker Monreal",
+    "teamKey": "ATH",
+    "playerId": 407677
+  },
+  {
+    "nombre": "Jon de Luis",
+    "teamKey": "ATH",
+    "playerId": 335490
+  },
+  {
+    "nombre": "Duñabeitia",
+    "teamKey": "ATH",
+    "playerId": 384262
+  },
+  {
+    "nombre": "Ander Izagirre",
+    "teamKey": "ATH",
+    "playerId": 561097
+  },
+  {
+    "nombre": "Unai Simón",
+    "teamKey": "ATH",
+    "playerId": 47270
+  },
+  {
+    "nombre": "Padilla",
+    "teamKey": "ATH",
+    "playerId": 312468
+  },
+  {
+    "nombre": "Karrikaburu",
+    "teamKey": "RSO",
+    "playerId": 183748
+  },
+  {
+    "nombre": "Oyarzabal",
+    "teamKey": "RSO",
+    "playerId": 47323
+  },
+  {
+    "nombre": "Oskarsson",
+    "teamKey": "RSO",
+    "playerId": 61774
+  },
+  {
+    "nombre": "Mariezkurrena",
+    "teamKey": "RSO",
+    "playerId": 402168
+  },
+  {
+    "nombre": "Wesley Gassova",
+    "teamKey": "RSO",
+    "playerId": 365287
+  },
+  {
+    "nombre": "J. Ochieng",
+    "teamKey": "RSO",
+    "playerId": 387139
+  },
+  {
+    "nombre": "Gorka Carrera",
+    "teamKey": "RSO",
+    "playerId": 403561
+  },
+  {
+    "nombre": "Alex Marchal",
+    "teamKey": "RSO",
+    "playerId": 449063
+  },
+  {
+    "nombre": "Take Kubo",
+    "teamKey": "RSO",
+    "playerId": 32862
+  },
+  {
+    "nombre": "Brais Méndez",
+    "teamKey": "RSO",
+    "playerId": 47440
+  },
+  {
+    "nombre": "Turrientes",
+    "teamKey": "RSO",
+    "playerId": 183744
+  },
+  {
+    "nombre": "Barrenetxea",
+    "teamKey": "RSO",
+    "playerId": 47317
+  },
+  {
+    "nombre": "Yangel Herrera",
+    "teamKey": "RSO",
+    "playerId": 2449
+  },
+  {
+    "nombre": "Pablo Marín",
+    "teamKey": "RSO",
+    "playerId": 290106
+  },
+  {
+    "nombre": "Zakharyan",
+    "teamKey": "RSO",
+    "playerId": 268960
+  },
+  {
+    "nombre": "Guedes",
+    "teamKey": "RSO",
+    "playerId": 925
+  },
+  {
+    "nombre": "Luka Sucic",
+    "teamKey": "RSO",
+    "playerId": 7332
+  },
+  {
+    "nombre": "Jon Gorrotxategi",
+    "teamKey": "RSO",
+    "playerId": 287654
+  },
+  {
+    "nombre": "Carlos Soler",
+    "teamKey": "RSO",
+    "playerId": 930
+  },
+  {
+    "nombre": "Ibai Aguirre",
+    "teamKey": "RSO",
+    "playerId": 469672
+  },
+  {
+    "nombre": "Astiazarán",
+    "teamKey": "RSO",
+    "playerId": 445881
+  },
+  {
+    "nombre": "Aritz",
+    "teamKey": "RSO",
+    "playerId": 47298
+  },
+  {
+    "nombre": "Aihen",
+    "teamKey": "RSO",
+    "playerId": 47303
+  },
+  {
+    "nombre": "Odriozola",
+    "teamKey": "RSO",
+    "playerId": 737
+  },
+  {
+    "nombre": "Zubeldia",
+    "teamKey": "RSO",
+    "playerId": 47314
+  },
+  {
+    "nombre": "Jon Martín",
+    "teamKey": "RSO",
+    "playerId": 405073
+  },
+  {
+    "nombre": "Aramburu",
+    "teamKey": "RSO",
+    "playerId": 199044
+  },
+  {
+    "nombre": "Caleta-Car",
+    "teamKey": "RSO",
+    "playerId": 1902
+  },
+  {
+    "nombre": "Sergio Gómez",
+    "teamKey": "RSO",
+    "playerId": 23
+  },
+  {
+    "nombre": "Rupérez",
+    "teamKey": "RSO",
+    "playerId": 381599
+  },
+  {
+    "nombre": "Luken Beitia",
+    "teamKey": "RSO",
+    "playerId": 349063
+  },
+  {
+    "nombre": "Marrero",
+    "teamKey": "RSO",
+    "playerId": 189832
+  },
+  {
+    "nombre": "Remiro",
+    "teamKey": "RSO",
+    "playerId": 47269
+  },
+  {
+    "nombre": "Fraga",
+    "teamKey": "RSO",
+    "playerId": 337843
+  },
+  {
+    "nombre": "T. Folgado",
+    "teamKey": "RSO",
+    "playerId": 431160
+  },
+  {
+    "nombre": "Gerard",
+    "teamKey": "VIL",
+    "playerId": 1707
+  },
+  {
+    "nombre": "Alfon González",
+    "teamKey": "VIL",
+    "playerId": 119213
+  },
+  {
+    "nombre": "Ayoze Pérez",
+    "teamKey": "VIL",
+    "playerId": 18906
+  },
+  {
+    "nombre": "G. Mikautadze",
+    "teamKey": "VIL",
+    "playerId": 180496
+  },
+  {
+    "nombre": "N. Pépé",
+    "teamKey": "VIL",
+    "playerId": 3246
+  },
+  {
+    "nombre": "Pau Cabanes",
+    "teamKey": "VIL",
+    "playerId": 411702
+  },
+  {
+    "nombre": "T. Oluwaseyi",
+    "teamKey": "VIL",
+    "playerId": 351587
+  },
+  {
+    "nombre": "E. Etoo",
+    "teamKey": "VIL",
+    "playerId": 551397
+  },
+  {
+    "nombre": "Gaitan Diaz",
+    "teamKey": "VIL",
+    "playerId": 548807
+  },
+  {
+    "nombre": "Comesaña",
+    "teamKey": "VIL",
+    "playerId": 47541
+  },
+  {
+    "nombre": "Moleiro",
+    "teamKey": "VIL",
+    "playerId": 182519
+  },
+  {
+    "nombre": "Parejo",
+    "teamKey": "VIL",
+    "playerId": 928
+  },
+  {
+    "nombre": "Pape Gueye",
+    "teamKey": "VIL",
+    "playerId": 20696
+  },
+  {
+    "nombre": "T. Buchanan",
+    "teamKey": "VIL",
+    "playerId": 51016
+  },
+  {
+    "nombre": "T. Partey",
+    "teamKey": "VIL",
+    "playerId": 49
+  },
+  {
+    "nombre": "C. Macia",
+    "teamKey": "VIL",
+    "playerId": 548734
+  },
+  {
+    "nombre": "M. Barry",
+    "teamKey": "VIL",
+    "playerId": 418188
+  },
+  {
+    "nombre": "Alassane Diatta",
+    "teamKey": "VIL",
+    "playerId": 463280
+  },
+  {
+    "nombre": "Hugo López",
+    "teamKey": "VIL",
+    "playerId": 514913
+  },
+  {
+    "nombre": "Sergi Cardona",
+    "teamKey": "VIL",
+    "playerId": 70500
+  },
+  {
+    "nombre": "Foyth",
+    "teamKey": "VIL",
+    "playerId": 166
+  },
+  {
+    "nombre": "Pedraza",
+    "teamKey": "VIL",
+    "playerId": 1702
+  },
+  {
+    "nombre": "Mouriño",
+    "teamKey": "VIL",
+    "playerId": 311773
+  },
+  {
+    "nombre": "Rafa Marín",
+    "teamKey": "VIL",
+    "playerId": 237066
+  },
+  {
+    "nombre": "Kambwala",
+    "teamKey": "VIL",
+    "playerId": 288112
+  },
+  {
+    "nombre": "Logan Costa",
+    "teamKey": "VIL",
+    "playerId": 21997
+  },
+  {
+    "nombre": "Pau Navarro",
+    "teamKey": "VIL",
+    "playerId": 435552
+  },
+  {
+    "nombre": "Renato Veiga",
+    "teamKey": "VIL",
+    "playerId": 336671
+  },
+  {
+    "nombre": "A. Freeman",
+    "teamKey": "VIL",
+    "playerId": 355994
+  },
+  {
+    "nombre": "Isma Sierra",
+    "teamKey": "VIL",
+    "playerId": 330443
+  },
+  {
+    "nombre": "J. Valou",
+    "teamKey": "VIL",
+    "playerId": 484474
+  },
+  {
+    "nombre": "Arnau Tenas",
+    "teamKey": "VIL",
+    "playerId": 162473
+  },
+  {
+    "nombre": "Conde",
+    "teamKey": "VIL",
+    "playerId": 122956
+  },
+  {
+    "nombre": "Luíz Júnior",
+    "teamKey": "VIL",
+    "playerId": 278619
+  },
+  {
+    "nombre": "Rubén Gómez",
+    "teamKey": "VIL",
+    "playerId": 302277
+  },
+  {
+    "nombre": "Chimy Ávila",
+    "teamKey": "BET",
+    "playerId": 47579
+  },
+  {
+    "nombre": "Ez Abde",
+    "teamKey": "BET",
+    "playerId": 181421
+  },
+  {
+    "nombre": "C. Bakambu",
+    "teamKey": "BET",
+    "playerId": 3033
+  },
+  {
+    "nombre": "Antony",
+    "teamKey": "BET",
+    "playerId": 9971
+  },
+  {
+    "nombre": "Cucho",
+    "teamKey": "BET",
+    "playerId": 47582
+  },
+  {
+    "nombre": "Pablo García",
+    "teamKey": "BET",
+    "playerId": 443163
+  },
+  {
+    "nombre": "Rodrigo Marina",
+    "teamKey": "BET",
+    "playerId": 548691
+  },
+  {
+    "nombre": "Riquelme",
+    "teamKey": "BET",
+    "playerId": 136117
+  },
+  {
+    "nombre": "Altimira",
+    "teamKey": "BET",
+    "playerId": 286084
+  },
+  {
+    "nombre": "Marc Roca",
+    "teamKey": "BET",
+    "playerId": 47341
+  },
+  {
+    "nombre": "Isco",
+    "teamKey": "BET",
+    "playerId": 745
+  },
+  {
+    "nombre": "Fornals",
+    "teamKey": "BET",
+    "playerId": 1697
+  },
+  {
+    "nombre": "G. Lo Celso",
+    "teamKey": "BET",
+    "playerId": 1578
+  },
+  {
+    "nombre": "Nelson Deossa",
+    "teamKey": "BET",
+    "playerId": 300885
+  },
+  {
+    "nombre": "Mawuli Mensah",
+    "teamKey": "BET",
+    "playerId": 353803
+  },
+  {
+    "nombre": "S. Amrabat",
+    "teamKey": "BET",
+    "playerId": 74
+  },
+  {
+    "nombre": "Álvaro Fidalgo",
+    "teamKey": "BET",
+    "playerId": 750
+  },
+  {
+    "nombre": "Aitor Ruibal",
+    "teamKey": "BET",
+    "playerId": 47119
+  },
+  {
+    "nombre": "Bellerín",
+    "teamKey": "BET",
+    "playerId": 1439
+  },
+  {
+    "nombre": "Bartra",
+    "teamKey": "BET",
+    "playerId": 1561
+  },
+  {
+    "nombre": "R. Rodríguez",
+    "teamKey": "BET",
+    "playerId": 1631
+  },
+  {
+    "nombre": "Diego Llorente",
+    "teamKey": "BET",
+    "playerId": 47302
+  },
+  {
+    "nombre": "Natan",
+    "teamKey": "BET",
+    "playerId": 195100
+  },
+  {
+    "nombre": "Ángel Ortiz",
+    "teamKey": "BET",
+    "playerId": 334574
+  },
+  {
+    "nombre": "Junior Firpo",
+    "teamKey": "BET",
+    "playerId": 1564
+  },
+  {
+    "nombre": "Valentín",
+    "teamKey": "BET",
+    "playerId": 355004
+  },
+  {
+    "nombre": "D. Bladi",
+    "teamKey": "BET",
+    "playerId": 548853
+  },
+  {
+    "nombre": "Robson",
+    "teamKey": "BET",
+    "playerId": 630908
+  },
+  {
+    "nombre": "D. Bladi",
+    "teamKey": "BET",
+    "playerId": 289554
+  },
+  {
+    "nombre": "Valles",
+    "teamKey": "BET",
+    "playerId": 46990
+  },
+  {
+    "nombre": "Adrián",
+    "teamKey": "BET",
+    "playerId": 18812
+  },
+  {
+    "nombre": "Pau López",
+    "teamKey": "BET",
+    "playerId": 1557
+  },
+  {
+    "nombre": "Isaac Romero",
+    "teamKey": "SEV",
+    "playerId": 185398
+  },
+  {
+    "nombre": "R. Vargas",
+    "teamKey": "SEV",
+    "playerId": 48471
+  },
+  {
+    "nombre": "Ejuke",
+    "teamKey": "SEV",
+    "playerId": 39121
+  },
+  {
+    "nombre": "Peque",
+    "teamKey": "SEV",
+    "playerId": 162126
+  },
+  {
+    "nombre": "Akor Adams",
+    "teamKey": "SEV",
+    "playerId": 57446
+  },
+  {
+    "nombre": "A. Sánchez",
+    "teamKey": "SEV",
+    "playerId": 910
+  },
+  {
+    "nombre": "Miguel Sierra",
+    "teamKey": "SEV",
+    "playerId": 546798
+  },
+  {
+    "nombre": "N. Maupay",
+    "teamKey": "SEV",
+    "playerId": 19364
+  },
+  {
+    "nombre": "A. Costa",
+    "teamKey": "SEV",
+    "playerId": 546872
+  },
+  {
+    "nombre": "Gudelj",
+    "teamKey": "SEV",
+    "playerId": 1489
+  },
+  {
+    "nombre": "A. Januzaj",
+    "teamKey": "SEV",
+    "playerId": 2924
+  },
+  {
+    "nombre": "Jordán",
+    "teamKey": "SEV",
+    "playerId": 47389
+  },
+  {
+    "nombre": "Juanlu",
+    "teamKey": "SEV",
+    "playerId": 182772
+  },
+  {
+    "nombre": "Manu Bueno",
+    "teamKey": "SEV",
+    "playerId": 331607
+  },
+  {
+    "nombre": "Sow",
+    "teamKey": "SEV",
+    "playerId": 957
+  },
+  {
+    "nombre": "Agoumé",
+    "teamKey": "SEV",
+    "playerId": 21004
+  },
+  {
+    "nombre": "B. Mendy",
+    "teamKey": "SEV",
+    "playerId": 21087
+  },
+  {
+    "nombre": "E. Altozano",
+    "teamKey": "SEV",
+    "playerId": 546881
+  },
+  {
+    "nombre": "Carmona",
+    "teamKey": "SEV",
+    "playerId": 195923
+  },
+  {
+    "nombre": "Marcão",
+    "teamKey": "SEV",
+    "playerId": 433
+  },
+  {
+    "nombre": "Nianzou",
+    "teamKey": "SEV",
+    "playerId": 133110
+  },
+  {
+    "nombre": "Kike Salas",
+    "teamKey": "SEV",
+    "playerId": 297311
+  },
+  {
+    "nombre": "Gattoni",
+    "teamKey": "SEV",
+    "playerId": 125331
+  },
+  {
+    "nombre": "Azpilicueta",
+    "teamKey": "SEV",
+    "playerId": 2280
+  },
+  {
+    "nombre": "Oso",
+    "teamKey": "SEV",
+    "playerId": 341453
+  },
+  {
+    "nombre": "G. Suazo",
+    "teamKey": "SEV",
+    "playerId": 11421
+  },
+  {
+    "nombre": "Andrés Castrín",
+    "teamKey": "SEV",
+    "playerId": 338902
+  },
+  {
+    "nombre": "Fábio Cardoso",
+    "teamKey": "SEV",
+    "playerId": 41208
+  },
+  {
+    "nombre": "Iker Muñoz",
+    "teamKey": "SEV",
+    "playerId": 546857
+  },
+  {
+    "nombre": "Alberto Flores",
+    "teamKey": "SEV",
+    "playerId": 308346
+  },
+  {
+    "nombre": "Nyland",
+    "teamKey": "SEV",
+    "playerId": 19172
+  },
+  {
+    "nombre": "Vlachodimos",
+    "teamKey": "SEV",
+    "playerId": 557
+  },
+  {
+    "nombre": "Lorenzo Luchino",
+    "teamKey": "SEV",
+    "playerId": 548843
+  },
+  {
+    "nombre": "Juanmi",
+    "teamKey": "GET",
+    "playerId": 47320
+  },
+  {
+    "nombre": "Borja Mayoral",
+    "teamKey": "GET",
+    "playerId": 47472
+  },
+  {
+    "nombre": "Birma",
+    "teamKey": "GET",
+    "playerId": 45804
+  },
+  {
+    "nombre": "Adrian Liso",
+    "teamKey": "GET",
+    "playerId": 394573
+  },
+  {
+    "nombre": "A. Kamara",
+    "teamKey": "GET",
+    "playerId": 284441
+  },
+  {
+    "nombre": "Álex Sancris",
+    "teamKey": "GET",
+    "playerId": 546852
+  },
+  {
+    "nombre": "Martin Satriano",
+    "teamKey": "GET",
+    "playerId": 195512
+  },
+  {
+    "nombre": "Luis Vázquez",
+    "teamKey": "GET",
+    "playerId": 6490
+  },
+  {
+    "nombre": "Mykyta",
+    "teamKey": "GET",
+    "playerId": 551462
+  },
+  {
+    "nombre": "Yassin Tallal",
+    "teamKey": "GET",
+    "playerId": 439616
+  },
+  {
+    "nombre": "Javi Muñoz",
+    "teamKey": "GET",
+    "playerId": 46860
+  },
+  {
+    "nombre": "Arambarri",
+    "teamKey": "GET",
+    "playerId": 47258
+  },
+  {
+    "nombre": "Luis Milla",
+    "teamKey": "GET",
+    "playerId": 47085
+  },
+  {
+    "nombre": "Mario Martín",
+    "teamKey": "GET",
+    "playerId": 343205
+  },
+  {
+    "nombre": "Hugo Solozábal",
+    "teamKey": "GET",
+    "playerId": 386187
+  },
+  {
+    "nombre": "Alberto Risco",
+    "teamKey": "GET",
+    "playerId": 551460
+  },
+  {
+    "nombre": "A. Mestanza",
+    "teamKey": "GET",
+    "playerId": 579838
+  },
+  {
+    "nombre": "Adrián Riquelme",
+    "teamKey": "GET",
+    "playerId": 631889
+  },
+  {
+    "nombre": "D. Caceres",
+    "teamKey": "GET",
+    "playerId": 637891
+  },
+  {
+    "nombre": "Kiko Femenía",
+    "teamKey": "GET",
+    "playerId": 18794
+  },
+  {
+    "nombre": "Diego Rico",
+    "teamKey": "GET",
+    "playerId": 18867
+  },
+  {
+    "nombre": "Djené",
+    "teamKey": "GET",
+    "playerId": 47250
+  },
+  {
+    "nombre": "Domingos Duarte",
+    "teamKey": "GET",
+    "playerId": 46795
+  },
+  {
+    "nombre": "Juan Iglesias",
+    "teamKey": "GET",
+    "playerId": 119742
+  },
+  {
+    "nombre": "Abqar",
+    "teamKey": "GET",
+    "playerId": 46813
+  },
+  {
+    "nombre": "A. Nyom",
+    "teamKey": "GET",
+    "playerId": 47407
+  },
+  {
+    "nombre": "Davinchi",
+    "teamKey": "GET",
+    "playerId": 471478
+  },
+  {
+    "nombre": "Isma",
+    "teamKey": "GET",
+    "playerId": 439617
+  },
+  {
+    "nombre": "S. Boselli",
+    "teamKey": "GET",
+    "playerId": 316516
+  },
+  {
+    "nombre": "Zaid Romero",
+    "teamKey": "GET",
+    "playerId": 180927
+  },
+  {
+    "nombre": "L. Laso",
+    "teamKey": "GET",
+    "playerId": 609740
+  },
+  {
+    "nombre": "Jorge Montes",
+    "teamKey": "GET",
+    "playerId": 625636
+  },
+  {
+    "nombre": "Marc Vilaplana",
+    "teamKey": "GET",
+    "playerId": 297235
+  },
+  {
+    "nombre": "David Soria",
+    "teamKey": "GET",
+    "playerId": 47247
+  },
+  {
+    "nombre": "Letacek",
+    "teamKey": "GET",
+    "playerId": 66491
+  },
+  {
+    "nombre": "Joel Roca",
+    "teamKey": "GIR",
+    "playerId": 339105
+  },
+  {
+    "nombre": "Stuani",
+    "teamKey": "GIR",
+    "playerId": 2617
+  },
+  {
+    "nombre": "Tsygankov",
+    "teamKey": "GIR",
+    "playerId": 2182
+  },
+  {
+    "nombre": "Portu",
+    "teamKey": "GIR",
+    "playerId": 47520
+  },
+  {
+    "nombre": "V. Vanat",
+    "teamKey": "GIR",
+    "playerId": 161670
+  },
+  {
+    "nombre": "Abel Ruiz",
+    "teamKey": "GIR",
+    "playerId": 155
+  },
+  {
+    "nombre": "Bryan Gil",
+    "teamKey": "GIR",
+    "playerId": 2061
+  },
+  {
+    "nombre": "Javier Sarasa",
+    "teamKey": "GIR",
+    "playerId": 553313
+  },
+  {
+    "nombre": "Juan Arango",
+    "teamKey": "GIR",
+    "playerId": 626331
+  },
+  {
+    "nombre": "Fran Beltrán",
+    "teamKey": "GIR",
+    "playerId": 47435
+  },
+  {
+    "nombre": "Witsel",
+    "teamKey": "GIR",
+    "playerId": 20
+  },
+  {
+    "nombre": "Ricard Artero",
+    "teamKey": "GIR",
+    "playerId": 327628
+  },
+  {
+    "nombre": "Lemar",
+    "teamKey": "GIR",
+    "playerId": 45
+  },
+  {
+    "nombre": "Iván Martín",
+    "teamKey": "GIR",
+    "playerId": 1700
+  },
+  {
+    "nombre": "Van de Beek",
+    "teamKey": "GIR",
+    "playerId": 547
+  },
+  {
+    "nombre": "A. Ounahi",
+    "teamKey": "GIR",
+    "playerId": 129678
+  },
+  {
+    "nombre": "L. Kourouma",
+    "teamKey": "GIR",
+    "playerId": 551459
+  },
+  {
+    "nombre": "C. Echeverri",
+    "teamKey": "GIR",
+    "playerId": 414385
+  },
+  {
+    "nombre": "David López",
+    "teamKey": "GIR",
+    "playerId": 47334
+  },
+  {
+    "nombre": "Arnau",
+    "teamKey": "GIR",
+    "playerId": 283668
+  },
+  {
+    "nombre": "Daley Blind",
+    "teamKey": "GIR",
+    "playerId": 531
+  },
+  {
+    "nombre": "Hugo Rincón",
+    "teamKey": "GIR",
+    "playerId": 313025
+  },
+  {
+    "nombre": "Alejandro Francés",
+    "teamKey": "GIR",
+    "playerId": 162434
+  },
+  {
+    "nombre": "Álex Moreno",
+    "teamKey": "GIR",
+    "playerId": 47547
+  },
+  {
+    "nombre": "Vitor Reis",
+    "teamKey": "GIR",
+    "playerId": 414359
+  },
+  {
+    "nombre": "Pol Arnau",
+    "teamKey": "GIR",
+    "playerId": 429757
+  },
+  {
+    "nombre": "Gibert Jordana",
+    "teamKey": "GIR",
+    "playerId": 491106
+  },
+  {
+    "nombre": "Antonio Salguero",
+    "teamKey": "GIR",
+    "playerId": 439709
+  },
+  {
+    "nombre": "Ter Stegen",
+    "teamKey": "GIR",
+    "playerId": 127
+  },
+  {
+    "nombre": "Gazzaniga",
+    "teamKey": "GIR",
+    "playerId": 158
+  },
+  {
+    "nombre": "Juan Carlos",
+    "teamKey": "GIR",
+    "playerId": 47153
+  },
+  {
+    "nombre": "Rubén Blanco",
+    "teamKey": "GIR",
+    "playerId": 47426
+  },
+  {
+    "nombre": "Krapyvtsov",
+    "teamKey": "GIR",
+    "playerId": 432476
+  },
+  {
+    "nombre": "A. Andreev",
+    "teamKey": "GIR",
+    "playerId": 442861
+  },
+  {
+    "nombre": "Aspas",
+    "teamKey": "CEL",
+    "playerId": 47445
+  },
+  {
+    "nombre": "Borja Iglesias",
+    "teamKey": "CEL",
+    "playerId": 47348
+  },
+  {
+    "nombre": "Pablo Durán",
+    "teamKey": "CEL",
+    "playerId": 320517
+  },
+  {
+    "nombre": "Abdellaoui",
+    "teamKey": "CEL",
+    "playerId": 351913
+  },
+  {
+    "nombre": "Ferran Jutglà",
+    "teamKey": "CEL",
+    "playerId": 122734
+  },
+  {
+    "nombre": "A. Arcos",
+    "teamKey": "CEL",
+    "playerId": 554287
+  },
+  {
+    "nombre": "Cervi",
+    "teamKey": "CEL",
+    "playerId": 570
+  },
+  {
+    "nombre": "Swedberg",
+    "teamKey": "CEL",
+    "playerId": 269163
+  },
+  {
+    "nombre": "Sotelo",
+    "teamKey": "CEL",
+    "playerId": 313651
+  },
+  {
+    "nombre": "Hugo González",
+    "teamKey": "CEL",
+    "playerId": 161875
+  },
+  {
+    "nombre": "Hugo Álvarez",
+    "teamKey": "CEL",
+    "playerId": 329720
+  },
+  {
+    "nombre": "I. Moriba",
+    "teamKey": "CEL",
+    "playerId": 162123
+  },
+  {
+    "nombre": "Fer López",
+    "teamKey": "CEL",
+    "playerId": 391822
+  },
+  {
+    "nombre": "Miguel Román",
+    "teamKey": "CEL",
+    "playerId": 333502
+  },
+  {
+    "nombre": "Manu Fernández",
+    "teamKey": "CEL",
+    "playerId": 182638
+  },
+  {
+    "nombre": "M. Vecino",
+    "teamKey": "CEL",
+    "playerId": 211
+  },
+  {
+    "nombre": "Andrés Antañón",
+    "teamKey": "CEL",
+    "playerId": 481678
+  },
+  {
+    "nombre": "H. Burcio",
+    "teamKey": "CEL",
+    "playerId": 560930
+  },
+  {
+    "nombre": "Oscar Marcos",
+    "teamKey": "CEL",
+    "playerId": 554286
+  },
+  {
+    "nombre": "Marcos Alonso",
+    "teamKey": "CEL",
+    "playerId": 2278
+  },
+  {
+    "nombre": "Mingueza",
+    "teamKey": "CEL",
+    "playerId": 162712
+  },
+  {
+    "nombre": "Aidoo",
+    "teamKey": "CEL",
+    "playerId": 1926
+  },
+  {
+    "nombre": "Carlos Domínguez",
+    "teamKey": "CEL",
+    "playerId": 286559
+  },
+  {
+    "nombre": "Carreira",
+    "teamKey": "CEL",
+    "playerId": 157988
+  },
+  {
+    "nombre": "Starfelt",
+    "teamKey": "CEL",
+    "playerId": 47988
+  },
+  {
+    "nombre": "Ristić",
+    "teamKey": "CEL",
+    "playerId": 21584
+  },
+  {
+    "nombre": "Javi Rodríguez",
+    "teamKey": "CEL",
+    "playerId": 384135
+  },
+  {
+    "nombre": "Javi Rueda",
+    "teamKey": "CEL",
+    "playerId": 179955
+  },
+  {
+    "nombre": "Yoel Lago",
+    "teamKey": "CEL",
+    "playerId": 329722
+  },
+  {
+    "nombre": "Álvaro Núñez",
+    "teamKey": "CEL",
+    "playerId": 182661
+  },
+  {
+    "nombre": "P. Meixus",
+    "teamKey": "CEL",
+    "playerId": 561063
+  },
+  {
+    "nombre": "Iván Villar",
+    "teamKey": "CEL",
+    "playerId": 47427
+  },
+  {
+    "nombre": "Marc Vidal",
+    "teamKey": "CEL",
+    "playerId": 182730
+  },
+  {
+    "nombre": "I. Radu",
+    "teamKey": "CEL",
+    "playerId": 30765
+  },
+  {
+    "nombre": "A. Danjuma",
+    "teamKey": "VAL",
+    "playerId": 83
+  },
+  {
+    "nombre": "Hugo Duro",
+    "teamKey": "VAL",
+    "playerId": 47264
+  },
+  {
+    "nombre": "Diego López",
+    "teamKey": "VAL",
+    "playerId": 162127
+  },
+  {
+    "nombre": "L. Ramazani",
+    "teamKey": "VAL",
+    "playerId": 138776
+  },
+  {
+    "nombre": "Sadiq",
+    "teamKey": "VAL",
+    "playerId": 31406
+  },
+  {
+    "nombre": "Dani Raba",
+    "teamKey": "VAL",
+    "playerId": 1708
+  },
+  {
+    "nombre": "Aimar Blázquez",
+    "teamKey": "VAL",
+    "playerId": 406045
+  },
+  {
+    "nombre": "M. Jurado",
+    "teamKey": "VAL",
+    "playerId": 549444
+  },
+  {
+    "nombre": "Javi Guerra",
+    "teamKey": "VAL",
+    "playerId": 315699
+  },
+  {
+    "nombre": "Guido Rodríguez",
+    "teamKey": "VAL",
+    "playerId": 2476
+  },
+  {
+    "nombre": "Rioja",
+    "teamKey": "VAL",
+    "playerId": 46933
+  },
+  {
+    "nombre": "Almeida",
+    "teamKey": "VAL",
+    "playerId": 41157
+  },
+  {
+    "nombre": "Pepelu",
+    "teamKey": "VAL",
+    "playerId": 47463
+  },
+  {
+    "nombre": "B. Santamaría",
+    "teamKey": "VAL",
+    "playerId": 21153
+  },
+  {
+    "nombre": "Filip Ugrinic",
+    "teamKey": "VAL",
+    "playerId": 48465
+  },
+  {
+    "nombre": "L. Beltrán",
+    "teamKey": "VAL",
+    "playerId": 6010
+  },
+  {
+    "nombre": "Lucas Nuñez",
+    "teamKey": "VAL",
+    "playerId": 406043
+  },
+  {
+    "nombre": "E. Cömert",
+    "teamKey": "VAL",
+    "playerId": 48372
+  },
+  {
+    "nombre": "Copete",
+    "teamKey": "VAL",
+    "playerId": 181582
+  },
+  {
+    "nombre": "Diakhaby",
+    "teamKey": "VAL",
+    "playerId": 916
+  },
+  {
+    "nombre": "Foulquier",
+    "teamKey": "VAL",
+    "playerId": 47251
+  },
+  {
+    "nombre": "Gayá",
+    "teamKey": "VAL",
+    "playerId": 918
+  },
+  {
+    "nombre": "Thierry Correia",
+    "teamKey": "VAL",
+    "playerId": 1482
+  },
+  {
+    "nombre": "Jesús Vázquez",
+    "teamKey": "VAL",
+    "playerId": 162175
+  },
+  {
+    "nombre": "Unai Núñez",
+    "teamKey": "VAL",
+    "playerId": 47277
+  },
+  {
+    "nombre": "Tárrega",
+    "teamKey": "VAL",
+    "playerId": 333672
+  },
+  {
+    "nombre": "Joel Fontanet",
+    "teamKey": "VAL",
+    "playerId": 623732
+  },
+  {
+    "nombre": "A. Panach",
+    "teamKey": "VAL",
+    "playerId": 584165
+  },
+  {
+    "nombre": "Renzo Saravia",
+    "teamKey": "VAL",
+    "playerId": 2470
+  },
+  {
+    "nombre": "Cristian Rivero",
+    "teamKey": "VAL",
+    "playerId": 913
+  },
+  {
+    "nombre": "Dimitrievski",
+    "teamKey": "VAL",
+    "playerId": 47527
+  },
+  {
+    "nombre": "Agirrezabala",
+    "teamKey": "VAL",
+    "playerId": 183848
+  },
+  {
+    "nombre": "Vicent Abril",
+    "teamKey": "VAL",
+    "playerId": 401983
+  },
+  {
+    "nombre": "Nteka",
+    "teamKey": "RAY",
+    "playerId": 122657
+  },
+  {
+    "nombre": "Isi",
+    "teamKey": "RAY",
+    "playerId": 131546
+  },
+  {
+    "nombre": "Camello",
+    "teamKey": "RAY",
+    "playerId": 52
+  },
+  {
+    "nombre": "Akhomach",
+    "teamKey": "RAY",
+    "playerId": 290740
+  },
+  {
+    "nombre": "De Frutos",
+    "teamKey": "RAY",
+    "playerId": 128582
+  },
+  {
+    "nombre": "Alemão",
+    "teamKey": "RAY",
+    "playerId": 91745
+  },
+  {
+    "nombre": "Samu Becerra",
+    "teamKey": "RAY",
+    "playerId": 439633
+  },
+  {
+    "nombre": "Pathé Ciss",
+    "teamKey": "RAY",
+    "playerId": 41552
+  },
+  {
+    "nombre": "Álvaro García",
+    "teamKey": "RAY",
+    "playerId": 47543
+  },
+  {
+    "nombre": "Unai López",
+    "teamKey": "RAY",
+    "playerId": 47285
+  },
+  {
+    "nombre": "Ó. Valentín",
+    "teamKey": "RAY",
+    "playerId": 47109
+  },
+  {
+    "nombre": "Fran Pérez",
+    "teamKey": "RAY",
+    "playerId": 162931
+  },
+  {
+    "nombre": "Trejo",
+    "teamKey": "RAY",
+    "playerId": 47557
+  },
+  {
+    "nombre": "Gumbau",
+    "teamKey": "RAY",
+    "playerId": 47414
+  },
+  {
+    "nombre": "Carlos Martín",
+    "teamKey": "RAY",
+    "playerId": 324750
+  },
+  {
+    "nombre": "Pedro Díaz",
+    "teamKey": "RAY",
+    "playerId": 46887
+  },
+  {
+    "nombre": "Lejeune",
+    "teamKey": "RAY",
+    "playerId": 18895
+  },
+  {
+    "nombre": "Balliu",
+    "teamKey": "RAY",
+    "playerId": 20520
+  },
+  {
+    "nombre": "Chavarría",
+    "teamKey": "RAY",
+    "playerId": 181734
+  },
+  {
+    "nombre": "Mumin",
+    "teamKey": "RAY",
+    "playerId": 15900
+  },
+  {
+    "nombre": "Espino",
+    "teamKey": "RAY",
+    "playerId": 46759
+  },
+  {
+    "nombre": "Luiz Felipe",
+    "teamKey": "RAY",
+    "playerId": 1847
+  },
+  {
+    "nombre": "Ratiu",
+    "teamKey": "RAY",
+    "playerId": 1703
+  },
+  {
+    "nombre": "Nobel Mendy",
+    "teamKey": "RAY",
+    "playerId": 358431
+  },
+  {
+    "nombre": "Jozhua Vertrouwd",
+    "teamKey": "RAY",
+    "playerId": 314006
+  },
+  {
+    "nombre": "Cárdenas",
+    "teamKey": "RAY",
+    "playerId": 156488
+  },
+  {
+    "nombre": "A. Batalla",
+    "teamKey": "RAY",
+    "playerId": 11379
+  },
+  {
+    "nombre": "Juanpe",
+    "teamKey": "RAY",
+    "playerId": 285505
+  },
+  {
+    "nombre": "Adrián Molina",
+    "teamKey": "RAY",
+    "playerId": 478244
+  },
+  {
+    "nombre": "Kike Barja",
+    "teamKey": "OSA",
+    "playerId": 46667
+  },
+  {
+    "nombre": "Budimir",
+    "teamKey": "OSA",
+    "playerId": 46746
+  },
+  {
+    "nombre": "Raúl",
+    "teamKey": "OSA",
+    "playerId": 146751
+  },
+  {
+    "nombre": "Raul Moro",
+    "teamKey": "OSA",
+    "playerId": 264470
+  },
+  {
+    "nombre": "Benito",
+    "teamKey": "OSA",
+    "playerId": 288800
+  },
+  {
+    "nombre": "Víctor Muñoz",
+    "teamKey": "OSA",
+    "playerId": 338751
+  },
+  {
+    "nombre": "Roberto Arroyo",
+    "teamKey": "OSA",
+    "playerId": 331003
+  },
+  {
+    "nombre": "Pedroarena",
+    "teamKey": "OSA",
+    "playerId": 391819
+  },
+  {
+    "nombre": "Manu Rico",
+    "teamKey": "OSA",
+    "playerId": 337011
+  },
+  {
+    "nombre": "Rubén García",
+    "teamKey": "OSA",
+    "playerId": 46658
+  },
+  {
+    "nombre": "Moi Gómez",
+    "teamKey": "OSA",
+    "playerId": 47574
+  },
+  {
+    "nombre": "Moncayola",
+    "teamKey": "OSA",
+    "playerId": 46662
+  },
+  {
+    "nombre": "Iker Muñoz",
+    "teamKey": "OSA",
+    "playerId": 182621
+  },
+  {
+    "nombre": "Torró",
+    "teamKey": "OSA",
+    "playerId": 1825
+  },
+  {
+    "nombre": "Aimar Oroz",
+    "teamKey": "OSA",
+    "playerId": 67939
+  },
+  {
+    "nombre": "Ander Yoldi",
+    "teamKey": "OSA",
+    "playerId": 186824
+  },
+  {
+    "nombre": "Asier Osambela",
+    "teamKey": "OSA",
+    "playerId": 381197
+  },
+  {
+    "nombre": "Mauro",
+    "teamKey": "OSA",
+    "playerId": 429553
+  },
+  {
+    "nombre": "Juan Cruz",
+    "teamKey": "OSA",
+    "playerId": 46967
+  },
+  {
+    "nombre": "Javi Galán",
+    "teamKey": "OSA",
+    "playerId": 47566
+  },
+  {
+    "nombre": "Catena",
+    "teamKey": "OSA",
+    "playerId": 47533
+  },
+  {
+    "nombre": "Herrando",
+    "teamKey": "OSA",
+    "playerId": 182592
+  },
+  {
+    "nombre": "F. Boyomo",
+    "teamKey": "OSA",
+    "playerId": 279822
+  },
+  {
+    "nombre": "Rosier",
+    "teamKey": "OSA",
+    "playerId": 21701
+  },
+  {
+    "nombre": "Abel Bretones",
+    "teamKey": "OSA",
+    "playerId": 181259
+  },
+  {
+    "nombre": "Íñigo Arguibide",
+    "teamKey": "OSA",
+    "playerId": 421044
+  },
+  {
+    "nombre": "Jon García",
+    "teamKey": "OSA",
+    "playerId": 338872
+  },
+  {
+    "nombre": "Aitor Fdez.",
+    "teamKey": "OSA",
+    "playerId": 47448
+  },
+  {
+    "nombre": "S. Herrera",
+    "teamKey": "OSA",
+    "playerId": 46646
+  },
+  {
+    "nombre": "Stamatakis",
+    "teamKey": "OSA",
+    "playerId": 348029
+  },
+  {
+    "nombre": "Rebbach",
+    "teamKey": "ALA",
+    "playerId": 183751
+  },
+  {
+    "nombre": "L. Boyé",
+    "teamKey": "ALA",
+    "playerId": 608
+  },
+  {
+    "nombre": "Mariano",
+    "teamKey": "ALA",
+    "playerId": 760
+  },
+  {
+    "nombre": "Toni Martínez",
+    "teamKey": "ALA",
+    "playerId": 47181
+  },
+  {
+    "nombre": "Ibrahim Diabate",
+    "teamKey": "ALA",
+    "playerId": 182784
+  },
+  {
+    "nombre": "Aitor Mañas",
+    "teamKey": "ALA",
+    "playerId": 623902
+  },
+  {
+    "nombre": "D. Morcillo",
+    "teamKey": "ALA",
+    "playerId": 565586
+  },
+  {
+    "nombre": "Guevara",
+    "teamKey": "ALA",
+    "playerId": 47309
+  },
+  {
+    "nombre": "Protesoni",
+    "teamKey": "ALA",
+    "playerId": 6085
+  },
+  {
+    "nombre": "Guridi",
+    "teamKey": "ALA",
+    "playerId": 104821
+  },
+  {
+    "nombre": "Ibáñez",
+    "teamKey": "ALA",
+    "playerId": 139001
+  },
+  {
+    "nombre": "Denis Suárez",
+    "teamKey": "ALA",
+    "playerId": 1461
+  },
+  {
+    "nombre": "Aleñá",
+    "teamKey": "ALA",
+    "playerId": 143
+  },
+  {
+    "nombre": "Blanco",
+    "teamKey": "ALA",
+    "playerId": 162686
+  },
+  {
+    "nombre": "Calebe",
+    "teamKey": "ALA",
+    "playerId": 266658
+  },
+  {
+    "nombre": "Jon Pacheco",
+    "teamKey": "ALA",
+    "playerId": 182546
+  },
+  {
+    "nombre": "Tenaglia",
+    "teamKey": "ALA",
+    "playerId": 6233
+  },
+  {
+    "nombre": "Víctor Parada",
+    "teamKey": "ALA",
+    "playerId": 128951
+  },
+  {
+    "nombre": "Yusi",
+    "teamKey": "ALA",
+    "playerId": 361384
+  },
+  {
+    "nombre": "Facundo Garcés",
+    "teamKey": "ALA",
+    "playerId": 6638
+  },
+  {
+    "nombre": "Jonny Otto",
+    "teamKey": "ALA",
+    "playerId": 18740
+  },
+  {
+    "nombre": "Ville Koski",
+    "teamKey": "ALA",
+    "playerId": 106759
+  },
+  {
+    "nombre": "Álvaro García",
+    "teamKey": "ALA",
+    "playerId": 442058
+  },
+  {
+    "nombre": "E. Munoz",
+    "teamKey": "ALA",
+    "playerId": 601858
+  },
+  {
+    "nombre": "P. Sanz",
+    "teamKey": "ALA",
+    "playerId": 646886
+  },
+  {
+    "nombre": "Angel Pérez",
+    "teamKey": "ALA",
+    "playerId": 331369
+  },
+  {
+    "nombre": "Raúl Fernández",
+    "teamKey": "ALA",
+    "playerId": 46987
+  },
+  {
+    "nombre": "Sivera",
+    "teamKey": "ALA",
+    "playerId": 47353
+  },
+  {
+    "nombre": "Rubén Montero",
+    "teamKey": "ALA",
+    "playerId": 551461
+  },
+  {
+    "nombre": "G. Swiderski",
+    "teamKey": "ALA",
+    "playerId": 377215
+  },
+  {
+    "nombre": "Javi Llabrés",
+    "teamKey": "MAL",
+    "playerId": 293604
+  },
+  {
+    "nombre": "Muriqi",
+    "teamKey": "MAL",
+    "playerId": 50048
+  },
+  {
+    "nombre": "Abdón",
+    "teamKey": "MAL",
+    "playerId": 46751
+  },
+  {
+    "nombre": "T. Asano",
+    "teamKey": "MAL",
+    "playerId": 25375
+  },
+  {
+    "nombre": "M. Joseph",
+    "teamKey": "MAL",
+    "playerId": 313059
+  },
+  {
+    "nombre": "Jan Virgili",
+    "teamKey": "MAL",
+    "playerId": 491248
+  },
+  {
+    "nombre": "J. Kalumba",
+    "teamKey": "MAL",
+    "playerId": 405074
+  },
+  {
+    "nombre": "Zito Luvumbo",
+    "teamKey": "MAL",
+    "playerId": 140831
+  },
+  {
+    "nombre": "Mascarell",
+    "teamKey": "MAL",
+    "playerId": 414
+  },
+  {
+    "nombre": "Pablo Torre",
+    "teamKey": "MAL",
+    "playerId": 285909
+  },
+  {
+    "nombre": "Morlanes",
+    "teamKey": "MAL",
+    "playerId": 1701
+  },
+  {
+    "nombre": "Antonio S.",
+    "teamKey": "MAL",
+    "playerId": 107194
+  },
+  {
+    "nombre": "Samú Costa",
+    "teamKey": "MAL",
+    "playerId": 190485
+  },
+  {
+    "nombre": "Darder",
+    "teamKey": "MAL",
+    "playerId": 47336
+  },
+  {
+    "nombre": "Jan Salas",
+    "teamKey": "MAL",
+    "playerId": 411424
+  },
+  {
+    "nombre": "Jandro García",
+    "teamKey": "MAL",
+    "playerId": 629089
+  },
+  {
+    "nombre": "C. Riba",
+    "teamKey": "MAL",
+    "playerId": 646868
+  },
+  {
+    "nombre": "Mojica",
+    "teamKey": "MAL",
+    "playerId": 64268
+  },
+  {
+    "nombre": "Lato",
+    "teamKey": "MAL",
+    "playerId": 920
+  },
+  {
+    "nombre": "Maffeo",
+    "teamKey": "MAL",
+    "playerId": 26302
+  },
+  {
+    "nombre": "Raíllo",
+    "teamKey": "MAL",
+    "playerId": 46733
+  },
+  {
+    "nombre": "Valjent",
+    "teamKey": "MAL",
+    "playerId": 46738
+  },
+  {
+    "nombre": "David López",
+    "teamKey": "MAL",
+    "playerId": 335697
+  },
+  {
+    "nombre": "Kumbulla",
+    "teamKey": "MAL",
+    "playerId": 30924
+  },
+  {
+    "nombre": "Mateu Morey",
+    "teamKey": "MAL",
+    "playerId": 108519
+  },
+  {
+    "nombre": "J. Olaizola",
+    "teamKey": "MAL",
+    "playerId": 551463
+  },
+  {
+    "nombre": "L. Orejuela",
+    "teamKey": "MAL",
+    "playerId": 626497
+  },
+  {
+    "nombre": "I. Salhi",
+    "teamKey": "MAL",
+    "playerId": 462277
+  },
+  {
+    "nombre": "Leo Sánchez",
+    "teamKey": "MAL",
+    "playerId": 647395
+  },
+  {
+    "nombre": "M. Calatayud",
+    "teamKey": "MAL",
+    "playerId": 612028
+  },
+  {
+    "nombre": "Cuéllar",
+    "teamKey": "MAL",
+    "playerId": 47399
+  },
+  {
+    "nombre": "Leo Román",
+    "teamKey": "MAL",
+    "playerId": 179139
+  },
+  {
+    "nombre": "L. Bergström",
+    "teamKey": "MAL",
+    "playerId": 152955
+  },
+  {
+    "nombre": "Nil",
+    "teamKey": "MAL",
+    "playerId": 613218
+  },
+  {
+    "nombre": "Rareș Vlad",
+    "teamKey": "MAL",
+    "playerId": 648740
+  },
+  {
+    "nombre": "Rafa Mir",
+    "teamKey": "ELC",
+    "playerId": 47013
+  },
+  {
+    "nombre": "André Silva",
+    "teamKey": "ELC",
+    "playerId": 2063
+  },
+  {
+    "nombre": "Á. Rodríguez",
+    "teamKey": "ELC",
+    "playerId": 343202
+  },
+  {
+    "nombre": "Yago",
+    "teamKey": "ELC",
+    "playerId": 284415
+  },
+  {
+    "nombre": "Adam Boayar",
+    "teamKey": "ELC",
+    "playerId": 439293
+  },
+  {
+    "nombre": "Tete Morente",
+    "teamKey": "ELC",
+    "playerId": 47182
+  },
+  {
+    "nombre": "Álex Sánchez",
+    "teamKey": "ELC",
+    "playerId": 635179
+  },
+  {
+    "nombre": "J. Piera",
+    "teamKey": "ELC",
+    "playerId": 561102
+  },
+  {
+    "nombre": "Gonzalo Villar",
+    "teamKey": "ELC",
+    "playerId": 46982
+  },
+  {
+    "nombre": "Germán Valera",
+    "teamKey": "ELC",
+    "playerId": 161963
+  },
+  {
+    "nombre": "Aguado",
+    "teamKey": "ELC",
+    "playerId": 187318
+  },
+  {
+    "nombre": "Aleix Febas",
+    "teamKey": "ELC",
+    "playerId": 46711
+  },
+  {
+    "nombre": "Josan",
+    "teamKey": "ELC",
+    "playerId": 46973
+  },
+  {
+    "nombre": "Martim Neto",
+    "teamKey": "ELC",
+    "playerId": 271580
+  },
+  {
+    "nombre": "F. Redondo",
+    "teamKey": "ELC",
+    "playerId": 311345
+  },
+  {
+    "nombre": "G. Diangana",
+    "teamKey": "ELC",
+    "playerId": 18821
+  },
+  {
+    "nombre": "Alex Herraiz",
+    "teamKey": "ELC",
+    "playerId": 637727
+  },
+  {
+    "nombre": "Antonio Martinez",
+    "teamKey": "ELC",
+    "playerId": 508284
+  },
+  {
+    "nombre": "B. Sina",
+    "teamKey": "ELC",
+    "playerId": 439640
+  },
+  {
+    "nombre": "Cepeda",
+    "teamKey": "ELC",
+    "playerId": 318592
+  },
+  {
+    "nombre": "Víctor Chust",
+    "teamKey": "ELC",
+    "playerId": 162058
+  },
+  {
+    "nombre": "Pedrosa",
+    "teamKey": "ELC",
+    "playerId": 47329
+  },
+  {
+    "nombre": "Héctor Fort",
+    "teamKey": "ELC",
+    "playerId": 386859
+  },
+  {
+    "nombre": "Jonh Donald",
+    "teamKey": "ELC",
+    "playerId": 189866
+  },
+  {
+    "nombre": "Bigas",
+    "teamKey": "ELC",
+    "playerId": 47378
+  },
+  {
+    "nombre": "Affengruber",
+    "teamKey": "ELC",
+    "playerId": 126640
+  },
+  {
+    "nombre": "L. Pétrot",
+    "teamKey": "ELC",
+    "playerId": 157146
+  },
+  {
+    "nombre": "Buba Sangaré",
+    "teamKey": "ELC",
+    "playerId": 446067
+  },
+  {
+    "nombre": "David Delgado",
+    "teamKey": "ELC",
+    "playerId": 580677
+  },
+  {
+    "nombre": "N. Salvador",
+    "teamKey": "ELC",
+    "playerId": 626638
+  },
+  {
+    "nombre": "P. Felipe",
+    "teamKey": "ELC",
+    "playerId": 585068
+  },
+  {
+    "nombre": "Nicolas Estrada",
+    "teamKey": "ELC",
+    "playerId": 661161
+  },
+  {
+    "nombre": "Iñaki Peña",
+    "teamKey": "ELC",
+    "playerId": 126
+  },
+  {
+    "nombre": "Alejandro Iturbe",
+    "teamKey": "ELC",
+    "playerId": 315604
+  },
+  {
+    "nombre": "Dituro",
+    "teamKey": "ELC",
+    "playerId": 11346
+  },
+  {
+    "nombre": "Etta Eyong",
+    "teamKey": "LEV",
+    "playerId": 378284
+  },
+  {
+    "nombre": "Iván Romero",
+    "teamKey": "LEV",
+    "playerId": 192032
+  },
+  {
+    "nombre": "José Luis Morales",
+    "teamKey": "LEV",
+    "playerId": 47467
+  },
+  {
+    "nombre": "Carlos Espí",
+    "teamKey": "LEV",
+    "playerId": 450497
+  },
+  {
+    "nombre": "K. Tunde",
+    "teamKey": "LEV",
+    "playerId": 579287
+  },
+  {
+    "nombre": "Paco Cortés",
+    "teamKey": "LEV",
+    "playerId": 463279
+  },
+  {
+    "nombre": "Enrique Herrero",
+    "teamKey": "LEV",
+    "playerId": 644099
+  },
+  {
+    "nombre": "F. Cortes",
+    "teamKey": "LEV",
+    "playerId": 645724
+  },
+  {
+    "nombre": "Unai Vencedor",
+    "teamKey": "LEV",
+    "playerId": 182639
+  },
+  {
+    "nombre": "Olasagasti",
+    "teamKey": "LEV",
+    "playerId": 182603
+  },
+  {
+    "nombre": "Iker Losada",
+    "teamKey": "LEV",
+    "playerId": 128985
+  },
+  {
+    "nombre": "Brugui",
+    "teamKey": "LEV",
+    "playerId": 47225
+  },
+  {
+    "nombre": "Oriol Rey",
+    "teamKey": "LEV",
+    "playerId": 106727
+  },
+  {
+    "nombre": "Pablo Martínez",
+    "teamKey": "LEV",
+    "playerId": 104949
+  },
+  {
+    "nombre": "Carlos Álvarez",
+    "teamKey": "LEV",
+    "playerId": 182770
+  },
+  {
+    "nombre": "Kevin Arriaga",
+    "teamKey": "LEV",
+    "playerId": 125239
+  },
+  {
+    "nombre": "U. Raghouber",
+    "teamKey": "LEV",
+    "playerId": 334878
+  },
+  {
+    "nombre": "T. Abed",
+    "teamKey": "LEV",
+    "playerId": 328139
+  },
+  {
+    "nombre": "Dani Cervera",
+    "teamKey": "LEV",
+    "playerId": 385383
+  },
+  {
+    "nombre": "P. Roson",
+    "teamKey": "LEV",
+    "playerId": 610174
+  },
+  {
+    "nombre": "Joan Ruiz",
+    "teamKey": "LEV",
+    "playerId": 338871
+  },
+  {
+    "nombre": "Manu Sánchez",
+    "teamKey": "LEV",
+    "playerId": 64309
+  },
+  {
+    "nombre": "Dela",
+    "teamKey": "LEV",
+    "playerId": 734
+  },
+  {
+    "nombre": "Unai Elgezabal",
+    "teamKey": "LEV",
+    "playerId": 46941
+  },
+  {
+    "nombre": "Diego Pampín",
+    "teamKey": "LEV",
+    "playerId": 104832
+  },
+  {
+    "nombre": "Víctor García",
+    "teamKey": "LEV",
+    "playerId": 46790
+  },
+  {
+    "nombre": "M. Moreno",
+    "teamKey": "LEV",
+    "playerId": 421807
+  },
+  {
+    "nombre": "J. Toljan",
+    "teamKey": "LEV",
+    "playerId": 1118
+  },
+  {
+    "nombre": "A. Matturro",
+    "teamKey": "LEV",
+    "playerId": 316517
+  },
+  {
+    "nombre": "H. Nakoha",
+    "teamKey": "LEV",
+    "playerId": 609795
+  },
+  {
+    "nombre": "M. Krug",
+    "teamKey": "LEV",
+    "playerId": 407597
+  },
+  {
+    "nombre": "Nacho Pérez",
+    "teamKey": "LEV",
+    "playerId": 504605
+  },
+  {
+    "nombre": "Primo",
+    "teamKey": "LEV",
+    "playerId": 338295
+  },
+  {
+    "nombre": "Pablo Campos",
+    "teamKey": "LEV",
+    "playerId": 286611
+  },
+  {
+    "nombre": "M. Ryan",
+    "teamKey": "LEV",
+    "playerId": 2741
+  },
+  {
+    "nombre": "Cayetano",
+    "teamKey": "LEV",
+    "playerId": 450562
+  },
+  {
+    "nombre": "I. Chaira",
+    "teamKey": "OVI",
+    "playerId": 266202
+  },
+  {
+    "nombre": "Álex Forés",
+    "teamKey": "OVI",
+    "playerId": 184194
+  },
+  {
+    "nombre": "F. Viñas",
+    "teamKey": "OVI",
+    "playerId": 51530
+  },
+  {
+    "nombre": "T. Borbas",
+    "teamKey": "OVI",
+    "playerId": 197513
+  },
+  {
+    "nombre": "L. Ilić",
+    "teamKey": "OVI",
+    "playerId": 38699
+  },
+  {
+    "nombre": "H. Hassan",
+    "teamKey": "OVI",
+    "playerId": 20844
+  },
+  {
+    "nombre": "L. Dendoncker",
+    "teamKey": "OVI",
+    "playerId": 2922
+  },
+  {
+    "nombre": "K. Sibo",
+    "teamKey": "OVI",
+    "playerId": 3608
+  },
+  {
+    "nombre": "Santi Cazorla",
+    "teamKey": "OVI",
+    "playerId": 1695
+  },
+  {
+    "nombre": "S. Colombatto",
+    "teamKey": "OVI",
+    "playerId": 30927
+  },
+  {
+    "nombre": "Alberto Reina",
+    "teamKey": "OVI",
+    "playerId": 182486
+  },
+  {
+    "nombre": "N. Fonseca",
+    "teamKey": "OVI",
+    "playerId": 30690
+  },
+  {
+    "nombre": "Ovie Ejaria",
+    "teamKey": "OVI",
+    "playerId": 19613
+  },
+  {
+    "nombre": "Pablo Agudin",
+    "teamKey": "OVI",
+    "playerId": 600938
+  },
+  {
+    "nombre": "T. Fernández",
+    "teamKey": "OVI",
+    "playerId": 362750
+  },
+  {
+    "nombre": "Cheli",
+    "teamKey": "OVI",
+    "playerId": 443152
+  },
+  {
+    "nombre": "B. Dominguès",
+    "teamKey": "OVI",
+    "playerId": 191184
+  },
+  {
+    "nombre": "Javi López",
+    "teamKey": "OVI",
+    "playerId": 182636
+  },
+  {
+    "nombre": "Bailly",
+    "teamKey": "OVI",
+    "playerId": 885
+  },
+  {
+    "nombre": "Rahim",
+    "teamKey": "OVI",
+    "playerId": 295223
+  },
+  {
+    "nombre": "David Costas",
+    "teamKey": "OVI",
+    "playerId": 47429
+  },
+  {
+    "nombre": "Nacho Vidal",
+    "teamKey": "OVI",
+    "playerId": 46657
+  },
+  {
+    "nombre": "Dani Calvo",
+    "teamKey": "OVI",
+    "playerId": 46966
+  },
+  {
+    "nombre": "Lucas Ahijado",
+    "teamKey": "OVI",
+    "playerId": 131548
+  },
+  {
+    "nombre": "Marco Esteban",
+    "teamKey": "OVI",
+    "playerId": 402580
+  },
+  {
+    "nombre": "Omar Falah",
+    "teamKey": "OVI",
+    "playerId": 385405
+  },
+  {
+    "nombre": "David Carmo",
+    "teamKey": "OVI",
+    "playerId": 41970
+  },
+  {
+    "nombre": "Espi",
+    "teamKey": "OVI",
+    "playerId": 640804
+  },
+  {
+    "nombre": "Adri Fernández",
+    "teamKey": "OVI",
+    "playerId": 647008
+  },
+  {
+    "nombre": "Aarón Escandell",
+    "teamKey": "OVI",
+    "playerId": 46673
+  },
+  {
+    "nombre": "Moldovan",
+    "teamKey": "OVI",
+    "playerId": 42642
+  },
+  {
+    "nombre": "Kike García",
+    "teamKey": "ESP",
+    "playerId": 47396
+  },
+  {
+    "nombre": "Pere Milla",
+    "teamKey": "ESP",
+    "playerId": 47398
+  },
+  {
+    "nombre": "Jofre",
+    "teamKey": "ESP",
+    "playerId": 182674
+  },
+  {
+    "nombre": "Antoniu Roca",
+    "teamKey": "ESP",
+    "playerId": 297742
+  },
+  {
+    "nombre": "Roberto Fernández",
+    "teamKey": "ESP",
+    "playerId": 312990
+  },
+  {
+    "nombre": "T. Dolan",
+    "teamKey": "ESP",
+    "playerId": 273732
+  },
+  {
+    "nombre": "C. Ngonge",
+    "teamKey": "ESP",
+    "playerId": 85
+  },
+  {
+    "nombre": "L. Castell",
+    "teamKey": "ESP",
+    "playerId": 549458
+  },
+  {
+    "nombre": "A. Almansa",
+    "teamKey": "ESP",
+    "playerId": 656722
+  },
+  {
+    "nombre": "Terrats",
+    "teamKey": "ESP",
+    "playerId": 187987
+  },
+  {
+    "nombre": "Urko",
+    "teamKey": "ESP",
+    "playerId": 183699
+  },
+  {
+    "nombre": "Pol Lozano",
+    "teamKey": "ESP",
+    "playerId": 127426
+  },
+  {
+    "nombre": "Edu Expósito",
+    "teamKey": "ESP",
+    "playerId": 46799
+  },
+  {
+    "nombre": "Javi Puado",
+    "teamKey": "ESP",
+    "playerId": 47349
+  },
+  {
+    "nombre": "Charles Pickel",
+    "teamKey": "ESP",
+    "playerId": 48555
+  },
+  {
+    "nombre": "Ferri Gomez",
+    "teamKey": "ESP",
+    "playerId": 601891
+  },
+  {
+    "nombre": "Miguel Rubio",
+    "teamKey": "ESP",
+    "playerId": 47256
+  },
+  {
+    "nombre": "Carlos Romero",
+    "teamKey": "ESP",
+    "playerId": 184420
+  },
+  {
+    "nombre": "Fernando Calero",
+    "teamKey": "ESP",
+    "playerId": 47478
+  },
+  {
+    "nombre": "L. Cabrera",
+    "teamKey": "ESP",
+    "playerId": 47249
+  },
+  {
+    "nombre": "Rubén",
+    "teamKey": "ESP",
+    "playerId": 199824
+  },
+  {
+    "nombre": "O. El Hilali",
+    "teamKey": "ESP",
+    "playerId": 286601
+  },
+  {
+    "nombre": "José Salinas",
+    "teamKey": "ESP",
+    "playerId": 184407
+  },
+  {
+    "nombre": "Roger Hinojo",
+    "teamKey": "ESP",
+    "playerId": 450716
+  },
+  {
+    "nombre": "C. Riedel",
+    "teamKey": "ESP",
+    "playerId": 282054
+  },
+  {
+    "nombre": "Jose Angel Lopez",
+    "teamKey": "ESP",
+    "playerId": 585288
+  },
+  {
+    "nombre": "Dmitrovic",
+    "teamKey": "ESP",
+    "playerId": 2813
+  },
+  {
+    "nombre": "Pol Tristán",
+    "teamKey": "ESP",
+    "playerId": 162585
+  },
+  {
+    "nombre": "Ángel Fortuño",
+    "teamKey": "ESP",
+    "playerId": 182735
+  }
+]

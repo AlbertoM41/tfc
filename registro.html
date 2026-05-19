@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificación</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+    <div class="navbar-mobile" id="navMobile">
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="mercado.html">Mercado</a>
+        <a href="clasificacion.html">Clasificación</a>
+        <a href="mi-equipo.html">Mi Equipo</a>
+        <a href="login.html">Entrar</a>
+        <a href="registro.html">Registrarse</a>
+    </div>
+</nav>
+
+<main class="main-content">
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h1 class="auth-title">Crear cuenta</h1>
+        <p class="auth-sub">Únete a Fantasy Pro y gestiona tu equipo</p>
+
+        <div id="regError" style="display:none;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:.75rem 1rem;font-size:.875rem;color:#f87171;margin-bottom:1rem;"></div>
+        <div id="regSuccess" style="display:none;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:.75rem 1rem;font-size:.875rem;color:#34d399;margin-bottom:1rem;text-align:center;"></div>
+
+        <form id="regForm" style="display:flex;flex-direction:column;gap:1.1rem;">
+            <div class="form-group">
+                <label class="form-label">Nombre</label>
+                <input type="text" name="name" class="input" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nombre de usuario</label>
+                <input type="text" name="username" class="input" placeholder="ej: jugador10" required minlength="3" maxlength="20" pattern="[a-zA-Z0-9_]+" oninput="checkUsernameAvailable(this.value)">
+                <div id="usernameStatus" style="font-size:.78rem;margin-top:.3rem;min-height:1.1em;"></div>
+                <div style="font-size:.75rem;color:var(--dark-400);margin-top:.2rem;">Solo letras, números y guion bajo. 3-20 caracteres.</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="input" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Contraseña</label>
+                <input type="password" name="password" class="input" placeholder="Mínimo 6 caracteres" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Confirmar contraseña</label>
+                <input type="password" name="confirm" class="input" placeholder="Repite la contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="regBtn" style="margin-top:.5rem;">
+                Crear cuenta
+            </button>
+        </form>
+
+        <p style="text-align:center;margin-top:1.5rem;font-size:.875rem;color:var(--dark-400);">
+            ¿Ya tienes cuenta?
+            <a href="login.html" style="color:var(--primary-400);font-weight:600;">Inicia sesión</a>
+        </p>
+    </div>
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Si ya está logueado redirigir
+sb.auth.getSession().then(({ data: { session } }) => {
+    if (session) window.location.href = 'index.html';
+});
+
+let usernameCheckTimer = null;
+window.checkUsernameAvailable = async function(val) {
+    const el = document.getElementById('usernameStatus');
+    const clean = val.trim().toLowerCase();
+    if (!clean || clean.length < 3) { el.textContent = ''; return; }
+    if (!/^[a-zA-Z0-9_]+$/.test(clean)) {
+        el.style.color = '#f87171'; el.textContent = '✗ Solo letras, números y _'; return;
+    }
+    el.style.color = 'var(--dark-400)'; el.textContent = 'Comprobando...';
+    clearTimeout(usernameCheckTimer);
+    usernameCheckTimer = setTimeout(async () => {
+        const { data } = await sb.from('perfiles').select('id').eq('username', clean).limit(1);
+        if (data && data.length) {
+            el.style.color = '#f87171'; el.textContent = '✗ Nombre de usuario no disponible';
+        } else {
+            el.style.color = '#34d399'; el.textContent = '✓ Disponible';
+        }
+    }, 500);
+};
+
+document.getElementById('regForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nombre   = e.target.querySelector('[name=name]').value.trim();
+    const username = e.target.querySelector('[name=username]').value.trim().toLowerCase();
+    const email    = e.target.querySelector('[name=email]').value.trim();
+    const password = e.target.querySelector('[name=password]').value;
+    const confirm  = e.target.querySelector('[name=confirm]').value;
+    const btn      = document.getElementById('regBtn');
+    const errEl    = document.getElementById('regError');
+    const okEl     = document.getElementById('regSuccess');
+
+    errEl.style.display = 'none';
+    okEl.style.display  = 'none';
+
+    if (password !== confirm) {
+        errEl.textContent = 'Las contraseñas no coinciden.';
+        errEl.style.display = 'block';
+        return;
+    }
+    if (!username || username.length < 3) {
+        errEl.textContent = 'El nombre de usuario debe tener al menos 3 caracteres.';
+        errEl.style.display = 'block';
+        return;
+    }
+
+    // Comprobar disponibilidad de username
+    const { data: existingUser } = await sb.from('perfiles').select('id').eq('username', username).limit(1);
+    if (existingUser && existingUser.length) {
+        errEl.textContent = 'Ese nombre de usuario ya está en uso.';
+        errEl.style.display = 'block';
+        return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Creando cuenta...';
+
+    const { data, error } = await sb.auth.signUp({
+        email,
+        password,
+        options: { data: { nombre, username } }
+    });
+
+    if (error) {
+        const msg = error.message.includes('already registered')
+            ? 'Este email ya está registrado.'
+            : error.message;
+        errEl.textContent = msg;
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Crear cuenta';
+        return;
+    }
+
+    // Guardar perfil en tabla perfiles
+    if (data.user) {
+        await sb.from('perfiles').upsert({
+            id: data.user.id,
+            nombre,
+            username,
+            email,
+            created_at: new Date().toISOString()
+        });
+    }
+
+    okEl.innerHTML = `
+        ✅ <strong>¡Cuenta creada!</strong><br>
+        <span style="font-weight:400;">Hemos enviado un email de verificación a <strong>${email}</strong>.<br>
+        Revisa tu bandeja de entrada (y el spam) y haz clic en el enlace para activar tu cuenta.</span>
+    `;
+    okEl.style.display = 'block';
+    e.target.style.display = 'none';
+});
+</script>
+</body>
+</html>

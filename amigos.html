@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .friend-card {
+            background: var(--bg-800); border: 1px solid var(--bg-700);
+            border-radius: var(--radius); padding: 1rem 1.25rem;
+            display: flex; align-items: center; gap: 1rem;
+            transition: border-color .2s;
+        }
+        .friend-card:hover { border-color: var(--bg-500); }
+        .friend-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--primary-600); display: flex;
+            align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem; color: #fff;
+            flex-shrink: 0; overflow: hidden;
+        }
+        .friend-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .section-title {
+            font-size: .75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .08em; color: var(--dark-400); margin-bottom: .75rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificación</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+            <a href="favoritos.html" class="nav-link">Favoritos</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+</nav>
+
+<main class="main-content">
+<div class="container" style="max-width:760px; padding-top:2rem; padding-bottom:3rem;">
+
+    <div class="page-header">
+        <h1 class="page-title">👥 Amigos</h1>
+        <p class="page-subtitle">Añade amigos por su nombre de usuario y consulta sus equipos</p>
+    </div>
+
+    <!-- Buscar amigo -->
+    <div class="card" style="margin-bottom:2rem;">
+        <div class="section-title">Añadir amigo</div>
+        <div style="display:flex;gap:.75rem;">
+            <input id="searchInput" type="text" class="input" placeholder="Nombre de usuario (ej: jugador10)" style="flex:1;" onkeydown="if(event.key==='Enter')searchUser()">
+            <button onclick="searchUser()" class="btn btn-primary">Buscar</button>
+        </div>
+        <div id="searchResult" style="margin-top:1rem;"></div>
+    </div>
+
+    <!-- Solicitudes recibidas -->
+    <div id="pendingSection" style="margin-bottom:2rem;display:none;">
+        <div class="section-title">Solicitudes recibidas <span id="pendingBadge" style="background:var(--primary-500);color:#fff;padding:.1rem .45rem;border-radius:10px;font-size:.7rem;"></span></div>
+        <div id="pendingList" style="display:flex;flex-direction:column;gap:.75rem;"></div>
+    </div>
+
+    <!-- Amigos aceptados -->
+    <div id="friendsSection">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;">
+            <div class="section-title" style="margin:0;">Mis amigos <span id="friendsCount" style="background:var(--bg-700);padding:.1rem .4rem;border-radius:10px;font-size:.7rem;color:var(--dark-400);"></span></div>
+        </div>
+        <div id="friendsList" style="display:flex;flex-direction:column;gap:.75rem;">
+            <div style="color:var(--dark-400);font-size:.9rem;text-align:center;padding:2rem;">Cargando...</div>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/player-images.js"></script>
+<script src="assets/js/player-images-auto.js"></script>
+<script>
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let me = null; // current user session
+
+// ── Helpers ───────────────────────────────────────────────────────
+function avatarEl(perfil, size = 44) {
+    const initial = (perfil.nombre || perfil.username || '?')[0].toUpperCase();
+    const src = perfil.id ? getUserAvatar(perfil.id) : null;
+    return `<div class="friend-avatar" style="width:${size}px;height:${size}px;font-size:${size*.26}rem;">
+        ${src ? `<img src="${src}" alt="${initial}">` : initial}
+    </div>`;
+}
+
+function showMsg(el, text, type = 'error') {
+    const colors = { error: { bg:'rgba(239,68,68,.12)', border:'rgba(239,68,68,.3)', color:'#f87171' },
+                     ok:    { bg:'rgba(16,185,129,.12)',border:'rgba(16,185,129,.3)',  color:'#34d399' },
+                     info:  { bg:'var(--bg-700)',        border:'var(--bg-600)',        color:'var(--dark-300)' } };
+    const c = colors[type] || colors.info;
+    el.innerHTML = `<div style="padding:.6rem .9rem;border-radius:8px;font-size:.85rem;font-weight:600;background:${c.bg};border:1px solid ${c.border};color:${c.color};">${text}</div>`;
+}
+
+// ── Buscar usuario ────────────────────────────────────────────────
+async function searchUser() {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    const resultEl = document.getElementById('searchResult');
+    if (!q) return;
+
+    resultEl.innerHTML = '<div style="color:var(--dark-400);font-size:.85rem;">Buscando...</div>';
+
+    if (q === (me.username || '').toLowerCase()) {
+        showMsg(resultEl, 'Ese eres tú 😄', 'info'); return;
+    }
+
+    const { data, error } = await sb.from('perfiles').select('id,nombre,username').eq('username', q).limit(1);
+    if (error || !data || !data.length) {
+        showMsg(resultEl, 'No se encontró ningún usuario con ese nombre.'); return;
+    }
+
+    const found = data[0];
+
+    // Check existing relationship
+    const { data: rel } = await sb.from('amigos')
+        .select('id,status,user_id,friend_id')
+        .or(`and(user_id.eq.${me.id},friend_id.eq.${found.id}),and(user_id.eq.${found.id},friend_id.eq.${me.id})`)
+        .limit(1);
+
+    const existing = rel?.[0];
+    let actionHtml = '';
+
+    if (existing) {
+        if (existing.status === 'accepted') {
+            actionHtml = '<span class="badge badge-available" style="font-size:.8rem;">Ya sois amigos</span>';
+        } else if (existing.user_id === me.id) {
+            actionHtml = '<span style="font-size:.85rem;color:var(--dark-400);">Solicitud enviada</span>';
+        } else {
+            actionHtml = `<button onclick="acceptRequest('${existing.id}')" class="btn btn-primary btn-sm">Aceptar solicitud</button>`;
+        }
+    } else {
+        actionHtml = `<button onclick="sendRequest('${found.id}', this)" class="btn btn-primary btn-sm">Añadir amigo</button>`;
+    }
+
+    resultEl.innerHTML = `
+        <div class="friend-card">
+            ${avatarEl(found)}
+            <div style="flex:1;min-width:0;">
+                <div style="font-weight:800;">${found.nombre || found.username}</div>
+                <div style="font-size:.8rem;color:var(--dark-400);">@${found.username}</div>
+            </div>
+            <div>${actionHtml}</div>
+        </div>`;
+}
+
+async function sendRequest(friendId, btn) {
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    const { error } = await sb.from('amigos').insert({ user_id: me.id, friend_id: friendId, status: 'pending' });
+    if (error) { btn.disabled = false; btn.textContent = 'Añadir amigo'; alert('Error: ' + error.message); return; }
+    btn.textContent = 'Solicitud enviada ✓';
+}
+
+async function acceptRequest(relationId, btn) {
+    if (btn) { btn.disabled = true; btn.textContent = 'Aceptando...'; }
+    await sb.from('amigos').update({ status: 'accepted' }).eq('id', relationId);
+    loadRelationships();
+}
+
+async function rejectRequest(relationId) {
+    await sb.from('amigos').delete().eq('id', relationId);
+    loadRelationships();
+}
+
+async function removeFriend(relationId) {
+    if (!confirm('¿Eliminar a este amigo?')) return;
+    await sb.from('amigos').delete().eq('id', relationId);
+    loadRelationships();
+}
+
+// ── Cargar relaciones ─────────────────────────────────────────────
+async function loadRelationships() {
+    const { data: rels } = await sb.from('amigos')
+        .select('id,status,user_id,friend_id')
+        .or(`user_id.eq.${me.id},friend_id.eq.${me.id}`);
+
+    if (!rels) return;
+
+    // Gather all friend user IDs
+    const friendIds = [...new Set(rels.map(r => r.user_id === me.id ? r.friend_id : r.user_id))];
+    let profiles = {};
+    if (friendIds.length) {
+        const { data: profs } = await sb.from('perfiles').select('id,nombre,username').in('id', friendIds);
+        if (profs) profs.forEach(p => profiles[p.id] = p);
+    }
+
+    const pending  = rels.filter(r => r.status === 'pending' && r.friend_id === me.id);
+    const accepted = rels.filter(r => r.status === 'accepted');
+
+    // ── Pending requests ────────────────────────────────────────
+    const pendingSection = document.getElementById('pendingSection');
+    if (pending.length) {
+        pendingSection.style.display = 'block';
+        document.getElementById('pendingBadge').textContent = pending.length;
+        document.getElementById('pendingList').innerHTML = pending.map(r => {
+            const p = profiles[r.user_id] || { nombre: 'Usuario', username: '?' };
+            return `<div class="friend-card">
+                ${avatarEl(p)}
+                <div style="flex:1;min-width:0;">
+                    <div style="font-weight:800;">${p.nombre || p.username}</div>
+                    <div style="font-size:.8rem;color:var(--dark-400);">@${p.username}</div>
+                </div>
+                <div style="display:flex;gap:.5rem;">
+                    <button onclick="acceptRequest('${r.id}', this)" class="btn btn-primary btn-sm">Aceptar</button>
+                    <button onclick="rejectRequest('${r.id}')" class="btn btn-ghost btn-sm" style="color:#f87171;">Rechazar</button>
+                </div>
+            </div>`;
+        }).join('');
+    } else {
+        pendingSection.style.display = 'none';
+    }
+
+    // ── Accepted friends ────────────────────────────────────────
+    const friendsList = document.getElementById('friendsList');
+    document.getElementById('friendsCount').textContent = accepted.length || '';
+
+    if (!accepted.length) {
+        friendsList.innerHTML = `<div style="text-align:center;padding:2.5rem;color:var(--dark-400);">
+            Aún no tienes amigos en FantasyPro.<br>Busca a alguien por su nombre de usuario.
+        </div>`;
+        return;
+    }
+
+    friendsList.innerHTML = accepted.map(r => {
+        const friendId = r.user_id === me.id ? r.friend_id : r.user_id;
+        const p = profiles[friendId] || { nombre: 'Usuario', username: '?' };
+        return `<div class="friend-card">
+            ${avatarEl(p)}
+            <div style="flex:1;min-width:0;">
+                <div style="font-weight:800;">${p.nombre || p.username}</div>
+                <div style="font-size:.8rem;color:var(--dark-400);">@${p.username || ''}</div>
+            </div>
+            <div style="display:flex;gap:.5rem;flex-shrink:0;">
+                <a href="mi-equipo.html?uid=${friendId}&name=${encodeURIComponent(p.nombre||p.username)}" class="btn btn-ghost btn-sm">🏟️ Ver equipo</a>
+                <button onclick="removeFriend('${r.id}')" class="btn btn-ghost btn-sm" style="color:#f87171;" title="Eliminar amigo">✕</button>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+sb.auth.getSession().then(async ({ data: { session } }) => {
+    if (!session) { window.location.href = 'login.html'; return; }
+    window._currentUserId = session.user.id;
+
+    // Load own profile for username
+    const { data: myProfile } = await sb.from('perfiles').select('id,nombre,username').eq('id', session.user.id).single();
+    me = { id: session.user.id, ...myProfile };
+
+    if (!me.username) {
+        document.getElementById('searchResult').innerHTML = `
+            <div style="padding:.75rem 1rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;font-size:.85rem;color:#fbbf24;">
+                ⚠️ Aún no tienes nombre de usuario. <a href="perfil.html" style="color:#fbbf24;font-weight:700;">Configúralo en tu perfil</a>
+            </div>`;
+    }
+
+    loadRelationships();
+});
+</script>
+</body>
+</html>

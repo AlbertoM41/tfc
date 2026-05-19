@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificación</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+            <a href="admin.html" class="nav-link active">Admin</a>
+        </div>
+        <div class="navbar-actions" id="adminNavActions"></div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+</nav>
+
+<main class="main-content">
+<div class="container">
+
+    <div class="page-header">
+        <h1 class="page-title">⚙️ Panel de Administración</h1>
+        <p class="page-subtitle">Gestión de usuarios y actualización de datos</p>
+    </div>
+
+    <!-- Tarjetas de stats -->
+    <div class="stats-bar" style="margin-bottom:2rem;">
+        <div class="stat-card">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">👥 Usuarios registrados</div>
+            <div class="stat-value" id="statUsers">—</div>
+        </div>
+        <div class="stat-card" id="playersStatCard" onclick="openPlayersModal()" style="cursor:pointer;transition:border-color .2s;" onmouseenter="this.style.borderColor='var(--green-400)'" onmouseleave="this.style.borderColor=''">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">⚽ Jugadores en BD</div>
+            <div class="stat-value" id="statPlayers">—</div>
+            <div style="font-size:.7rem;color:var(--dark-500);margin-top:.4rem;">Ver todos →</div>
+        </div>
+        <div class="stat-card">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">🕐 Última actualización</div>
+            <div class="stat-value" id="statLastUpdate" style="font-size:.9rem;">—</div>
+        </div>
+    </div>
+
+    <!-- Botón actualizar precios -->
+    <div style="background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius);padding:1.5rem;margin-bottom:2rem;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <div>
+                <div style="font-weight:800;font-size:1.05rem;margin-bottom:.3rem;">Actualizar precios de jugadores</div>
+                <div style="font-size:.85rem;color:var(--dark-400);">Obtiene los datos más recientes de analiticafantasy.com y actualiza la base de datos.</div>
+            </div>
+            <button id="updateBtn" onclick="updatePrices()" class="btn btn-primary" style="min-width:180px;">
+                🔄 Actualizar precios
+            </button>
+        </div>
+        <div id="updateStatus" style="display:none;margin-top:1rem;padding:.75rem 1rem;border-radius:8px;font-size:.875rem;font-weight:600;"></div>
+    </div>
+
+    <!-- Tabla de usuarios -->
+    <div style="background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius);overflow:hidden;margin-bottom:3rem;">
+        <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--bg-700);display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-weight:800;font-size:1rem;">Usuarios registrados</span>
+            <button onclick="loadUsers()" style="background:none;border:none;color:var(--dark-400);cursor:pointer;font-size:.85rem;">↻ Actualizar</button>
+        </div>
+        <div class="table-wrap" style="margin:0;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Fecha de registro</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTbody">
+                    <tr><td colspan="4" style="text-align:center;padding:2rem;color:var(--dark-400);">Cargando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<!-- Modal: todos los jugadores en BD -->
+<div id="playersModal" onclick="handleModalBackdrop(event)" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;overflow-y:auto;padding:2rem 1rem;">
+    <div id="playersModalInner" style="background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius);max-width:1100px;margin:0 auto;overflow:hidden;">
+        <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--bg-700);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <span style="font-weight:800;font-size:1rem;">⚽ Jugadores en base de datos</span>
+            <div style="display:flex;gap:.75rem;align-items:center;">
+                <input id="playerSearch" type="text" placeholder="Buscar nombre, equipo, posición..." oninput="filterPlayersTable()" style="background:var(--bg-700);border:1px solid var(--bg-600);border-radius:6px;padding:.4rem .8rem;color:#fff;font-size:.85rem;width:220px;outline:none;">
+                <select id="playerPosFilter" onchange="filterPlayersTable()" style="background:var(--bg-700);border:1px solid var(--bg-600);border-radius:6px;padding:.4rem .7rem;color:#fff;font-size:.85rem;outline:none;">
+                    <option value="">Todas las posiciones</option>
+                    <option value="GK">Portero</option>
+                    <option value="DEF">Defensa</option>
+                    <option value="MID">Centrocampista</option>
+                    <option value="FWD">Delantero</option>
+                </select>
+                <button onclick="closePlayersModal()" style="background:var(--bg-700);border:1px solid var(--bg-600);border-radius:6px;padding:.4rem .9rem;color:var(--dark-300);cursor:pointer;font-size:1rem;line-height:1;">✕</button>
+            </div>
+        </div>
+        <div style="padding:.6rem 1.5rem;border-bottom:1px solid var(--bg-700);font-size:.8rem;color:var(--dark-400);" id="playersCount">Cargando...</div>
+        <div class="table-wrap" style="margin:0;max-height:65vh;overflow-y:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Equipo</th>
+                        <th>Pos.</th>
+                        <th>Precio</th>
+                        <th>Variación</th>
+                        <th>Puntos</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="playersTbody">
+                    <tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--dark-400);">Cargando...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const ADMIN_EMAIL = 'albertofernandezmesas@gmail.com';
+
+// URL de la Edge Function (se rellena después de desplegarla)
+const EDGE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/update-prices`;
+
+// Verificar que el usuario es admin
+async function checkAdmin() {
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) {
+        window.location.href = 'login.html';
+        return null;
+    }
+    if (session.user.email !== ADMIN_EMAIL) {
+        window.location.href = 'index.html';
+        return null;
+    }
+    // Render avatar dropdown in admin navbar
+    const nombre = session.user.user_metadata?.nombre || session.user.email.split('@')[0];
+    const initial = nombre.charAt(0).toUpperCase();
+    const avatarSrc = typeof getUserAvatar === 'function' ? getUserAvatar(session.user.id) : null;
+    const avatarInner = avatarSrc ? `<img src="${avatarSrc}" alt="${initial}">` : initial;
+    const actions = document.getElementById('adminNavActions');
+    if (actions) {
+        actions.innerHTML = `
+            <div class="user-dropdown-wrap">
+                <button class="user-avatar-btn" onclick="_toggleUserDropdown(event)" title="${nombre}">${avatarInner}</button>
+                <div id="userDropdown" class="user-dropdown" style="display:none;" onclick="event.stopPropagation()">
+                    <div class="user-dropdown-header">${session.user.email}</div>
+                    <a href="perfil.html" class="user-dropdown-item">👤 Mi perfil</a>
+                    <a href="favoritos.html" class="user-dropdown-item">⭐ Mis favoritos</a>
+                    <a href="amigos.html" class="user-dropdown-item">👥 Amigos</a>
+                    <div class="user-dropdown-sep"></div>
+                    <button onclick="logout()" class="user-dropdown-item danger">Cerrar sesión</button>
+                </div>
+            </div>`;
+    }
+    return session;
+}
+
+async function logout() {
+    await sb.auth.signOut();
+    window.location.href = 'login.html';
+}
+
+async function loadUsers() {
+    const tbody = document.getElementById('usersTbody');
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:2rem;color:var(--dark-400);">Cargando...</td></tr>';
+
+    const { data, error } = await sb.from('perfiles').select('*').order('created_at', { ascending: false });
+
+    if (error) {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:2rem;color:var(--red-400);">
+            Error: ${error.message}<br><small style="color:var(--dark-400);">Asegúrate de haber creado la tabla "perfiles" en Supabase.</small>
+        </td></tr>`;
+        return;
+    }
+
+    document.getElementById('statUsers').textContent = data.length;
+
+    if (!data.length) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:2rem;color:var(--dark-400);">Sin usuarios registrados todavía</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = data.map((u, i) => {
+        const fecha = u.created_at ? new Date(u.created_at).toLocaleDateString('es-ES', {
+            day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+        }) : '—';
+        return `<tr>
+            <td style="color:var(--dark-400);font-size:.85rem;">${i + 1}</td>
+            <td style="font-weight:700;">${u.nombre || '—'}</td>
+            <td style="color:var(--dark-300);font-size:.9rem;">${u.email || '—'}</td>
+            <td style="color:var(--dark-400);font-size:.85rem;">${fecha}</td>
+        </tr>`;
+    }).join('');
+}
+
+async function loadStats() {
+    const { count } = await sb.from('jugadores').select('*', { count: 'exact', head: true });
+    document.getElementById('statPlayers').textContent = count ?? '—';
+
+    const { data } = await sb.from('jugadores').select('updated_at').order('updated_at', { ascending: false }).limit(1);
+    if (data?.[0]?.updated_at) {
+        const d = new Date(data[0].updated_at);
+        document.getElementById('statLastUpdate').textContent = d.toLocaleDateString('es-ES', {
+            day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'
+        });
+    }
+}
+
+async function updatePrices() {
+    const btn = document.getElementById('updateBtn');
+    const statusEl = document.getElementById('updateStatus');
+
+    btn.disabled = true;
+    btn.textContent = '⏳ Actualizando...';
+    statusEl.style.display = 'none';
+
+    try {
+        const { data: { session } } = await sb.auth.getSession();
+
+        const res = await fetch(EDGE_FUNCTION_URL, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${session.access_token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const result = await res.json();
+
+        if (!res.ok || result.error) {
+            throw new Error(result.error || `Error ${res.status}`);
+        }
+
+        statusEl.style.background = 'rgba(16,185,129,.12)';
+        statusEl.style.border = '1px solid rgba(16,185,129,.3)';
+        statusEl.style.color = '#34d399';
+        statusEl.textContent = `✓ ${result.updated} jugadores actualizados correctamente.`;
+        statusEl.style.display = 'block';
+        loadStats();
+
+    } catch (err) {
+        statusEl.style.background = 'rgba(239,68,68,.12)';
+        statusEl.style.border = '1px solid rgba(239,68,68,.3)';
+        statusEl.style.color = '#f87171';
+
+        if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
+            statusEl.innerHTML = `⚠️ Edge Function no desplegada todavía.<br>
+                <small style="font-weight:400;">Sigue los pasos al final de esta página para activar el botón.</small>`;
+        } else {
+            statusEl.textContent = `✗ Error: ${err.message}`;
+        }
+        statusEl.style.display = 'block';
+    }
+
+    btn.disabled = false;
+    btn.textContent = '🔄 Actualizar precios';
+}
+
+// ── Modal jugadores ──────────────────────────────────────────────
+let allPlayersData = [];
+let playersLoaded = false;
+
+async function openPlayersModal() {
+    document.getElementById('playersModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    if (!playersLoaded) await loadAllPlayers();
+}
+
+function closePlayersModal() {
+    document.getElementById('playersModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+function handleModalBackdrop(e) {
+    if (e.target === document.getElementById('playersModal')) closePlayersModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePlayersModal(); });
+
+async function loadAllPlayers() {
+    const tbody = document.getElementById('playersTbody');
+    document.getElementById('playersCount').textContent = 'Cargando...';
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--dark-400);">Cargando jugadores...</td></tr>';
+
+    const { data, error } = await sb.from('jugadores').select('*').order('equipo').order('posicion').order('nombre');
+
+    if (error) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:2rem;color:#f87171;">Error: ${error.message}</td></tr>`;
+        document.getElementById('playersCount').textContent = 'Error al cargar';
+        return;
+    }
+
+    allPlayersData = data;
+    playersLoaded = true;
+    filterPlayersTable();
+}
+
+function filterPlayersTable() {
+    const q = document.getElementById('playerSearch').value.toLowerCase().trim();
+    const pos = document.getElementById('playerPosFilter').value;
+
+    let filtered = allPlayersData;
+    if (q) filtered = filtered.filter(p =>
+        (p.nombre || '').toLowerCase().includes(q) ||
+        (p.equipo || '').toLowerCase().includes(q)
+    );
+    if (pos) filtered = filtered.filter(p => p.posicion === pos);
+
+    renderPlayersTable(filtered);
+    document.getElementById('playersCount').textContent =
+        `${filtered.length} jugador${filtered.length !== 1 ? 'es' : ''} ${filtered.length !== allPlayersData.length ? `(de ${allPlayersData.length} totales)` : 'en la base de datos'}`;
+}
+
+function renderPlayersTable(data) {
+    const tbody = document.getElementById('playersTbody');
+    if (!data.length) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--dark-400);">No se encontraron jugadores</td></tr>';
+        return;
+    }
+
+    const posColors = { GK: '#f59e0b', DEF: '#3b82f6', MID: '#10b981', FWD: '#ef4444' };
+    const estadoLabel = { ok: '<span style="color:#34d399;">● Disponible</span>', doubt: '<span style="color:#fbbf24;">● Duda</span>', injured: '<span style="color:#f87171;">● Lesionado</span>' };
+
+    tbody.innerHTML = data.map((p, i) => {
+        const varColor = p.variacion > 0 ? '#34d399' : p.variacion < 0 ? '#f87171' : 'var(--dark-400)';
+        const varSign = p.variacion > 0 ? '+' : '';
+        const posColor = posColors[p.posicion] || '#888';
+        return `<tr>
+            <td style="color:var(--dark-400);font-size:.8rem;">${i + 1}</td>
+            <td style="font-weight:700;">${p.nombre || '—'}</td>
+            <td style="color:var(--dark-300);font-size:.88rem;">${p.equipo || '—'}</td>
+            <td><span style="background:${posColor}22;color:${posColor};padding:.15rem .45rem;border-radius:4px;font-size:.75rem;font-weight:700;">${p.posicion || '—'}</span></td>
+            <td style="font-weight:700;color:#34d399;">${p.precio != null ? p.precio + 'M' : '—'}</td>
+            <td style="color:${varColor};font-weight:600;font-size:.88rem;">${p.variacion != null ? varSign + p.variacion + 'M' : '—'}</td>
+            <td style="font-weight:600;">${p.puntos ?? '—'}</td>
+            <td style="font-size:.82rem;">${estadoLabel[p.estado] || '<span style="color:var(--dark-400);">—</span>'}</td>
+        </tr>`;
+    }).join('');
+}
+
+// Inicio
+checkAdmin().then(session => {
+    if (!session) return;
+    loadUsers();
+    loadStats();
+});
+</script>
+</body>
+</html>

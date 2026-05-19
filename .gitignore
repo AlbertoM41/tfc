@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.ps1
+af_apis.json
+af_imagenes_jugadores.json
+af_imagenes_dom.json
+af_portada.html
+screenshot*.png

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link active">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificación</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+            <a href="favoritos.html" class="nav-link">Favoritos</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+    <div class="navbar-mobile" id="navMobile">
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="mercado.html">Mercado</a>
+        <a href="clasificacion.html">Clasificación</a>
+        <a href="mi-equipo.html">Mi Equipo</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="login.html">Entrar</a>
+        <a href="registro.html">Registrarse</a>
+    </div>
+</nav>
+
+<div class="crests-bar">
+    <div class="crests-inner">
+        <a href="equipo.html?team=RMA" class="crest-link" title="Real Madrid"><span class="crest-fallback">RMA</span></a>
+        <a href="equipo.html?team=BAR" class="crest-link" title="FC Barcelona"><span class="crest-fallback">BAR</span></a>
+        <a href="equipo.html?team=ATM" class="crest-link" title="Atlético de Madrid"><span class="crest-fallback">ATM</span></a>
+        <a href="equipo.html?team=ATH" class="crest-link" title="Athletic Club"><span class="crest-fallback">ATH</span></a>
+        <a href="equipo.html?team=RSO" class="crest-link" title="Real Sociedad"><span class="crest-fallback">RSO</span></a>
+        <a href="equipo.html?team=VIL" class="crest-link" title="Villarreal CF"><span class="crest-fallback">VIL</span></a>
+        <a href="equipo.html?team=BET" class="crest-link" title="Real Betis"><span class="crest-fallback">BET</span></a>
+        <a href="equipo.html?team=SEV" class="crest-link" title="Sevilla FC"><span class="crest-fallback">SEV</span></a>
+        <a href="equipo.html?team=GET" class="crest-link" title="Getafe CF"><span class="crest-fallback">GET</span></a>
+        <a href="equipo.html?team=GIR" class="crest-link" title="Girona FC"><span class="crest-fallback">GIR</span></a>
+        <a href="equipo.html?team=CEL" class="crest-link" title="Celta de Vigo"><span class="crest-fallback">CEL</span></a>
+        <a href="equipo.html?team=VAL" class="crest-link" title="Valencia CF"><span class="crest-fallback">VAL</span></a>
+        <a href="equipo.html?team=RAY" class="crest-link" title="Rayo Vallecano"><span class="crest-fallback">RAY</span></a>
+        <a href="equipo.html?team=OSA" class="crest-link" title="CA Osasuna"><span class="crest-fallback">OSA</span></a>
+        <a href="equipo.html?team=ALA" class="crest-link" title="Deportivo Alavés"><span class="crest-fallback">ALA</span></a>
+        <a href="equipo.html?team=MAL" class="crest-link" title="RCD Mallorca"><span class="crest-fallback">MAL</span></a>
+        <a href="equipo.html?team=ELC" class="crest-link" title="Elche CF"><span class="crest-fallback">ELC</span></a>
+        <a href="equipo.html?team=LEV" class="crest-link" title="Levante UD"><span class="crest-fallback">LEV</span></a>
+        <a href="equipo.html?team=OVI" class="crest-link" title="Real Oviedo"><span class="crest-fallback">OVI</span></a>
+        <a href="equipo.html?team=ESP" class="crest-link" title="RCD Espanyol"><span class="crest-fallback">ESP</span></a>
+    </div>
+</div>
+
+<main class="main-content">
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">💰 Mercado</h1>
+        <p class="page-subtitle" id="subtitleCount">Cargando jugadores...</p>
+    </div>
+
+    <!-- Stats rápidas -->
+    <div class="stats-bar" style="margin-bottom:2rem;">
+        <div class="stat-card">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">👑 Más caro</div>
+            <div style="font-weight:700;font-size:.95rem;" id="statExpensiveName">—</div>
+            <div class="stat-value" id="statExpensiveVal">—</div>
+        </div>
+        <div class="stat-card">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">📈 Mayor subida</div>
+            <div style="font-weight:700;font-size:.95rem;" id="statRiseName">—</div>
+            <div class="stat-value price-up" id="statRiseVal">—</div>
+        </div>
+        <div class="stat-card">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">📉 Mayor bajada</div>
+            <div style="font-weight:700;font-size:.95rem;" id="statFallName">—</div>
+            <div class="stat-value price-down" id="statFallVal">—</div>
+        </div>
+    </div>
+
+    <!-- Filtros -->
+    <form id="filterForm" style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+        <input type="text" name="q" placeholder="🔍 Buscar jugador..." class="input" style="max-width:260px;">
+        <select name="position" class="select" style="max-width:140px;" onchange="loadPlayers()">
+            <option value="">Posición</option>
+            <option value="GK">Portero</option>
+            <option value="DEF">Defensa</option>
+            <option value="MID">Mediocampista</option>
+            <option value="FWD">Delantero</option>
+        </select>
+        <select name="team" class="select" style="max-width:200px;" id="teamSelect" onchange="loadPlayers()">
+            <option value="">Todos los equipos</option>
+        </select>
+        <select name="sort" class="select" style="max-width:160px;" onchange="loadPlayers()">
+            <option value="precio">Precio</option>
+            <option value="subida">📈 Mayor subida</option>
+            <option value="bajada">📉 Mayor bajada</option>
+            <option value="variacion">Variación</option>
+            <option value="puntos">Puntos</option>
+            <option value="nombre">Nombre</option>
+        </select>
+        <select name="order" class="select" style="max-width:140px;" onchange="loadPlayers()">
+            <option value="desc">Mayor → Menor</option>
+            <option value="asc">Menor → Mayor</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+
+    <!-- Tabla -->
+    <div class="table-wrap" style="margin-bottom:3rem;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Equipo</th>
+                    <th>Pos.</th>
+                    <th>Estado</th>
+                    <th style="text-align:right;">Precio</th>
+                    <th style="text-align:right;">Variación</th>
+                    <th style="text-align:right;">Puntos</th>
+                </tr>
+            </thead>
+            <tbody id="playersTbody">
+                <tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--dark-400);">Cargando...</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/player-images.js"></script>
+<script src="assets/js/player-images-auto.js"></script>
+<script>
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Equipos con nombres distintos en Supabase → agruparlos al filtrar
+const TEAM_VARIANTS = {
+    'Athletic Club':      ['Athletic Club', 'Athletic'],
+    'Athletic':           ['Athletic Club', 'Athletic'],
+    'Atletico Madrid':    ['Atletico Madrid', 'Atlético de Madrid', 'Atlético Madrid'],
+    'Atlético Madrid':    ['Atletico Madrid', 'Atlético de Madrid', 'Atlético Madrid'],
+    'Atlético de Madrid': ['Atletico Madrid', 'Atlético de Madrid', 'Atlético Madrid'],
+    'Celta Vigo':         ['Celta Vigo', 'Celta de Vigo'],
+    'Celta de Vigo':      ['Celta Vigo', 'Celta de Vigo'],
+    'Alavés':             ['Alavés', 'Alaves'],
+    'Alaves':             ['Alavés', 'Alaves'],
+};
+
+const POS_BADGE  = { GK:['badge-gk','PT'], DEF:['badge-def','DEF'], MID:['badge-mid','MED'], FWD:['badge-fwd','DEL'] };
+const STATUS_INFO = { ok:['badge-available','Disponible'], doubt:['badge-doubt','Duda'], injured:['badge-injured','Lesionado'] };
+
+function slugify(n) {
+    return n.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+function fmtPrice(v) {
+    if (!v && v !== 0) return '—';
+    return `${parseFloat(v).toFixed(1)}M€`;
+}
+function fmtChange(v) {
+    if (!v || v === 0) return { text:'—', cls:'price-neutral' };
+    const abs = Math.abs(v);
+    const sign = v > 0 ? '+' : '';
+    const text = abs >= 1 ? `${sign}${v.toFixed(1)}M` : `${sign}${Math.round(v*1000)}K`;
+    return { text, cls: v > 0 ? 'price-up' : 'price-down' };
+}
+
+function renderRow(p) {
+    const slug = slugify(p.nombre);
+    const [posBadge, posLabel] = POS_BADGE[p.posicion] || ['badge-available', p.posicion || '—'];
+    const [stBadge, stLabel]   = STATUS_INFO[p.estado]  || STATUS_INFO.ok;
+    const change = fmtChange(p.variacion);
+    const imgSrc = typeof getPlayerImg === 'function' ? getPlayerImg(p.nombre, p.equipo) : null;
+    const avatar = imgSrc
+        ? `<img src="${imgSrc}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0;" alt="">`
+        : `<div style="width:32px;height:32px;border-radius:50%;background:var(--bg-700);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;color:var(--dark-300);">${(p.nombre||'?')[0]}</div>`;
+    const url = `jugador.html?player=${slug}&n=${encodeURIComponent(p.nombre)}&pos=${p.posicion}&price=${encodeURIComponent(fmtPrice(p.precio))}&pts=${p.puntos}&team=${encodeURIComponent(p.equipo)}&ch=${encodeURIComponent(change.text)}&chc=${p.variacion > 0 ? 1 : p.variacion < 0 ? -1 : 0}&s=${p.estado}`;
+    return `<tr onclick="window.location='${url}'" style="cursor:pointer;">
+        <td><div style="display:flex;align-items:center;gap:.75rem;">${avatar}<span style="font-weight:700;">${p.nombre}</span></div></td>
+        <td style="color:var(--dark-300);font-size:.85rem;">${p.equipo || '—'}</td>
+        <td><span class="badge ${posBadge}">${posLabel}</span></td>
+        <td><span class="badge ${stBadge}">${stLabel}</span></td>
+        <td style="text-align:right;font-weight:800;">${fmtPrice(p.precio)}</td>
+        <td style="text-align:right;font-weight:700;" class="${change.cls}">${change.text}</td>
+        <td style="text-align:right;color:var(--dark-300);">${p.puntos ?? '—'}</td>
+    </tr>`;
+}
+
+// Nombre canónico que se muestra en el desplegable para cada variante
+const TEAM_CANONICAL = {
+    'Athletic':           'Athletic Club',
+    'Atlético Madrid':    'Atlético de Madrid',
+    'Atletico Madrid':    'Atlético de Madrid',
+    'Alaves':             'Alavés',
+    'Celta Vigo':         'Celta de Vigo',
+};
+
+async function loadTeams() {
+    const { data } = await sb.from('jugadores').select('equipo').order('equipo');
+    if (!data) return;
+    // Normalizar a nombre canónico y deduplicar
+    const seen = new Set();
+    const teams = [];
+    data.map(r => r.equipo).filter(Boolean).forEach(name => {
+        const canonical = TEAM_CANONICAL[name] || name;
+        if (!seen.has(canonical)) { seen.add(canonical); teams.push(canonical); }
+    });
+    teams.sort();
+    const sel = document.getElementById('teamSelect');
+    teams.forEach(t => {
+        const o = document.createElement('option');
+        o.value = t; o.textContent = t;
+        sel.appendChild(o);
+    });
+}
+
+async function loadStats() {
+    const [{ data: exp }, { data: rise }, { data: fall }] = await Promise.all([
+        sb.from('jugadores').select('nombre,precio').order('precio', { ascending:false }).limit(1),
+        sb.from('jugadores').select('nombre,variacion').order('variacion', { ascending:false }).limit(1),
+        sb.from('jugadores').select('nombre,variacion').gt('variacion', -999).order('variacion', { ascending:true }).limit(1),
+    ]);
+    if (exp?.[0])  { document.getElementById('statExpensiveName').textContent = exp[0].nombre;  document.getElementById('statExpensiveVal').textContent = fmtPrice(exp[0].precio); }
+    if (rise?.[0]) { document.getElementById('statRiseName').textContent = rise[0].nombre; document.getElementById('statRiseVal').textContent = '+' + fmtChange(rise[0].variacion).text.replace('+',''); }
+    if (fall?.[0]) { document.getElementById('statFallName').textContent = fall[0].nombre; document.getElementById('statFallVal').textContent = fmtChange(fall[0].variacion).text; }
+}
+
+async function loadPlayers() {
+    const q    = document.querySelector('[name=q]').value.trim();
+    const pos  = document.querySelector('[name=position]').value;
+    const team = document.querySelector('[name=team]').value;
+    const sort = document.querySelector('[name=sort]').value || 'precio';
+    const order= document.querySelector('[name=order]').value || 'desc';
+    const tbody = document.getElementById('playersTbody');
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--dark-400);">Cargando...</td></tr>';
+
+    let sortCol, sortAsc;
+    if (sort === 'subida')      { sortCol = 'variacion'; sortAsc = false; }
+    else if (sort === 'bajada') { sortCol = 'variacion'; sortAsc = true;  }
+    else                        { sortCol = sort;        sortAsc = order === 'asc'; }
+
+    let query = sb.from('jugadores').select('*').limit(300);
+    if (q)    query = query.ilike('nombre', `%${q}%`);
+    if (pos)  query = query.eq('posicion', pos);
+    if (team) {
+        const variants = TEAM_VARIANTS[team];
+        query = variants ? query.in('equipo', variants) : query.eq('equipo', team);
+    }
+    query = query.order(sortCol, { ascending: sortAsc });
+
+    const { data, error } = await query;
+    if (error) { tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--red-400);">Error: ${error.message}</td></tr>`; return; }
+    document.getElementById('subtitleCount').textContent = `${data.length} jugadores · Precios en millones de euros`;
+    tbody.innerHTML = data.length ? data.map(renderRow).join('') : '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--dark-400);">No se encontraron jugadores</td></tr>';
+}
+
+document.getElementById('filterForm').addEventListener('submit', e => { e.preventDefault(); loadPlayers(); });
+
+loadTeams();
+loadStats();
+loadPlayers();
+</script>
+</body>
+</html>

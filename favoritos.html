@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Favoritos | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificación</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+</nav>
+
+<main class="main-content">
+<div class="container" style="padding-top:2rem;padding-bottom:3rem;">
+
+    <div class="page-header">
+        <h1 class="page-title">⭐ Mis Favoritos</h1>
+        <p class="page-subtitle" id="favSubtitle">Cargando...</p>
+    </div>
+
+    <!-- Stats rápidas favoritos -->
+    <div class="stats-bar" id="favStats" style="margin-bottom:2rem;display:none;">
+        <div class="stat-card">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">⭐ Total favoritos</div>
+            <div class="stat-value" id="statTotal">—</div>
+        </div>
+        <div class="stat-card">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">📈 Mayor subida</div>
+            <div style="font-weight:700;font-size:.9rem;" id="statRiseName">—</div>
+        </div>
+        <div class="stat-card">
+            <div style="font-size:.75rem;color:var(--dark-400);margin-bottom:.3rem;">💰 Más caro</div>
+            <div style="font-weight:700;font-size:.9rem;" id="statExpName">—</div>
+        </div>
+    </div>
+
+    <!-- Filtros -->
+    <div id="favFilters" style="display:none;margin-bottom:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+        <input type="text" id="favSearch" placeholder="🔍 Buscar..." class="input" style="max-width:220px;" oninput="renderFavs()">
+        <select id="favPosFilter" class="select" style="max-width:160px;" onchange="renderFavs()">
+            <option value="">Todas las posiciones</option>
+            <option value="GK">Portero</option>
+            <option value="DEF">Defensa</option>
+            <option value="MID">Centrocampista</option>
+            <option value="FWD">Delantero</option>
+        </select>
+        <select id="favSort" class="select" style="max-width:160px;" onchange="renderFavs()">
+            <option value="added">Añadido recientemente</option>
+            <option value="precio">Mayor precio</option>
+            <option value="puntos">Mayor puntos</option>
+            <option value="nombre">Nombre A-Z</option>
+        </select>
+        <button onclick="clearAllFavs()" class="btn btn-ghost btn-sm" style="color:#f87171;border-color:rgba(248,113,113,.3);">Vaciar lista</button>
+    </div>
+
+    <!-- Lista -->
+    <div id="favContainer"></div>
+
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/player-images.js"></script>
+<script src="assets/js/player-images-auto.js"></script>
+<script>
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const POS_BADGE = { GK:'badge-gk', DEF:'badge-def', MID:'badge-mid', FWD:'badge-fwd' };
+const POS_LABEL = { GK:'Portero', DEF:'Defensa', MID:'Centrocampista', FWD:'Delantero' };
+const STATUS_INFO = { ok:'🟢 Disponible', doubt:'🟡 Duda', injured:'🔴 Lesionado' };
+
+let currentUserId = null;
+
+function parsePrice(str) {
+    if (!str || str === '—') return 0;
+    return parseFloat(str.replace(/[^0-9.-]/g,'')) || 0;
+}
+
+function renderFavs() {
+    const q   = (document.getElementById('favSearch')?.value || '').toLowerCase().trim();
+    const pos = document.getElementById('favPosFilter')?.value || '';
+    const sort = document.getElementById('favSort')?.value || 'added';
+
+    let favs = getFavorites(currentUserId);
+
+    if (q)   favs = favs.filter(f => f.nombre.toLowerCase().includes(q) || (f.team||'').toLowerCase().includes(q));
+    if (pos) favs = favs.filter(f => f.pos === pos);
+
+    if (sort === 'precio') favs.sort((a,b) => parsePrice(b.precio) - parsePrice(a.precio));
+    else if (sort === 'puntos') favs.sort((a,b) => (b.puntos||0) - (a.puntos||0));
+    else if (sort === 'nombre') favs.sort((a,b) => a.nombre.localeCompare(b.nombre));
+
+    const container = document.getElementById('favContainer');
+
+    if (!favs.length && !q && !pos) {
+        container.innerHTML = `
+            <div style="text-align:center;padding:4rem 2rem;">
+                <div style="font-size:3rem;margin-bottom:1rem;">⭐</div>
+                <div style="font-size:1.2rem;font-weight:800;margin-bottom:.5rem;">Aún no tienes favoritos</div>
+                <div style="color:var(--dark-400);margin-bottom:1.5rem;">Explora el mercado y añade jugadores a tu lista.</div>
+                <a href="mercado.html" class="btn btn-primary">Ir al mercado</a>
+            </div>`;
+        return;
+    }
+
+    if (!favs.length) {
+        container.innerHTML = `<div style="text-align:center;padding:2rem;color:var(--dark-400);">No hay jugadores que coincidan con los filtros.</div>`;
+        return;
+    }
+
+    container.innerHTML = `
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;">
+            ${favs.map(p => {
+                const url = `jugador.html?player=${p.slug}&n=${encodeURIComponent(p.nombre)}&pos=${p.pos}&price=${encodeURIComponent(p.precio)}&pts=${p.puntos}&team=${encodeURIComponent(p.team)}&ch=${encodeURIComponent(p.ch||'')}&chc=${p.chc||0}&s=${p.estado}`;
+                const img = getPlayerImg(p.nombre, p.team);
+                const avatar = img
+                    ? `<img src="${img}" style="width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--bg-600);">`
+                    : `<div style="width:56px;height:56px;border-radius:50%;background:var(--bg-700);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.4rem;color:var(--dark-300);flex-shrink:0;">${(p.nombre||'?')[0]}</div>`;
+                const badge = POS_BADGE[p.pos] || '';
+                const posLabel = POS_LABEL[p.pos] || p.pos || '—';
+                const statusTxt = STATUS_INFO[p.estado] || '—';
+                const precio = p.precio || '—';
+                return `
+                    <div style="background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius);padding:1rem;display:flex;flex-direction:column;gap:.75rem;transition:border-color .2s;" onmouseenter="this.style.borderColor='var(--primary-400)'" onmouseleave="this.style.borderColor='var(--bg-700)'">
+                        <div style="display:flex;align-items:center;gap:.75rem;">
+                            <a href="${url}" style="display:contents;">${avatar}</a>
+                            <div style="flex:1;min-width:0;">
+                                <a href="${url}" style="font-weight:800;font-size:.95rem;text-decoration:none;color:var(--white);">${p.nombre}</a>
+                                <div style="font-size:.8rem;color:var(--dark-400);">${p.team || '—'}</div>
+                            </div>
+                            <button onclick="removeFav('${p.nombre.replace(/'/g,"\\'")}',this)" style="background:none;border:none;cursor:pointer;color:var(--dark-400);font-size:1rem;padding:.2rem;flex-shrink:0;line-height:1;" title="Quitar de favoritos">✕</button>
+                        </div>
+                        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+                            <span class="badge ${badge}">${posLabel}</span>
+                            <span style="font-size:.78rem;color:var(--dark-400);">${statusTxt}</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;font-size:.9rem;border-top:1px solid var(--bg-700);padding-top:.5rem;">
+                            <div><span style="color:var(--dark-400);font-size:.78rem;">Precio</span><br><strong>${precio}</strong></div>
+                            <div style="text-align:right;"><span style="color:var(--dark-400);font-size:.78rem;">Puntos</span><br><strong>${p.puntos || '—'}</strong></div>
+                        </div>
+                    </div>`;
+            }).join('')}
+        </div>`;
+}
+
+window.removeFav = function(nombre, btn) {
+    const favs = getFavorites(currentUserId).filter(f => f.nombre !== nombre);
+    saveFavorites(currentUserId, favs);
+    const card = btn.closest('div[style*="background:var(--bg-800)"]');
+    if (card) card.remove();
+    updateStats();
+    document.getElementById('favSubtitle').textContent = `${favs.length} jugador${favs.length !== 1 ? 'es' : ''} en tu lista`;
+    document.getElementById('statTotal').textContent = favs.length;
+    if (!favs.length) renderFavs();
+};
+
+function clearAllFavs() {
+    if (!confirm('¿Seguro que quieres vaciar tu lista de favoritos?')) return;
+    saveFavorites(currentUserId, []);
+    renderFavs();
+    updateStats();
+}
+
+function updateStats() {
+    const favs = getFavorites(currentUserId);
+    document.getElementById('statTotal').textContent = favs.length;
+    if (favs.length) {
+        const byPrice = [...favs].sort((a,b) => parsePrice(b.precio) - parsePrice(a.precio));
+        document.getElementById('statExpName').textContent = byPrice[0]?.nombre || '—';
+        const withChange = favs.filter(f => f.ch && f.ch !== '—' && !f.ch.startsWith('-'));
+        document.getElementById('statRiseName').textContent = withChange[0]?.nombre || '—';
+    }
+}
+
+sb.auth.getSession().then(({ data: { session } }) => {
+    if (!session) { window.location.href = 'login.html'; return; }
+    currentUserId = session.user.id;
+    window._currentUserId = session.user.id;
+
+    const favs = getFavorites(currentUserId);
+    const subtitle = `${favs.length} jugador${favs.length !== 1 ? 'es' : ''} en tu lista`;
+    document.getElementById('favSubtitle').textContent = favs.length ? subtitle : 'Aún no tienes favoritos';
+
+    if (favs.length) {
+        document.getElementById('favStats').style.display = 'flex';
+        document.getElementById('favFilters').style.display = 'flex';
+        updateStats();
+    }
+    renderFavs();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificación</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+    <div class="navbar-mobile" id="navMobile">
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="mercado.html">Mercado</a>
+        <a href="clasificacion.html">Clasificación</a>
+        <a href="mi-equipo.html">Mi Equipo</a>
+        <a href="login.html">Entrar</a>
+        <a href="registro.html">Registrarse</a>
+    </div>
+</nav>
+
+<main class="main-content">
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h1 class="auth-title">Bienvenido</h1>
+        <p class="auth-sub">Inicia sesión en tu cuenta de Fantasy Pro</p>
+
+        <div id="loginError" style="display:none;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:.75rem 1rem;font-size:.875rem;color:#f87171;margin-bottom:1rem;"></div>
+
+        <form id="loginForm" style="display:flex;flex-direction:column;gap:1.1rem;">
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="input" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Contraseña</label>
+                <input type="password" name="password" class="input" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="loginBtn" style="margin-top:.5rem;">
+                Iniciar sesión
+            </button>
+        </form>
+
+        <p style="text-align:center;margin-top:1.5rem;font-size:.875rem;color:var(--dark-400);">
+            ¿No tienes cuenta?
+            <a href="registro.html" style="color:var(--primary-400);font-weight:600;">Regístrate</a>
+        </p>
+    </div>
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script>
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const ADMIN_EMAIL = 'albertofernandezmesas@gmail.com';
+
+// Si ya está logueado redirigir
+sb.auth.getSession().then(({ data: { session } }) => {
+    if (!session) return;
+    if (session.user.email === ADMIN_EMAIL) {
+        window.location.href = 'admin.html';
+    } else {
+        window.location.href = 'index.html';
+    }
+});
+
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email    = e.target.querySelector('[name=email]').value.trim();
+    const password = e.target.querySelector('[name=password]').value;
+    const btn      = document.getElementById('loginBtn');
+    const errEl    = document.getElementById('loginError');
+
+    btn.disabled = true;
+    btn.textContent = 'Iniciando sesión...';
+    errEl.style.display = 'none';
+
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+    if (error) {
+        let msg = error.message;
+        if (error.message.includes('Invalid login credentials')) {
+            msg = 'Email o contraseña incorrectos.';
+        } else if (error.message.includes('Email not confirmed')) {
+            msg = 'Debes verificar tu email antes de entrar. Revisa tu bandeja de entrada.';
+        }
+        errEl.textContent = msg;
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Iniciar sesión';
+        return;
+    }
+
+    if (data.user.email === ADMIN_EMAIL) {
+        window.location.href = 'admin.html';
+    } else {
+        window.location.href = 'index.html';
+    }
+});
+</script>
+</body>
+</html>

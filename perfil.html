@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link">Clasificación</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+</nav>
+
+<main class="main-content">
+<div class="container" style="max-width:860px;padding-top:2rem;padding-bottom:3rem;">
+
+    <div id="profileLoading" style="text-align:center;padding:4rem;color:var(--dark-400);">Cargando...</div>
+
+    <div id="profileContent" style="display:none;">
+
+        <!-- Cabecera del perfil -->
+        <div class="card" style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+            <div style="position:relative;flex-shrink:0;">
+                <div id="profileAvatar" style="width:80px;height:80px;border-radius:50%;background:var(--primary-600);display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:900;color:#fff;overflow:hidden;border:3px solid var(--bg-600);cursor:pointer;" onclick="openAvatarModal()" title="Cambiar avatar"></div>
+                <div onclick="openAvatarModal()" style="position:absolute;bottom:0;right:0;width:22px;height:22px;border-radius:50%;background:var(--primary-500);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.7rem;border:2px solid var(--bg-900);" title="Cambiar avatar">✏️</div>
+            </div>
+            <div style="flex:1;min-width:200px;">
+                <div id="profileName" style="font-size:1.4rem;font-weight:900;"></div>
+                <div id="profileEmail" style="font-size:.85rem;color:var(--dark-400);margin-top:.2rem;"></div>
+                <div style="display:flex;gap:.5rem;margin-top:.5rem;flex-wrap:wrap;">
+                    <span id="profileRole" class="badge badge-available">Usuario</span>
+                    <span id="profileSince" style="font-size:.8rem;color:var(--dark-400);align-self:center;"></span>
+                </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.5rem;min-width:160px;">
+                <a href="favoritos.html" class="btn btn-primary btn-sm">⭐ Mis favoritos</a>
+                <button onclick="_authLogout()" class="btn btn-ghost btn-sm">Cerrar sesión</button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div style="display:flex;gap:.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--bg-700);padding-bottom:0;">
+            <button class="tab-btn active" id="tabDatos" onclick="switchTab('datos')" style="background:none;border:none;padding:.6rem 1rem;cursor:pointer;font-weight:700;font-size:.9rem;color:var(--primary-400);border-bottom:2px solid var(--primary-400);margin-bottom:-1px;">Mis datos</button>
+            <button class="tab-btn" id="tabFavs" onclick="switchTab('favs')" style="background:none;border:none;padding:.6rem 1rem;cursor:pointer;font-weight:700;font-size:.9rem;color:var(--dark-400);border-bottom:2px solid transparent;margin-bottom:-1px;">Favoritos <span id="favCount" style="background:var(--bg-700);padding:.1rem .4rem;border-radius:10px;font-size:.75rem;"></span></button>
+        </div>
+
+        <!-- Tab: Datos -->
+        <div id="tabContentDatos">
+            <div class="card" style="display:flex;flex-direction:column;gap:1rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:.9rem;padding:.5rem 0;border-bottom:1px solid var(--bg-700);">
+                    <span style="color:var(--dark-400);">Nombre</span>
+                    <span id="dataNombre" style="font-weight:700;"></span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:.9rem;padding:.5rem 0;border-bottom:1px solid var(--bg-700);">
+                    <span style="color:var(--dark-400);">Usuario</span>
+                    <div style="display:flex;align-items:center;gap:.5rem;">
+                        <span id="dataUsername" style="font-weight:700;color:var(--primary-400);"></span>
+                        <button id="editUsernameBtn" onclick="showUsernameEdit()" style="background:none;border:none;cursor:pointer;font-size:.75rem;color:var(--dark-400);" title="Editar">✏️</button>
+                    </div>
+                </div>
+                <div id="usernameEditRow" style="display:none;padding:.5rem 0;border-bottom:1px solid var(--bg-700);">
+                    <div style="display:flex;gap:.5rem;align-items:center;">
+                        <input id="usernameInput" type="text" class="input" placeholder="nuevo_usuario" style="flex:1;font-size:.85rem;padding:.4rem .7rem;" minlength="3" maxlength="20">
+                        <button onclick="saveUsername()" class="btn btn-primary btn-sm">Guardar</button>
+                        <button onclick="document.getElementById('usernameEditRow').style.display='none'" class="btn btn-ghost btn-sm">✕</button>
+                    </div>
+                    <div id="usernameEditStatus" style="font-size:.78rem;margin-top:.3rem;min-height:1em;"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:.9rem;padding:.5rem 0;border-bottom:1px solid var(--bg-700);">
+                    <span style="color:var(--dark-400);">Email</span>
+                    <span id="dataEmail" style="font-weight:600;"></span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:.9rem;padding:.5rem 0;border-bottom:1px solid var(--bg-700);">
+                    <span style="color:var(--dark-400);">Miembro desde</span>
+                    <span id="dataSince" style="font-weight:600;"></span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:.9rem;padding:.5rem 0;">
+                    <span style="color:var(--dark-400);">Rol</span>
+                    <span id="dataRol" class="badge badge-available">Usuario</span>
+                </div>
+            </div>
+            <div class="card" style="margin-top:1rem;">
+                <div style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dark-400);margin-bottom:.75rem;">Avatar de perfil</div>
+                <div style="display:flex;align-items:center;gap:1rem;">
+                    <div id="avatarPreviewSmall" style="width:52px;height:52px;border-radius:50%;background:var(--primary-600);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:#fff;overflow:hidden;border:2px solid var(--bg-600);flex-shrink:0;"></div>
+                    <div>
+                        <div style="font-size:.875rem;color:var(--dark-300);margin-bottom:.4rem;">Personaliza tu perfil con la foto de tu jugador favorito</div>
+                        <button onclick="openAvatarModal()" class="btn btn-ghost btn-sm">Cambiar avatar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Favoritos -->
+        <div id="tabContentFavs" style="display:none;">
+            <div id="favsListProfile"></div>
+        </div>
+
+    </div>
+</div>
+</main>
+
+<!-- Modal selector de avatar -->
+<div id="avatarModal" onclick="if(event.target===this)closeAvatarModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;overflow-y:auto;padding:2rem 1rem;">
+    <div style="background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius);max-width:700px;margin:0 auto;overflow:hidden;">
+        <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--bg-700);display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-weight:800;font-size:1rem;">🖼️ Elige tu avatar</span>
+            <div style="display:flex;gap:.75rem;align-items:center;">
+                <input id="avatarSearch" type="text" placeholder="Buscar jugador..." oninput="filterAvatars()" style="background:var(--bg-700);border:1px solid var(--bg-600);border-radius:6px;padding:.4rem .8rem;color:#fff;font-size:.85rem;width:180px;outline:none;">
+                <button onclick="closeAvatarModal()" style="background:var(--bg-700);border:1px solid var(--bg-600);border-radius:6px;padding:.4rem .9rem;color:var(--dark-300);cursor:pointer;">✕</button>
+            </div>
+        </div>
+        <div style="padding:1.25rem;">
+            <div class="avatar-grid" id="avatarGrid"></div>
+        </div>
+        <div style="padding:1rem 1.5rem;border-top:1px solid var(--bg-700);display:flex;justify-content:flex-end;gap:.75rem;">
+            <button onclick="resetAvatar()" class="btn btn-ghost btn-sm">Usar inicial</button>
+            <button onclick="closeAvatarModal()" class="btn btn-primary btn-sm">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/player-images.js"></script>
+<script src="assets/js/player-images-auto.js"></script>
+<script>
+const SUPABASE_URL = 'https://qcbviyqtdfgygtvheqcf.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_zuiDzXkTXtCzr5IqnhmuPw_QHHuKJGr';
+const ADMIN_EMAIL  = 'albertofernandezmesas@gmail.com';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let currentUserId = null;
+let currentUserInitial = '';
+
+// ── Tabs ─────────────────────────────────────────────────────────
+function switchTab(tab) {
+    document.getElementById('tabContentDatos').style.display = tab === 'datos' ? '' : 'none';
+    document.getElementById('tabContentFavs').style.display  = tab === 'favs'  ? '' : 'none';
+    document.getElementById('tabDatos').style.color = tab === 'datos' ? 'var(--primary-400)' : 'var(--dark-400)';
+    document.getElementById('tabFavs').style.color  = tab === 'favs'  ? 'var(--primary-400)' : 'var(--dark-400)';
+    document.getElementById('tabDatos').style.borderBottomColor = tab === 'datos' ? 'var(--primary-400)' : 'transparent';
+    document.getElementById('tabFavs').style.borderBottomColor  = tab === 'favs'  ? 'var(--primary-400)' : 'transparent';
+    if (tab === 'favs') renderFavsProfile();
+}
+
+// ── Avatar helpers ────────────────────────────────────────────────
+function renderAvatar(el, src, initial) {
+    el.innerHTML = src
+        ? `<img src="${src}" style="width:100%;height:100%;object-fit:cover;">`
+        : initial;
+}
+
+function applyAvatarEverywhere(src) {
+    renderAvatar(document.getElementById('profileAvatar'), src, currentUserInitial);
+    renderAvatar(document.getElementById('avatarPreviewSmall'), src, currentUserInitial);
+    // Update navbar avatar if present
+    const navBtn = document.querySelector('.user-avatar-btn');
+    if (navBtn) renderAvatar(navBtn, src, currentUserInitial);
+}
+
+// ── Avatar modal ──────────────────────────────────────────────────
+let allAvatarOpts = [];
+
+function buildAvatarOptions() {
+    const seen = new Set();
+    const opts = [];
+    // Extract unique images + a display name from PLAYER_IMAGES
+    for (const [slug, path] of Object.entries(PLAYER_IMAGES)) {
+        if (seen.has(path)) continue;
+        seen.add(path);
+        // Convert slug back to readable name
+        const name = slug.replace(/-/g,' ').replace(/\b\w/g, c => c.toUpperCase());
+        opts.push({ path, name, slug });
+    }
+    opts.sort((a,b) => a.name.localeCompare(b.name));
+    return opts;
+}
+
+function openAvatarModal() {
+    document.getElementById('avatarModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    if (!allAvatarOpts.length) allAvatarOpts = buildAvatarOptions();
+    document.getElementById('avatarSearch').value = '';
+    renderAvatarGrid(allAvatarOpts);
+}
+
+function closeAvatarModal() {
+    document.getElementById('avatarModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+function filterAvatars() {
+    const q = document.getElementById('avatarSearch').value.toLowerCase().trim();
+    const filtered = q ? allAvatarOpts.filter(o => o.name.toLowerCase().includes(q)) : allAvatarOpts;
+    renderAvatarGrid(filtered);
+}
+
+function renderAvatarGrid(opts) {
+    const currentAvatar = getUserAvatar(currentUserId);
+    const grid = document.getElementById('avatarGrid');
+    if (!opts.length) { grid.innerHTML = '<p style="color:var(--dark-400);text-align:center;grid-column:1/-1;">No se encontraron jugadores</p>'; return; }
+    grid.innerHTML = opts.map(o => `
+        <div class="avatar-opt ${currentAvatar === o.path ? 'selected' : ''}" onclick="selectAvatar('${o.path}', this)" title="${o.name}">
+            <img src="${o.path}" alt="${o.name}" onerror="this.parentElement.style.display='none'">
+            <span>${o.name}</span>
+        </div>`).join('');
+}
+
+function selectAvatar(path, el) {
+    document.querySelectorAll('.avatar-opt').forEach(e => e.classList.remove('selected'));
+    el.classList.add('selected');
+    setUserAvatar(currentUserId, path);
+    applyAvatarEverywhere(path);
+}
+
+function resetAvatar() {
+    localStorage.removeItem('fp_avatar_' + currentUserId);
+    applyAvatarEverywhere(null);
+    document.querySelectorAll('.avatar-opt').forEach(e => e.classList.remove('selected'));
+}
+
+// ── Favoritos en perfil ───────────────────────────────────────────
+const POS_BADGE = { GK:'badge-gk', DEF:'badge-def', MID:'badge-mid', FWD:'badge-fwd' };
+const POS_LABEL = { GK:'PT', DEF:'DEF', MID:'MED', FWD:'DEL' };
+
+function renderFavsProfile() {
+    const favs = getFavorites(currentUserId);
+    const container = document.getElementById('favsListProfile');
+    if (!favs.length) {
+        container.innerHTML = `<div class="card" style="text-align:center;padding:2.5rem;color:var(--dark-400);">
+            No tienes jugadores favoritos todavía.<br>
+            <a href="mercado.html" style="color:var(--primary-400);font-weight:700;margin-top:.5rem;display:inline-block;">Ir al mercado →</a>
+        </div>`;
+        return;
+    }
+    container.innerHTML = favs.map(p => {
+        const url = `jugador.html?player=${p.slug}&n=${encodeURIComponent(p.nombre)}&pos=${p.pos}&price=${encodeURIComponent(p.precio)}&pts=${p.puntos}&team=${encodeURIComponent(p.team)}&ch=${encodeURIComponent(p.ch||'')}&chc=${p.chc||0}&s=${p.estado}`;
+        const img = getPlayerImg(p.nombre, p.team);
+        const avatar = img
+            ? `<img src="${img}" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;">`
+            : `<div style="width:48px;height:48px;border-radius:50%;background:var(--bg-700);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;color:var(--dark-300);flex-shrink:0;">${(p.nombre||'?')[0]}</div>`;
+        const badge = POS_BADGE[p.pos] || 'badge-available';
+        const label = POS_LABEL[p.pos] || p.pos;
+        return `<div class="fav-card" style="margin-bottom:.75rem;">
+            <a href="${url}" style="display:flex;align-items:center;gap:1rem;flex:1;text-decoration:none;color:inherit;">
+                ${avatar}
+                <div style="flex:1;min-width:0;">
+                    <div style="font-weight:800;font-size:.95rem;">${p.nombre}</div>
+                    <div style="font-size:.8rem;color:var(--dark-400);">${p.team}</div>
+                </div>
+                <span class="badge ${badge}" style="flex-shrink:0;">${label}</span>
+                <div style="text-align:right;flex-shrink:0;">
+                    <div style="font-weight:800;font-size:.95rem;">${p.precio}</div>
+                    <div style="font-size:.75rem;color:var(--dark-400);">${p.puntos} pts</div>
+                </div>
+            </a>
+            <button onclick="removeFavProfile('${p.nombre.replace(/'/g,"\\'")}',this)" style="background:none;border:none;cursor:pointer;color:var(--dark-400);font-size:1.1rem;padding:.25rem;flex-shrink:0;" title="Quitar de favoritos">✕</button>
+        </div>`;
+    }).join('');
+}
+
+window.removeFavProfile = function(nombre, btn) {
+    const favs = getFavorites(currentUserId).filter(f => f.nombre !== nombre);
+    saveFavorites(currentUserId, favs);
+    btn.closest('.fav-card').remove();
+    document.getElementById('favCount').textContent = favs.length || '';
+    if (!favs.length) renderFavsProfile();
+};
+
+// ── Username edit ─────────────────────────────────────────────────
+function showUsernameEdit() {
+    const row = document.getElementById('usernameEditRow');
+    const current = document.getElementById('dataUsername').textContent.replace('@','');
+    document.getElementById('usernameInput').value = current !== '—' ? current : '';
+    row.style.display = row.style.display === 'none' ? '' : 'none';
+}
+
+async function saveUsername() {
+    const val = document.getElementById('usernameInput').value.trim().toLowerCase();
+    const statusEl = document.getElementById('usernameEditStatus');
+    if (!val || val.length < 3) { statusEl.style.color = '#f87171'; statusEl.textContent = 'Mínimo 3 caracteres.'; return; }
+    if (!/^[a-z0-9_]+$/.test(val)) { statusEl.style.color = '#f87171'; statusEl.textContent = 'Solo letras, números y _.'; return; }
+
+    statusEl.style.color = 'var(--dark-400)'; statusEl.textContent = 'Comprobando...';
+    const { data: exist } = await sb.from('perfiles').select('id').eq('username', val).neq('id', currentUserId).limit(1);
+    if (exist && exist.length) { statusEl.style.color = '#f87171'; statusEl.textContent = 'Nombre de usuario no disponible.'; return; }
+
+    const { error } = await sb.from('perfiles').update({ username: val }).eq('id', currentUserId);
+    if (error) { statusEl.style.color = '#f87171'; statusEl.textContent = 'Error: ' + error.message; return; }
+
+    document.getElementById('dataUsername').textContent = '@' + val;
+    document.getElementById('usernameEditRow').style.display = 'none';
+    statusEl.textContent = '';
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+sb.auth.getSession().then(async ({ data: { session } }) => {
+    const loading = document.getElementById('profileLoading');
+    if (!session) { window.location.href = 'login.html'; return; }
+    const user = session.user;
+    currentUserId = user.id;
+    window._currentUserId = user.id;
+    const nombre = user.user_metadata?.nombre || user.email.split('@')[0];
+    currentUserInitial = nombre.charAt(0).toUpperCase();
+    const isAdmin = user.email === ADMIN_EMAIL;
+
+    // Load username from perfiles
+    const { data: perfil } = await sb.from('perfiles').select('username').eq('id', user.id).single();
+    const username = perfil?.username || null;
+
+    // Datos tab
+    document.getElementById('dataNombre').textContent = nombre;
+    document.getElementById('dataUsername').textContent = username ? '@' + username : '—';
+    document.getElementById('dataEmail').textContent = user.email;
+    document.getElementById('dataSince').textContent = new Date(user.created_at).toLocaleDateString('es-ES', { day:'2-digit', month:'long', year:'numeric' });
+    if (isAdmin) {
+        document.getElementById('dataRol').textContent = 'Admin';
+        document.getElementById('dataRol').style.cssText = 'background:rgba(99,102,241,.2);color:#a5b4fc;';
+    }
+
+    // Header
+    document.getElementById('profileName').textContent = nombre;
+    document.getElementById('profileEmail').textContent = user.email;
+    document.getElementById('profileSince').textContent = 'Miembro desde ' + new Date(user.created_at).toLocaleDateString('es-ES', { month:'long', year:'numeric' });
+    if (isAdmin) {
+        document.getElementById('profileRole').textContent = 'Admin';
+        document.getElementById('profileRole').style.cssText = 'background:rgba(99,102,241,.2);color:#a5b4fc;';
+    }
+
+    // Avatar
+    const avatarSrc = getUserAvatar(user.id);
+    renderAvatar(document.getElementById('profileAvatar'), avatarSrc, currentUserInitial);
+    renderAvatar(document.getElementById('avatarPreviewSmall'), avatarSrc, currentUserInitial);
+
+    // Fav count badge
+    const favCount = getFavorites(user.id).length;
+    document.getElementById('favCount').textContent = favCount || '';
+
+    loading.style.display = 'none';
+    document.getElementById('profileContent').style.display = 'block';
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAvatarModal(); });
+</script>
+</body>
+</html>

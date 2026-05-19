@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alineaciones | Fantasy Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .team-btn {
+            padding: .4rem .85rem;
+            border-radius: var(--radius-sm);
+            font-size: .85rem;
+            font-weight: 600;
+            background: var(--bg-700);
+            border: 1px solid var(--bg-600);
+            color: var(--dark-300);
+            cursor: pointer;
+            transition: background var(--transition), color var(--transition), border-color var(--transition);
+        }
+        .team-btn:hover { background: var(--bg-600); color: var(--white); }
+        .team-btn.active { background: rgba(16,185,129,.15); border-color: var(--primary-500); color: var(--primary-400); }
+        .subs-section { margin-top: 1.5rem; }
+        .subs-title { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--dark-400); margin-bottom: .75rem; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+            <span class="brand-icon">⚽</span>
+            <span class="brand-name">Fantasy<span class="brand-accent">Pro</span></span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="equipos.html" class="nav-link">Equipos</a>
+            <a href="mercado.html" class="nav-link">Mercado</a>
+            <a href="clasificacion.html" class="nav-link active">Clasificaci&oacute;n</a>
+            <a href="mi-equipo.html" class="nav-link">Mi Equipo</a>
+            <a href="favoritos.html" class="nav-link">Favoritos</a>
+        </div>
+        <div class="navbar-actions">
+            <a href="login.html" class="btn btn-ghost btn-sm">Entrar</a>
+            <a href="registro.html" class="btn btn-primary btn-sm">Registrarse</a>
+        </div>
+        <button class="navbar-toggle" id="navToggle">☰</button>
+    </div>
+    <div class="navbar-mobile" id="navMobile">
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="mercado.html">Mercado</a>
+        <a href="clasificacion.html">Clasificaci&oacute;n</a>
+        <a href="mi-equipo.html">Mi Equipo</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="login.html">Entrar</a>
+        <a href="registro.html">Registrarse</a>
+    </div>
+</nav>
+
+<div class="crests-bar">
+    <div class="crests-inner">
+        <a href="equipo.html" class="crest-link" title="Real Madrid"><span class="crest-fallback">RMA</span></a>
+        <a href="equipo.html" class="crest-link" title="FC Barcelona"><span class="crest-fallback">BAR</span></a>
+        <a href="equipo.html" class="crest-link" title="Atlético de Madrid"><span class="crest-fallback">ATM</span></a>
+        <a href="equipo.html" class="crest-link" title="Athletic Club"><span class="crest-fallback">ATH</span></a>
+        <a href="equipo.html" class="crest-link" title="Real Sociedad"><span class="crest-fallback">RSO</span></a>
+        <a href="equipo.html" class="crest-link" title="Villarreal CF"><span class="crest-fallback">VIL</span></a>
+        <a href="equipo.html" class="crest-link" title="Real Betis"><span class="crest-fallback">BET</span></a>
+        <a href="equipo.html" class="crest-link" title="Sevilla FC"><span class="crest-fallback">SEV</span></a>
+        <a href="equipo.html" class="crest-link" title="Getafe CF"><span class="crest-fallback">GET</span></a>
+        <a href="equipo.html" class="crest-link" title="Girona FC"><span class="crest-fallback">GIR</span></a>
+        <a href="equipo.html" class="crest-link" title="Celta de Vigo"><span class="crest-fallback">CEL</span></a>
+        <a href="equipo.html" class="crest-link" title="Valencia CF"><span class="crest-fallback">VAL</span></a>
+        <a href="equipo.html" class="crest-link" title="Rayo Vallecano"><span class="crest-fallback">RAY</span></a>
+        <a href="equipo.html" class="crest-link" title="CA Osasuna"><span class="crest-fallback">OSA</span></a>
+        <a href="equipo.html" class="crest-link" title="Deportivo Alavés"><span class="crest-fallback">ALA</span></a>
+        <a href="equipo.html" class="crest-link" title="RCD Mallorca"><span class="crest-fallback">MAL</span></a>
+        <a href="equipo.html" class="crest-link" title="Elche CF"><span class="crest-fallback">ELC</span></a>
+        <a href="equipo.html" class="crest-link" title="Levante UD"><span class="crest-fallback">LEV</span></a>
+        <a href="equipo.html" class="crest-link" title="Real Oviedo"><span class="crest-fallback">OVI</span></a>
+        <a href="equipo.html" class="crest-link" title="RCD Espanyol"><span class="crest-fallback">ESP</span></a>
+    </div>
+</div>
+
+<main class="main-content">
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">Alineaciones probables</h1>
+        <p class="page-subtitle">Selecciona un equipo para ver su XI probable esta jornada</p>
+    </div>
+
+    <!-- Selector de equipos -->
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;">
+        <button class="team-btn active" onclick="selectTeam(this, 'rma')">Real Madrid</button>
+        <button class="team-btn" onclick="selectTeam(this, 'fcb')">Barcelona</button>
+        <button class="team-btn" onclick="selectTeam(this, 'atm')">Atlético</button>
+        <button class="team-btn" onclick="selectTeam(this, 'ath')">Athletic</button>
+        <button class="team-btn" onclick="selectTeam(this, 'soc')">R. Sociedad</button>
+        <button class="team-btn" onclick="selectTeam(this, 'vil')">Villarreal</button>
+        <button class="team-btn" onclick="selectTeam(this, 'bet')">Betis</button>
+        <button class="team-btn" onclick="selectTeam(this, 'sev')">Sevilla</button>
+        <button class="team-btn" onclick="selectTeam(this, 'get')">Getafe</button>
+        <button class="team-btn" onclick="selectTeam(this, 'gir')">Girona</button>
+    </div>
+
+    <!-- Pitch & info del equipo -->
+    <div id="teamLabel" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--dark-400);margin-bottom:1rem;">
+        Real Madrid · Formación: 4-3-3 · Entrenador: Carlo Ancelotti
+    </div>
+
+    <div class="pitch-wrapper">
+        <div>
+            <div class="pitch" id="pitchView">
+                <svg class="pitch-lines" viewBox="0 0 340 500" preserveAspectRatio="none">
+                    <rect x="20" y="10" width="300" height="480" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+                    <line x1="20" y1="250" x2="320" y2="250" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                    <circle cx="170" cy="250" r="50" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                    <circle cx="170" cy="250" r="3" fill="rgba(255,255,255,.3)"/>
+                    <rect x="85" y="10" width="170" height="80" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                    <rect x="125" y="10" width="90" height="35" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                    <rect x="85" y="410" width="170" height="80" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                    <rect x="125" y="455" width="90" height="35" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                </svg>
+
+                <!-- Real Madrid 4-3-3 -->
+                <a href="jugador.html?player=courtois" class="pitch-player" style="left:50%;top:88%;"><div class="pitch-player-dot">PT</div><div class="pitch-player-name">Courtois</div></a>
+                <a href="jugador.html?player=carvajal" class="pitch-player" style="left:13%;top:70%;"><div class="pitch-player-dot">DEF</div><div class="pitch-player-name">Carvajal</div></a>
+                <a href="jugador.html?player=militao" class="pitch-player" style="left:38%;top:70%;"><div class="pitch-player-dot">DEF</div><div class="pitch-player-name">Militão</div></a>
+                <a href="jugador.html?player=rudiger" class="pitch-player" style="left:63%;top:70%;"><div class="pitch-player-dot">DEF</div><div class="pitch-player-name">Rüdiger</div></a>
+                <a href="jugador.html?player=mendy" class="pitch-player" style="left:88%;top:70%;"><div class="pitch-player-dot">DEF</div><div class="pitch-player-name">Mendy</div></a>
+                <a href="jugador.html?player=valverde" class="pitch-player" style="left:18%;top:48%;"><div class="pitch-player-dot">MED</div><div class="pitch-player-name">Valverde</div></a>
+                <a href="jugador.html?player=tchouameni" class="pitch-player" style="left:50%;top:48%;"><div class="pitch-player-dot">MED</div><div class="pitch-player-name">Tchouaméni</div></a>
+                <a href="jugador.html?player=bellingham" class="pitch-player" style="left:82%;top:48%;"><div class="pitch-player-dot">MED</div><div class="pitch-player-name">Bellingham</div></a>
+                <a href="jugador.html?player=rodrygo" class="pitch-player" style="left:20%;top:22%;"><div class="pitch-player-dot">DEL</div><div class="pitch-player-name">Rodrygo</div></a>
+                <a href="jugador.html?player=mbappe" class="pitch-player" style="left:50%;top:22%;"><div class="pitch-player-dot">DEL</div><div class="pitch-player-name">Mbappé</div></a>
+                <a href="jugador.html?player=vinicius" class="pitch-player" style="left:80%;top:22%;"><div class="pitch-player-dot">DEL</div><div class="pitch-player-name">Vinicius</div></a>
+            </div>
+
+            <!-- Suplentes -->
+            <div class="subs-section">
+                <div class="subs-title">Suplentes</div>
+                <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+                    <a href="jugador.html?player=lunin" style="display:flex;align-items:center;gap:.4rem;padding:.3rem .6rem;background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius-sm);text-decoration:none;font-size:.8rem;transition:border-color var(--transition);" onmouseover="this.style.borderColor='var(--bg-600)'" onmouseout="this.style.borderColor='var(--bg-700)'">
+                        <span class="badge badge-gk" style="font-size:.65rem;">PT</span> Lunin
+                    </a>
+                    <a href="jugador.html?player=camavinga" style="display:flex;align-items:center;gap:.4rem;padding:.3rem .6rem;background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius-sm);text-decoration:none;font-size:.8rem;transition:border-color var(--transition);" onmouseover="this.style.borderColor='var(--bg-600)'" onmouseout="this.style.borderColor='var(--bg-700)'">
+                        <span class="badge badge-mid" style="font-size:.65rem;">MED</span> Camavinga
+                    </a>
+                    <a href="jugador.html?player=guler" style="display:flex;align-items:center;gap:.4rem;padding:.3rem .6rem;background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius-sm);text-decoration:none;font-size:.8rem;transition:border-color var(--transition);" onmouseover="this.style.borderColor='var(--bg-600)'" onmouseout="this.style.borderColor='var(--bg-700)'">
+                        <span class="badge badge-mid" style="font-size:.65rem;">MED</span> Güler
+                    </a>
+                    <a href="jugador.html?player=brahim" style="display:flex;align-items:center;gap:.4rem;padding:.3rem .6rem;background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius-sm);text-decoration:none;font-size:.8rem;transition:border-color var(--transition);" onmouseover="this.style.borderColor='var(--bg-600)'" onmouseout="this.style.borderColor='var(--bg-700)'">
+                        <span class="badge badge-fwd" style="font-size:.65rem;">DEL</span> Brahim
+                    </a>
+                    <a href="jugador.html?player=vazquez" style="display:flex;align-items:center;gap:.4rem;padding:.3rem .6rem;background:var(--bg-800);border:1px solid var(--bg-700);border-radius:var(--radius-sm);text-decoration:none;font-size:.8rem;transition:border-color var(--transition);" onmouseover="this.style.borderColor='var(--bg-600)'" onmouseout="this.style.borderColor='var(--bg-700)'">
+                        <span class="badge badge-def" style="font-size:.65rem;">DEF</span> Vázquez
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info lateral -->
+        <div style="flex:1;min-width:200px;">
+            <div class="card" style="margin-bottom:1rem;">
+                <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dark-400);margin-bottom:.75rem;">Info del partido</div>
+                <div style="display:flex;flex-direction:column;gap:.5rem;">
+                    <div style="display:flex;justify-content:space-between;font-size:.85rem;">
+                        <span style="color:var(--dark-400);">Jornada</span>
+                        <span style="font-weight:700;">Jornada 36</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:.85rem;">
+                        <span style="color:var(--dark-400);">Rival</span>
+                        <span style="font-weight:700;">FC Barcelona</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:.85rem;">
+                        <span style="color:var(--dark-400);">Campo</span>
+                        <span style="font-weight:700;">Bernabéu</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:.85rem;">
+                        <span style="color:var(--dark-400);">Fecha</span>
+                        <span style="font-weight:700;">Sab. 18 May</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:.85rem;">
+                        <span style="color:var(--dark-400);">Hora</span>
+                        <span style="font-weight:700;">21:00h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--dark-400);margin-bottom:.75rem;">Notas del entrenador</div>
+                <p style="font-size:.85rem;color:var(--dark-300);line-height:1.6;">
+                    Ancelotti mantiene el 4-3-3 habitual. Bellingham actuará por detrás de Mbappé como mediapunta. Carvajal regresa al once tras su lesión.
+                </p>
+                <div style="margin-top:1rem;">
+                    <a href="equipo.html" class="btn btn-secondary btn-sm btn-full">Ver plantilla completa</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div style="display:flex;align-items:center;gap:.5rem;">
+            <span class="brand-icon">⚽</span>
+            <span style="font-weight:800;font-size:1.1rem;">Fantasy<span class="brand-accent">Pro</span></span>
+        </div>
+        <p class="footer-text">Herramienta de análisis para LaLiga Fantasy. Precios y probabilidades actualizados.</p>
+        <p class="footer-copy">&copy; 2025 Fantasy Pro — TFG</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/main.js"></script>
+<script>
+function selectTeam(btn, teamId) {
+    document.querySelectorAll('.team-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+</script>
+</body>
+</html>
